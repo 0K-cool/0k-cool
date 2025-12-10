@@ -1,0 +1,89 @@
+<!-- 0K Custom Styles -->
+<style>
+  /* Match cursor to 0K avatar HUD color */
+  .logo__cursor {
+    background: #00e5ff !important; /* Ice-blue from HUD display */
+  }
+
+  /* Fix task list checkboxes - remove bullets */
+  .post-content ul li[class*="task-list"],
+  .post-content li:has(input[type="checkbox"]) {
+    list-style: none !important;
+  }
+
+  /* Alternative approach - remove all bullets from lists with checkboxes */
+  ul:has(input[type="checkbox"]) {
+    list-style: none !important;
+    padding-left: 0 !important;
+  }
+
+  ul:has(input[type="checkbox"]) li {
+    list-style: none !important;
+  }
+
+  /* Old-school terminal code blocks - remove ALL borders and shadows */
+  .highlight,
+  .highlight pre,
+  div.highlight,
+  .highlight table,
+  .highlight tbody,
+  .highlight tr,
+  .highlight td {
+    background-color: #1e1e1e !important;
+    border: none !important;
+    box-shadow: none !important; /* Remove shadow effects */
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .highlight pre {
+    padding: 1em !important;
+    overflow-x: auto;
+    box-shadow: none !important;
+  }
+
+  /* Terminal-style code block container - flat design */
+  .post-content pre,
+  .post-content .highlight,
+  .post-content div.highlight {
+    background-color: #1e1e1e !important;
+    border: none !important; /* No border - clean terminal look */
+    border-radius: 0 !important; /* No rounded corners - old school */
+    box-shadow: none !important; /* No shadows - flat terminal */
+    margin: 1em 0 !important;
+    font-family: 'Courier New', Courier, monospace !important;
+  }
+
+  /* Fix line number rendering */
+  .highlight .chroma,
+  .highlight .chroma table,
+  .highlight .chroma tbody,
+  .highlight .chroma tr,
+  .highlight .chroma td {
+    background-color: #1e1e1e !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Terminal-style code display */
+  .highlight code {
+    display: block;
+    line-height: 1.5;
+    font-family: 'Courier New', Courier, monospace !important;
+    font-size: 16px !important; /* Match base body font (1rem) */
+  }
+
+  /* Make line numbers bigger too */
+  .highlight .chroma .lnt,
+  .highlight .chroma .ln {
+    font-size: 16px !important;
+  }
+
+  /* ASCII art boxes - no background, just monospace */
+  .post-content > pre:not(.highlight pre) {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 1em 0 !important;
+  }
+</style>
