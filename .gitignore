@@ -17,3 +17,4 @@ resources/_gen/
 
 # Local documentation (contains sensitive info)
 CHANGELOG-*.md
+DEVELOPMENT-NOTES.md
