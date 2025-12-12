@@ -11,7 +11,7 @@ author: "0K (Kelvin)"
 <pre>
 ┌─────────────────────────────────────────────────────────────────────┐
 │  0K THREAT INTEL │ KEEPING ATTACKERS FROZEN️                         │
-│  Weekly Briefing │ Dec 6-12, 2025 │ Report ID: 0K-TI-2025-W51        │
+│  Weekly Briefing │ Dec 6-12, 2025 │ Report ID: 0K-TI-2025-W51       │
 └─────────────────────────────────────────────────────────────────────┘
 </pre>
 
@@ -442,9 +442,9 @@ falsepositives:
     payloads; validate against known application traffic patterns.
 
 references:
-  - https://cve.circl.lu/vuln/CVE-2025-55182
-  - https://logpoint.com/en/blog/after-react2shell-following-the-attacker-from-access-to-impact
-  - https://securitylabs.datadoghq.com/articles/cve-2025-55182-react2shell-remote-code-execution-react-server-components
+  - cve.circl.lu/vuln/CVE-2025-55182
+  - logpoint.com/en/blog/after-react2shell-following-the-attacker-from-access-to-impact
+  - securitylabs.datadoghq.com/articles/cve-2025-55182-react2shell-remote-code-execution-react-server-components
 
 fields:
   - c-ip
@@ -491,8 +491,8 @@ falsepositives:
     commands; restrict this rule to hosts with web-server role.
 
 references:
-  - https://news.sophos.com/en-us/2025/12/11/react2shell-flaw-cve-2025-55182-exploited-for-remote-code-execution
-  - https://logpoint.com/en/blog/after-react2shell-following-the-attacker-from-access-to-impact
+  - news.sophos.com/en-us/2025/12/11/react2shell-flaw-cve-2025-55182-exploited-for-remote-code-execution
+  - logpoint.com/en/blog/after-react2shell-following-the-attacker-from-access-to-impact
 
 fields:
   - Image
@@ -535,8 +535,8 @@ falsepositives:
     asset inventory and consider deprecating vulnerable software.
 
 references:
-  - https://radar.offseq.com/threat/new-byovd-loader-behind-deadlock-ransomware-attack-21e84d6e
-  - https://www.broadcom.com/support/security-center/protection-bulletin/deadlock-ransomware-used-vulnerable-driver-tactic-in-recent
+  - radar.offseq.com/threat/new-byovd-loader-behind-deadlock-ransomware-attack-21e84d6e
+  - broadcom.com/support/security-center/protection-bulletin/deadlock-ransomware-used-vulnerable-driver-tactic-in-recent
 
 fields:
   - ImageLoaded
@@ -577,8 +577,8 @@ falsepositives:
     similar binary names; tune by known admin hosts and accounts.
 
 references:
-  - https://www.acronis.com/en/tru/posts/makop-ransomware-guloader-and-privilege-escalation-in-attacks-against-indian-businesses
-  - https://socprime.com/active-threats/makop-ransomware-detection
+  - acronis.com/en/tru/posts/makop-ransomware-guloader-and-privilege-escalation-in-attacks-against-indian-businesses
+  - socprime.com/active-threats/makop-ransomware-detection
 
 fields:
   - IpAddress
