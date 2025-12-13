@@ -101,37 +101,29 @@
 
   /* Mobile-specific styles (phones ≤684px) */
   @media (max-width: 684px) {
-    /* Prevent horizontal page scrolling at ALL levels */
-    html,
+    /* Prevent horizontal page scrolling */
     body {
       overflow-x: hidden !important;
-      max-width: 100vw !important;
     }
 
-    /* Constrain all wrapper elements to viewport */
-    .wrapper,
-    .container,
-    main,
-    article,
-    .post,
+    /* Ensure all content stays within viewport */
     .post-content {
-      max-width: 100vw !important;
-      overflow-x: hidden !important;
-      box-sizing: border-box !important;
+      max-width: 100%;
+      overflow-x: hidden;
     }
 
-    /* Code blocks stay within viewport but scroll internally */
+    /* Constrain code blocks to viewport width */
     .highlight,
     .post-content pre,
-    .post-content .highlight,
-    .post-content > pre {
-      max-width: calc(100vw - 2em) !important; /* Account for body padding */
-      overflow-x: auto !important;
-      box-sizing: border-box !important;
+    .post-content .highlight {
+      max-width: 100% !important;
+      box-sizing: border-box;
     }
 
-    /* Smooth scrolling for code blocks on iOS */
+    /* Code blocks can scroll internally but not break page layout */
     .highlight pre {
+      max-width: 100%;
+      overflow-x: auto;
       -webkit-overflow-scrolling: touch;
     }
 
