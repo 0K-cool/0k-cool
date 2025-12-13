@@ -384,42 +384,202 @@ where parent_process in ("node","node.exe")
 
 **Top Tactics and Techniques (December 6–12, 2025)**
 
-
-| Rank | Tactic (ID) | Key Techniques (IDs) | Real‑World Example (This Week) |
-| :-- | :-- | :-- | :-- |
-| 1 | Initial Access (TA0001) | T1190, T1133 | React2Shell exploitation; Makop RDP. |
-| 2 | Execution (TA0002) | T1059 | Shell/PowerShell from RSC and loaders. |
-| 3 | Defense Evasion (TA0005) | T1562, BYOVD‑style T1068 usage | DeadLock killing EDR via Baidu driver. |
-| 4 | Priv Esc (TA0004) | T1068 | Makop local privilege exploits. |
-| 5 | Persistence (TA0003) | T1053, T1543 | systemd/cron/rc.local for React2Shell payloads. |
-| 6 | C2 (TA0011) | T1071 | HTTP/HTTPS beacons and webhooks. |
-| 7 | Credential Access | T1003 | Makop credential dumping. |
-| 8 | Discovery | T1046, T1087 | Network scanning by Makop and React2Shell actors. |
-| 9 | Lateral Movement | T1021 (RDP/SMB) | Makop spreading post‑RDP foothold. |
-| 10 | Impact (TA0040) | T1486 | DeadLock and Makop data encryption. |
+<table>
+<thead>
+<tr>
+<th align="left">Rank</th>
+<th align="left">Tactic (ID)</th>
+<th align="left">Key Techniques (IDs)</th>
+<th align="left">Real‑World Example (This Week)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="Rank:">1</td>
+<td data-label="Tactic (ID):">Initial Access (TA0001)</td>
+<td data-label="Key Techniques (IDs):">T1190, T1133</td>
+<td data-label="Real‑World Example (This Week):">React2Shell exploitation; Makop RDP.</td>
+</tr>
+<tr>
+<td data-label="Rank:">2</td>
+<td data-label="Tactic (ID):">Execution (TA0002)</td>
+<td data-label="Key Techniques (IDs):">T1059</td>
+<td data-label="Real‑World Example (This Week):">Shell/PowerShell from RSC and loaders.</td>
+</tr>
+<tr>
+<td data-label="Rank:">3</td>
+<td data-label="Tactic (ID):">Defense Evasion (TA0005)</td>
+<td data-label="Key Techniques (IDs):">T1562, BYOVD‑style T1068 usage</td>
+<td data-label="Real‑World Example (This Week):">DeadLock killing EDR via Baidu driver.</td>
+</tr>
+<tr>
+<td data-label="Rank:">4</td>
+<td data-label="Tactic (ID):">Priv Esc (TA0004)</td>
+<td data-label="Key Techniques (IDs):">T1068</td>
+<td data-label="Real‑World Example (This Week):">Makop local privilege exploits.</td>
+</tr>
+<tr>
+<td data-label="Rank:">5</td>
+<td data-label="Tactic (ID):">Persistence (TA0003)</td>
+<td data-label="Key Techniques (IDs):">T1053, T1543</td>
+<td data-label="Real‑World Example (This Week):">systemd/cron/rc.local for React2Shell payloads.</td>
+</tr>
+<tr>
+<td data-label="Rank:">6</td>
+<td data-label="Tactic (ID):">C2 (TA0011)</td>
+<td data-label="Key Techniques (IDs):">T1071</td>
+<td data-label="Real‑World Example (This Week):">HTTP/HTTPS beacons and webhooks.</td>
+</tr>
+<tr>
+<td data-label="Rank:">7</td>
+<td data-label="Tactic (ID):">Credential Access</td>
+<td data-label="Key Techniques (IDs):">T1003</td>
+<td data-label="Real‑World Example (This Week):">Makop credential dumping.</td>
+</tr>
+<tr>
+<td data-label="Rank:">8</td>
+<td data-label="Tactic (ID):">Discovery</td>
+<td data-label="Key Techniques (IDs):">T1046, T1087</td>
+<td data-label="Real‑World Example (This Week):">Network scanning by Makop and React2Shell actors.</td>
+</tr>
+<tr>
+<td data-label="Rank:">9</td>
+<td data-label="Tactic (ID):">Lateral Movement</td>
+<td data-label="Key Techniques (IDs):">T1021 (RDP/SMB)</td>
+<td data-label="Real‑World Example (This Week):">Makop spreading post‑RDP foothold.</td>
+</tr>
+<tr>
+<td data-label="Rank:">10</td>
+<td data-label="Tactic (ID):">Impact (TA0040)</td>
+<td data-label="Key Techniques (IDs):">T1486</td>
+<td data-label="Real‑World Example (This Week):">DeadLock and Makop data encryption.</td>
+</tr>
+</tbody>
+</table>
 
 
 ***
 
 ## IOC SUMMARY
 
-| IOC | Type | Confidence | Threat/Campaign | Action |
-| :-- | :-- | :-- | :-- | :-- |
-| CVE-2025-55182 | CVE | High | React2Shell RCE in React Server Components/Next.js | Patch |
-| CVE-2025-66478 | CVE | High | Next.js duplicate advisory for React2Shell | Patch |
-| CVE-2024-51324 | CVE | High | Baidu Antivirus driver used by DeadLock BYOVD | Patch |
-| React Server Components vulnerable endpoints (RSC/Server Actions URLs) | Behavioral Indicator | High | React2Shell exploitation | Hunt |
-| systemd/cron/rc.local persistence for suspicious Node.js loaders | Behavioral Indicator | High | React2Shell post‑exploitation | Hunt |
-| Use of Baidu AV driver file to terminate EDR/AV processes | Behavioral Indicator | High | DeadLock BYOVD | Hunt |
-| Exposed/brute‑forced RDP logins from unusual geos | Behavioral Indicator | High | Makop Ransomware | Hunt |
-| GuLoader droppers delivering Makop/AgentTesla/FormBook | Behavioral Indicator | High | Makop+GuLoader campaigns | Block |
-| AV‑killer tools and services deployed prior to Makop encryption | Behavioral Indicator | High | Makop Ransomware | Hunt |
-| HTTP requests containing crafted Flight payloads to React/Next server function endpoints | Behavioral Indicator | High | React2Shell exploitation | Monitor |
-| Outbound HTTP(S) beacons to canarytoken/webhook URLs post React2Shell exploitation | Behavioral Indicator | Medium | React2Shell campaigns | Monitor |
-| New Windows services created to load vulnerable Baidu drivers | Behavioral Indicator | High | DeadLock BYOVD | Hunt |
-| Makop ransomware binaries in user directories under benign names | File Path | High | Makop Ransomware | Block |
-| Shadowserver‑identified vulnerable IPs for CVE‑2025-55182 | IP Address | Medium | React2Shell scanning/exposed hosts | Monitor |
-| Cloud‑hosted C2 infrastructure observed in React2Shell post‑exploitation | URL/Domain | Medium | React2Shell actors | Block |
+<table>
+<thead>
+<tr>
+<th align="left">IOC</th>
+<th align="left">Type</th>
+<th align="left">Confidence</th>
+<th align="left">Threat/Campaign</th>
+<th align="left">Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="IOC:">CVE-2025-55182</td>
+<td data-label="Type:">CVE</td>
+<td data-label="Confidence:">High</td>
+<td data-label="Threat/Campaign:">React2Shell RCE in React Server Components/Next.js</td>
+<td data-label="Action:">Patch</td>
+</tr>
+<tr>
+<td data-label="IOC:">CVE-2025-66478</td>
+<td data-label="Type:">CVE</td>
+<td data-label="Confidence:">High</td>
+<td data-label="Threat/Campaign:">Next.js duplicate advisory for React2Shell</td>
+<td data-label="Action:">Patch</td>
+</tr>
+<tr>
+<td data-label="IOC:">CVE-2024-51324</td>
+<td data-label="Type:">CVE</td>
+<td data-label="Confidence:">High</td>
+<td data-label="Threat/Campaign:">Baidu Antivirus driver used by DeadLock BYOVD</td>
+<td data-label="Action:">Patch</td>
+</tr>
+<tr>
+<td data-label="IOC:">React Server Components vulnerable endpoints (RSC/Server Actions URLs)</td>
+<td data-label="Type:">Behavioral Indicator</td>
+<td data-label="Confidence:">High</td>
+<td data-label="Threat/Campaign:">React2Shell exploitation</td>
+<td data-label="Action:">Hunt</td>
+</tr>
+<tr>
+<td data-label="IOC:">systemd/cron/rc.local persistence for suspicious Node.js loaders</td>
+<td data-label="Type:">Behavioral Indicator</td>
+<td data-label="Confidence:">High</td>
+<td data-label="Threat/Campaign:">React2Shell post‑exploitation</td>
+<td data-label="Action:">Hunt</td>
+</tr>
+<tr>
+<td data-label="IOC:">Use of Baidu AV driver file to terminate EDR/AV processes</td>
+<td data-label="Type:">Behavioral Indicator</td>
+<td data-label="Confidence:">High</td>
+<td data-label="Threat/Campaign:">DeadLock BYOVD</td>
+<td data-label="Action:">Hunt</td>
+</tr>
+<tr>
+<td data-label="IOC:">Exposed/brute‑forced RDP logins from unusual geos</td>
+<td data-label="Type:">Behavioral Indicator</td>
+<td data-label="Confidence:">High</td>
+<td data-label="Threat/Campaign:">Makop Ransomware</td>
+<td data-label="Action:">Hunt</td>
+</tr>
+<tr>
+<td data-label="IOC:">GuLoader droppers delivering Makop/AgentTesla/FormBook</td>
+<td data-label="Type:">Behavioral Indicator</td>
+<td data-label="Confidence:">High</td>
+<td data-label="Threat/Campaign:">Makop+GuLoader campaigns</td>
+<td data-label="Action:">Block</td>
+</tr>
+<tr>
+<td data-label="IOC:">AV‑killer tools and services deployed prior to Makop encryption</td>
+<td data-label="Type:">Behavioral Indicator</td>
+<td data-label="Confidence:">High</td>
+<td data-label="Threat/Campaign:">Makop Ransomware</td>
+<td data-label="Action:">Hunt</td>
+</tr>
+<tr>
+<td data-label="IOC:">HTTP requests containing crafted Flight payloads to React/Next server function endpoints</td>
+<td data-label="Type:">Behavioral Indicator</td>
+<td data-label="Confidence:">High</td>
+<td data-label="Threat/Campaign:">React2Shell exploitation</td>
+<td data-label="Action:">Monitor</td>
+</tr>
+<tr>
+<td data-label="IOC:">Outbound HTTP(S) beacons to canarytoken/webhook URLs post React2Shell exploitation</td>
+<td data-label="Type:">Behavioral Indicator</td>
+<td data-label="Confidence:">Medium</td>
+<td data-label="Threat/Campaign:">React2Shell campaigns</td>
+<td data-label="Action:">Monitor</td>
+</tr>
+<tr>
+<td data-label="IOC:">New Windows services created to load vulnerable Baidu drivers</td>
+<td data-label="Type:">Behavioral Indicator</td>
+<td data-label="Confidence:">High</td>
+<td data-label="Threat/Campaign:">DeadLock BYOVD</td>
+<td data-label="Action:">Hunt</td>
+</tr>
+<tr>
+<td data-label="IOC:">Makop ransomware binaries in user directories under benign names</td>
+<td data-label="Type:">File Path</td>
+<td data-label="Confidence:">High</td>
+<td data-label="Threat/Campaign:">Makop Ransomware</td>
+<td data-label="Action:">Block</td>
+</tr>
+<tr>
+<td data-label="IOC:">Shadowserver‑identified vulnerable IPs for CVE‑2025-55182</td>
+<td data-label="Type:">IP Address</td>
+<td data-label="Confidence:">Medium</td>
+<td data-label="Threat/Campaign:">React2Shell scanning/exposed hosts</td>
+<td data-label="Action:">Monitor</td>
+</tr>
+<tr>
+<td data-label="IOC:">Cloud‑hosted C2 infrastructure observed in React2Shell post‑exploitation</td>
+<td data-label="Type:">URL/Domain</td>
+<td data-label="Confidence:">Medium</td>
+<td data-label="Threat/Campaign:">React2Shell actors</td>
+<td data-label="Action:">Block</td>
+</tr>
+</tbody>
+</table>
 
 All IOC values and behaviors above are derived from the cited advisories and reports; defenders should enrich with local telemetry and vendor‑provided IP/domain lists where available.
 
