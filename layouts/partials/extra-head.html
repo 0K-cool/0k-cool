@@ -106,33 +106,34 @@
       display: none !important;
     }
 
-    /* Hide line numbers on mobile - they don't align when scrolling */
-    /* Target the first table cell (line numbers column) */
-    .highlight table tr td:first-child,
-    .highlight table tr td:first-child pre,
-    .highlight table tr td:first-child code,
-    .highlight table tr td:first-child span {
-      display: none !important;
-      visibility: hidden !important;
-      width: 0 !important;
-      height: 0 !important;
-      padding: 0 !important;
-      margin: 0 !important;
-      line-height: 0 !important;
-    }
-
-    /* Make code column take full width and remove extra spacing */
-    .highlight table tr td:last-child {
-      width: 100% !important;
-      display: block !important;
-    }
-
-    /* Remove extra spacing from table structure */
+    /* Completely remove table layout on mobile for code blocks */
     .highlight table,
+    .highlight table tbody,
     .highlight table tr {
       display: block !important;
       padding: 0 !important;
       margin: 0 !important;
+      border-spacing: 0 !important;
+      border: none !important;
+    }
+
+    /* Hide line numbers column completely - zero height */
+    .highlight table tr td:first-child {
+      display: none !important;
+    }
+
+    /* Make code column behave like normal pre block */
+    .highlight table tr td:last-child {
+      display: block !important;
+      width: 100% !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    /* Remove any extra spacing from the pre inside code column */
+    .highlight table tr td:last-child pre {
+      margin: 0 !important;
+      padding: 1em !important;
     }
 
     /* Hide scrollbars but allow horizontal scrolling on code blocks and ASCII art */
