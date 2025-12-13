@@ -106,74 +106,18 @@
       display: none !important;
     }
 
-    /* Remove spacing from nested highlight divs on mobile */
-    .highlight,
-    .highlight > div {
-      padding: 0 !important;
-      margin: 0 !important;
-    }
-
-    /* Completely remove table layout on mobile for code blocks */
-    .highlight table,
-    .highlight table tbody {
-      display: block !important;
-      padding: 0 !important;
-      margin: 0 !important;
-      border-spacing: 0 !important;
-      border: none !important;
-    }
-
-    /* Collapse table row line-box but preserve content */
-    .highlight table tr {
-      display: block !important;
-      padding: 0 !important;
-      margin: 0 !important;
-      border: none !important;
-      font-size: 0 !important; /* Collapse tr's line box */
-      line-height: 0 !important;
-    }
-
-    /* Hide line numbers column completely */
+    /* Simplest approach: hide line numbers column, keep everything else normal */
+    .highlight .lnt,
+    .highlight .ln,
+    .highlight td.lntd:first-child,
     .highlight table tr td:first-child {
       display: none !important;
     }
 
-    /* Make code column behave like normal pre block */
+    /* Make code column take full width */
     .highlight table tr td:last-child {
       display: block !important;
       width: 100% !important;
-      padding: 0 !important;
-      margin: 0 !important;
-      font-size: initial !important; /* Restore font size */
-      line-height: initial !important; /* Restore line height */
-    }
-
-    /* Remove any extra spacing from the pre inside code column */
-    .highlight table tr td:last-child pre {
-      margin: 0 !important;
-      padding: 1em !important;
-      padding-top: 1em !important; /* Explicit top padding - no extra space */
-    }
-
-    /* Remove spacing from code element inside pre */
-    .highlight table tr td:last-child pre code {
-      margin: 0 !important;
-      padding: 0 !important;
-      display: block !important;
-      line-height: 1.5 !important; /* Match desktop exactly */
-    }
-
-    /* Ensure no extra space from first element */
-    .highlight table tr td:last-child pre code > span:first-child,
-    .highlight table tr td:last-child pre code > span:first-child > span:first-child {
-      margin-top: 0 !important;
-      padding-top: 0 !important;
-    }
-
-    /* Remove extra spacing from flex line wrappers */
-    .highlight code span[style*="display:flex"] {
-      margin: 0 !important;
-      padding: 0 !important;
     }
 
     /* Hide scrollbars but allow horizontal scrolling on code blocks and ASCII art */
