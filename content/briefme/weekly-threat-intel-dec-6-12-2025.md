@@ -103,6 +103,9 @@ RISK SCORE SCALE:
 ▓▓▓░░ MEDIUM (25–47)     - USB Malware, WhatsApp Worms
 ```
 
+<br>
+<br>
+
 **MITRE ATT&CK Heat Map (December 6–12, 2025)**
 
 ```text
@@ -121,6 +124,9 @@ KEY INSIGHT: Exploit‑driven initial access (React2Shell, RDP) and
 defense‑evasion via vulnerable drivers and AV‑killers dominated this
 week's intrusions.
 ```
+
+<br>
+<br>
 
 **Sector Targeting Distribution (December 6–12, 2025)**
 
