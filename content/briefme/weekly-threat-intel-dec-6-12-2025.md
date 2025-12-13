@@ -31,6 +31,8 @@ author: "0K (Kelvin)"
 
 Between December 6 and December 12, 2025, the threat landscape was dominated by rapid, at-scale exploitation of the critical React2Shell vulnerability (CVE-2025-55182), alongside notable ransomware activity from DeadLock and Makop operators leveraging BYOVD and privilege‑escalation chains to bypass defenses. Multiple vendors and CISA confirmed active React2Shell exploitation with a CVSS 10.0 impact on React Server Components and Next.js, driving urgent patching and widespread scanning across hundreds of thousands of internet‑exposed services. Ransomware campaigns during the week showed a continued shift toward vulnerable driver abuse, AV‑killer tooling, and RDP‑centric initial access, raising risk particularly for Windows‑heavy and RDP‑exposed environments. SOC teams should prioritize React2Shell remediation and hunting, tighten RDP exposure, and deploy driver‑abuse detection and new ransomware‑focused YARA and network rules from this briefing.
 
+**⚡ Short on time?** Read the **[2-minute TL;DR version](/briefme/weekly-threat-intel-dec-6-12-2025-tldr)** for quick mobile-optimized threat intel.
+
 ***
 
 ## TRENDING SECURITY NEWS
@@ -310,6 +312,11 @@ where parent_process in ("node","node.exe")
 - Artifacts: Web logs with RSC/Next.js endpoints receiving anomalous payloads, new systemd service units and cron entries referencing suspicious binaries, and hidden directories containing Node.js artifacts and JavaScript loaders.
 
 ***
+
+<br>
+<br>
+
+![China-Nexus React2Shell Campaign](/images/briefme/china-nexus-react2shell-cyberpunk.jpg)
 
 ## THREAT ACTOR CAMPAIGNS (Top 3)
 
