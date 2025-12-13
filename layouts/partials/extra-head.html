@@ -246,10 +246,38 @@
     }
   }
 
-  /* Desktop: hide mobile warning */
+  /* Desktop/Tablet (≥685px): Constrain code blocks to match content width */
   @media (min-width: 685px) {
     .mobile-warning {
       display: none !important;
+    }
+
+    /* Constrain code blocks to align with ASCII art and content width */
+    .post-content .highlight,
+    .post-content div.highlight {
+      max-width: 52rem !important; /* ~52 chars to match ASCII art width */
+      overflow-x: auto !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    /* Enable horizontal scrolling for long lines in code blocks */
+    .post-content .highlight pre {
+      overflow-x: auto !important;
+      white-space: pre !important;
+    }
+
+    /* ASCII art: natural width, center aligned */
+    .post-content > pre:not(.highlight pre) {
+      overflow-x: auto !important;
+    }
+
+    /* On very wide monitors (>1400px), expand code blocks to natural width */
+    @media (min-width: 1400px) {
+      .post-content .highlight,
+      .post-content div.highlight {
+        max-width: none !important;
+      }
     }
   }
 </style>
