@@ -10,7 +10,7 @@ author: "0K (Kelvin)"
 
 <pre style="text-align: center;">
 ┌──────────────────────────────────────────────────┐
-│ 0K THREAT INTEL │ KEEPING ATTACKERS FROZEN      │
+│ 0K THREAT INTEL │ KEEPING ATTACKERS FROZEN       │
 │ Weekly Briefing │ Dec 6-12, 2025 │ 0K-TI-2025-W51│
 └──────────────────────────────────────────────────┘
 </pre>
