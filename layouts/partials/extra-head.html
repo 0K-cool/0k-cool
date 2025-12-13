@@ -123,12 +123,14 @@
       border: none !important;
     }
 
-    /* Make table row auto-size to content */
+    /* Collapse table row line-box but preserve content */
     .highlight table tr {
       display: block !important;
       padding: 0 !important;
       margin: 0 !important;
       border: none !important;
+      font-size: 0 !important; /* Collapse tr's line box */
+      line-height: 0 !important;
     }
 
     /* Hide line numbers column completely */
@@ -142,6 +144,8 @@
       width: 100% !important;
       padding: 0 !important;
       margin: 0 !important;
+      font-size: initial !important; /* Restore font size */
+      line-height: initial !important; /* Restore line height */
     }
 
     /* Remove any extra spacing from the pre inside code column */
