@@ -106,11 +106,21 @@
       display: none !important;
     }
 
-    /* Remove horizontal scrollbars on code blocks and ASCII art */
+    /* Hide scrollbars but allow horizontal scrolling on code blocks and ASCII art */
     .highlight pre,
     .post-content pre,
     .post-content > pre:not(.highlight pre) {
-      overflow-x: hidden !important;
+      overflow-x: auto !important;
+      -webkit-overflow-scrolling: touch !important;
+      scrollbar-width: none !important; /* Firefox */
+      -ms-overflow-style: none !important; /* IE/Edge */
+    }
+
+    /* Hide scrollbar for Chrome/Safari/newer Edge */
+    .highlight pre::-webkit-scrollbar,
+    .post-content pre::-webkit-scrollbar,
+    .post-content > pre:not(.highlight pre)::-webkit-scrollbar {
+      display: none !important;
     }
 
     /* Mobile warning banner */
