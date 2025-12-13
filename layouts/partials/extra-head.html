@@ -143,6 +143,27 @@
       padding: 1em !important;
     }
 
+    /* Remove spacing from code element inside pre */
+    .highlight table tr td:last-child pre code {
+      margin: 0 !important;
+      padding: 0 !important;
+      display: block !important;
+      line-height: 1.5 !important; /* Match desktop exactly */
+    }
+
+    /* Ensure no extra space from first element */
+    .highlight table tr td:last-child pre code > span:first-child,
+    .highlight table tr td:last-child pre code > span:first-child > span:first-child {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
+
+    /* Remove extra spacing from flex line wrappers */
+    .highlight code span[style*="display:flex"] {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
     /* Hide scrollbars but allow horizontal scrolling on code blocks and ASCII art */
     .highlight pre,
     .post-content pre,
