@@ -106,6 +106,13 @@
       display: none !important;
     }
 
+    /* Remove horizontal scrollbars on code blocks and ASCII art */
+    .highlight pre,
+    .post-content pre,
+    .post-content > pre:not(.highlight pre) {
+      overflow-x: hidden !important;
+    }
+
     /* Mobile warning banner */
     .mobile-warning {
       display: block !important;
