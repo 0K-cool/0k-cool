@@ -127,11 +127,19 @@
     .post-content table {
       font-size: 14px;
       border: none;
+      width: 100%;
     }
 
     /* Hide table header on mobile */
     .post-content table thead {
       display: none;
+    }
+
+    /* Constrain tbody width to match separator lines */
+    .post-content table tbody {
+      display: block;
+      max-width: 90%;
+      margin: 0 auto; /* Center the cards */
     }
 
     /* Make each table row a card */
