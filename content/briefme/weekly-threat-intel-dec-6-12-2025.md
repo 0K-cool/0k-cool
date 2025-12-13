@@ -995,18 +995,56 @@ WHERE
 
 ## RESOURCES & REFERENCES
 
-| Category | Resource |
-| :-- | :-- |
-| Official CVE/KEV | CVE‑2025‑55182 entry and KEV metadata |
-| Vendor Advisories | React2Shell advisories and guidance (Datadog, Qualys, Dynatrace, Coalition, Beagle Security). |
-| React2Shell Analysis | Post‑exploitation and detection guidance from Logpoint and Sophos. |
-| DeadLock BYOVD | DeadLock ransomware BYOVD analyses (Talos/Broadcom/other portals). |
-| Makop Campaigns | Makop/GuLoader/priv‑esc reporting (Acronis, SOC Prime, others). |
-| Ransomware Trends | Bitdefender and Check Point November/December threat debriefs. |
-| Community Threads | Weekly recap posts and discussions on React2Shell, USB malware, WhatsApp worms, AI supply‑chain risks. |
-| Sigma Framework | Sigma rules and conversion tooling (sigmaHQ, pySigma). |
-| YARA Framework | YARA engine and community rule repositories. |
-| Snort/Suricata | Snort official site and rule distribution. |
+<table>
+<thead>
+<tr>
+<th align="left">Category</th>
+<th align="left">Resource</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="Category:">Official CVE/KEV</td>
+<td data-label="Resource:">CVE‑2025‑55182 entry and KEV metadata</td>
+</tr>
+<tr>
+<td data-label="Category:">Vendor Advisories</td>
+<td data-label="Resource:">React2Shell advisories and guidance (Datadog, Qualys, Dynatrace, Coalition, Beagle Security).</td>
+</tr>
+<tr>
+<td data-label="Category:">React2Shell Analysis</td>
+<td data-label="Resource:">Post‑exploitation and detection guidance from Logpoint and Sophos.</td>
+</tr>
+<tr>
+<td data-label="Category:">DeadLock BYOVD</td>
+<td data-label="Resource:">DeadLock ransomware BYOVD analyses (Talos/Broadcom/other portals).</td>
+</tr>
+<tr>
+<td data-label="Category:">Makop Campaigns</td>
+<td data-label="Resource:">Makop/GuLoader/priv‑esc reporting (Acronis, SOC Prime, others).</td>
+</tr>
+<tr>
+<td data-label="Category:">Ransomware Trends</td>
+<td data-label="Resource:">Bitdefender and Check Point November/December threat debriefs.</td>
+</tr>
+<tr>
+<td data-label="Category:">Community Threads</td>
+<td data-label="Resource:">Weekly recap posts and discussions on React2Shell, USB malware, WhatsApp worms, AI supply‑chain risks.</td>
+</tr>
+<tr>
+<td data-label="Category:">Sigma Framework</td>
+<td data-label="Resource:">Sigma rules and conversion tooling (sigmaHQ, pySigma).</td>
+</tr>
+<tr>
+<td data-label="Category:">YARA Framework</td>
+<td data-label="Resource:">YARA engine and community rule repositories.</td>
+</tr>
+<tr>
+<td data-label="Category:">Snort/Suricata</td>
+<td data-label="Resource:">Snort official site and rule distribution.</td>
+</tr>
+</tbody>
+</table>
 
 This report covers threats first disclosed or materially updated during the December 6–12, 2025 reporting period and emphasizes standardized, reusable detection artifacts for SOC and threat‑hunting teams.
 
