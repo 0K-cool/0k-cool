@@ -15,12 +15,9 @@ author: "0K (Kelvin)"
 └──────────────────────────────────────────────────┘
 </pre>
 
-<div style="text-align: center;">
-<div style="display: inline-block; text-align: left;">
-<strong>Classification:</strong> TLP:CLEAR &nbsp;&nbsp;&nbsp; <strong>Distribution:</strong> Unlimited &nbsp;&nbsp;&nbsp; <strong>Report ID:</strong> 0K-TI-2025-W51<br>
-<strong>Reporting Period:</strong> December 6 - December 12, 2025
-</div>
-</div>
+<p style="text-align: center;">
+<strong>Classification:</strong> TLP:CLEAR &nbsp;&nbsp;&nbsp; <strong>Distribution:</strong> Unlimited &nbsp;&nbsp;&nbsp; <strong>Report ID:</strong> 0K-TI-2025-W51 &nbsp;&nbsp;&nbsp; <strong>Reporting Period:</strong> December 6 - December 12, 2025
+</p>
 
 ---
 
