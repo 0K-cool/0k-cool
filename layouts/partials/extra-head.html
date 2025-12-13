@@ -134,7 +134,19 @@
     .post-content div.highlight,
     .post-content > pre:not(.highlight pre) {
       max-width: 89% !important;
+      width: 89% !important;
       margin: 1em 0 !important;
+      box-sizing: border-box !important;
+      overflow-x: auto !important;
+    }
+
+    /* Also constrain inner content */
+    .highlight > div,
+    .highlight table,
+    .highlight pre,
+    .post-content pre code {
+      max-width: 100% !important;
+      box-sizing: border-box !important;
     }
 
     /* Hide scrollbars but allow horizontal scrolling on code blocks and ASCII art */
