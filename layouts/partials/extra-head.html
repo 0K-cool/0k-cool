@@ -106,6 +106,13 @@
       display: none !important;
     }
 
+    /* Remove spacing from nested highlight divs on mobile */
+    .highlight,
+    .highlight > div {
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
     /* Completely remove table layout on mobile for code blocks */
     .highlight table,
     .highlight table tbody,
