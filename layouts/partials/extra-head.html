@@ -98,4 +98,36 @@
     text-align: center !important;
     justify-content: center !important;
   }
+
+  /* Mobile-specific styles (phones ≤684px) */
+  @media (max-width: 684px) {
+    /* Hide ASCII header box on mobile phones */
+    .ascii-header-box {
+      display: none !important;
+    }
+
+    /* Mobile warning banner */
+    .mobile-warning {
+      display: block !important;
+      background-color: #ff6b35;
+      color: #ffffff;
+      padding: 1em;
+      margin: 1em 0;
+      border-radius: 4px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .mobile-warning a {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+  }
+
+  /* Desktop: hide mobile warning */
+  @media (min-width: 685px) {
+    .mobile-warning {
+      display: none !important;
+    }
+  }
 </style>

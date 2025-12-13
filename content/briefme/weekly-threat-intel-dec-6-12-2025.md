@@ -8,7 +8,7 @@ description: "Comprehensive weekly threat intelligence covering CVE-2025-55182 (
 author: "0K (Kelvin)"
 ---
 
-<pre style="text-align: center;">
+<pre class="ascii-header-box" style="text-align: center;">
 ┌──────────────────────────────────────────────────┐
 │ 0K THREAT INTEL │ KEEPING ATTACKERS FROZEN       │
 │ Weekly Briefing │ Dec 6-12, 2025 │ 0K-TI-2025-W51│
@@ -23,6 +23,11 @@ author: "0K (Kelvin)"
 </div>
 
 ---
+
+<div class="mobile-warning">
+📱 <strong>Mobile Phone Detected</strong><br>
+This full brief is optimized for desktop/tablet viewing. For mobile, please read the <a href="/briefme/weekly-threat-intel-dec-6-12-2025-tldr">2-minute TL;DR version</a> or switch to a larger screen for the best experience.
+</div>
 
 <br>
 <br>
