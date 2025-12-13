@@ -114,10 +114,16 @@
       display: none !important;
     }
 
-    /* Make code column take full width */
+    /* Make code column take full width and pull up to eliminate top space */
     .highlight table tr td:last-child {
       display: block !important;
       width: 100% !important;
+    }
+
+    /* Pull code content up to eliminate extra top spacing */
+    .highlight table tr td:last-child pre {
+      margin-top: -1em !important;
+      padding-top: 1em !important;
     }
 
     /* Hide scrollbars but allow horizontal scrolling on code blocks and ASCII art */
