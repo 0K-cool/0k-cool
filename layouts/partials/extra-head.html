@@ -115,8 +115,7 @@
 
     /* Completely remove table layout on mobile for code blocks */
     .highlight table,
-    .highlight table tbody,
-    .highlight table tr {
+    .highlight table tbody {
       display: block !important;
       padding: 0 !important;
       margin: 0 !important;
@@ -124,9 +123,21 @@
       border: none !important;
     }
 
+    /* Make table row have zero height and act as container only */
+    .highlight table tr {
+      display: block !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      border: none !important;
+      height: 0 !important;
+      line-height: 0 !important;
+    }
+
     /* Hide line numbers column completely - zero height */
     .highlight table tr td:first-child {
       display: none !important;
+      height: 0 !important;
+      line-height: 0 !important;
     }
 
     /* Make code column behave like normal pre block */
@@ -141,6 +152,7 @@
     .highlight table tr td:last-child pre {
       margin: 0 !important;
       padding: 1em !important;
+      padding-top: 1em !important; /* Explicit top padding - no extra space */
     }
 
     /* Remove spacing from code element inside pre */
