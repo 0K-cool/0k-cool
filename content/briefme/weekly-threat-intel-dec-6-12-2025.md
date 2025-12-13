@@ -8,21 +8,19 @@ description: "Comprehensive weekly threat intelligence covering CVE-2025-55182 (
 author: "0K (Kelvin)"
 ---
 
-<div style="text-align: center;">
-<pre style="display: inline-block; text-align: left;">
+<pre style="text-align: center;">
 ┌──────────────────────────────────────────────────┐
 │ 0K THREAT INTEL │ KEEPING ATTACKERS FROZEN      │
 │ Weekly Briefing │ Dec 6-12, 2025 │ 0K-TI-2025-W51│
 └──────────────────────────────────────────────────┘
 </pre>
-</div>
 
-<div style="text-align: center;">
-<strong>Classification:</strong> TLP:CLEAR &nbsp;&nbsp;
-<strong>Distribution:</strong> Unlimited &nbsp;&nbsp;
-<strong>Report ID:</strong> 0K-TI-2025-W51 &nbsp;&nbsp;
+<p style="text-align: center;">
+<strong>Classification:</strong> TLP:CLEAR &nbsp;&nbsp;&nbsp;
+<strong>Distribution:</strong> Unlimited &nbsp;&nbsp;&nbsp;
+<strong>Report ID:</strong> 0K-TI-2025-W51<br>
 <strong>Reporting Period:</strong> December 6 - December 12, 2025
-</div>
+</p>
 
 ---
 
