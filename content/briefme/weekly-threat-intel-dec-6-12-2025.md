@@ -120,9 +120,10 @@ Defense Evasion (TA0005)     ▓▓▓▓▓▓▓░░░   7
 Command & Control (TA0011)   ▓▓▓▓▓▓░░░░   6
 Exfiltration (TA0010)        ▓▓▓▓░░░░░░   4
 
-KEY INSIGHT: Exploit‑driven initial access (React2Shell, RDP) and
-defense‑evasion via vulnerable drivers and AV‑killers dominated this
-week's intrusions.
+KEY INSIGHT: Exploit‑driven initial access
+(React2Shell, RDP) and defense‑evasion via
+vulnerable drivers and AV‑killers dominated
+this week's intrusions.
 ```
 
 <br>
@@ -137,19 +138,22 @@ ORGANIZATIONS BY THREAT EXPOSURE (Dec 6–12, 2025)
 TECH / SaaS
   Threats: ▓▓▓▓▓▓▓▓░░  High
   Critical: ▓▓▓▓▓▓░░░  High
-  Primary vectors: Public web apps (React/Next.js), cloud workloads,
-                   supply-chain flaws
+  Primary vectors: Public web apps
+                   (React/Next.js), cloud
+                   workloads, supply-chain flaws
 
 MANUFACTURING / INDUSTRIAL
   Threats: ▓▓▓▓▓▓▓░░░  High
   Critical: ▓▓▓▓░░░░░  Moderate
-  Primary vectors: Ransomware (RaaS), remote access abuse,
+  Primary vectors: Ransomware (RaaS),
+                   remote access abuse,
                    OT‑adjacent IT compromise
 
 SMBs / REGIONAL ENTERPRISES
   Threats: ▓▓▓▓▓░░░░░  Medium
   Critical: ▓▓▓░░░░░░  Medium
-  Primary vectors: Exposed RDP, email/social engineering,
+  Primary vectors: Exposed RDP,
+                   email/social engineering,
                    commodity ransomware
 ```
 
