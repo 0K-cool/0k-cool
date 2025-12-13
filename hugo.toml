@@ -2,6 +2,7 @@ baseURL = 'https://0k.cool/'
 languageCode = 'en-us'
 title = '0K — Zero Cool'
 theme = 'hello-friend-ng'
+copyright = '© 2025 ZeroK Cyber Intelligence'
 
 # Pagination
 [pagination]
@@ -14,8 +15,12 @@ theme = 'hello-friend-ng'
   # Content directory structure
   contentTypeName = "posts"
 
-  # Footer copyright text
-  copyright = "0K (zero Kelvin)"
+  # Footer configuration
+  [params.footer]
+    trademark = false
+    author = false
+    copyright = true
+    rss = false
 
   # Theme settings
   dateform = "Jan 2, 2006"
