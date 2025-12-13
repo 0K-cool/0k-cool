@@ -36,13 +36,36 @@ author: "0K (Kelvin)"
 
 ## 🎯 BY THE NUMBERS
 
-| Metric | Count |
-|:-------|------:|
-| Critical CVEs | 5 |
-| Major Ransomware Campaigns | 3 |
-| Active Exploitation Confirmed | Yes (React2Shell, BYOVD) |
-| Vulnerable IPs (Shadowserver) | Hundreds of thousands |
-| Top Attack Vector | Exploit (React2Shell) + RDP |
+<table>
+<thead>
+<tr>
+<th align="left">Metric</th>
+<th align="right">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="Metric:">Critical CVEs</td>
+<td data-label="">5</td>
+</tr>
+<tr>
+<td data-label="Metric:">Major Ransomware Campaigns</td>
+<td data-label="">3</td>
+</tr>
+<tr>
+<td data-label="Metric:">Active Exploitation Confirmed</td>
+<td data-label="">Yes (React2Shell, BYOVD)</td>
+</tr>
+<tr>
+<td data-label="Metric:">Vulnerable IPs (Shadowserver)</td>
+<td data-label="">Hundreds of thousands</td>
+</tr>
+<tr>
+<td data-label="Metric:">Top Attack Vector</td>
+<td data-label="">Exploit (React2Shell) + RDP</td>
+</tr>
+</tbody>
+</table>
 
 ---
 
