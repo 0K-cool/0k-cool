@@ -101,32 +101,6 @@
 
   /* Mobile-specific styles (phones ≤684px) */
   @media (max-width: 684px) {
-    /* Prevent horizontal page scrolling */
-    body {
-      overflow-x: hidden !important;
-    }
-
-    /* Ensure all content stays within viewport */
-    .post-content {
-      max-width: 100%;
-      overflow-x: hidden;
-    }
-
-    /* Constrain code blocks to viewport width */
-    .highlight,
-    .post-content pre,
-    .post-content .highlight {
-      max-width: 100% !important;
-      box-sizing: border-box;
-    }
-
-    /* Code blocks can scroll internally but not break page layout */
-    .highlight pre {
-      max-width: 100%;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-
     /* Hide ASCII header box on mobile phones */
     .ascii-header-box {
       display: none !important;
