@@ -106,6 +106,23 @@
       display: none !important;
     }
 
+    /* Hide line numbers on mobile - they don't align when scrolling */
+    .highlight .chroma .lnt,
+    .highlight .chroma .ln {
+      display: none !important;
+    }
+
+    /* Hide the line number column entirely */
+    .highlight .chroma td:first-child {
+      display: none !important;
+    }
+
+    /* Make code take full width without line number column */
+    .highlight .chroma td:last-child {
+      width: 100% !important;
+      padding-left: 0.5em !important;
+    }
+
     /* Hide scrollbars but allow horizontal scrolling on code blocks and ASCII art */
     .highlight pre,
     .post-content pre,
