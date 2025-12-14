@@ -35,14 +35,20 @@ document.addEventListener('DOMContentLoaded', function() {
       let code = '';
 
       if (codeBlock.classList.contains('highlight')) {
-        // Chroma table structure: skip first td (line numbers), get second td (code)
-        const codeTd = codeBlock.querySelector('table tr td:last-child');
-        if (codeTd) {
+        // Chroma table structure: has 2 tds - first is line numbers, second is code
+        const allTds = codeBlock.querySelectorAll('table tr td');
+        if (allTds.length >= 2) {
+          // Get second td (index 1) which contains the actual code
+          const codeTd = allTds[1];
           const codeElement = codeTd.querySelector('code') || codeTd.querySelector('pre');
           code = codeElement ? codeElement.textContent : '';
+        } else if (allTds.length === 1) {
+          // Single td, just get the code
+          const codeElement = allTds[0].querySelector('code') || allTds[0].querySelector('pre');
+          code = codeElement ? codeElement.textContent : '';
         } else {
-          // Fallback for non-table highlights
-          const codeElement = codeBlock.querySelector('pre code') || codeBlock.querySelector('pre');
+          // No table structure, fallback to direct code element
+          const codeElement = codeBlock.querySelector('code');
           code = codeElement ? codeElement.textContent : '';
         }
       } else {
