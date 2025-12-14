@@ -187,7 +187,12 @@
     .post-content table {
       font-size: 14px;
       border: none;
-      width: 100%;
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 !important; /* No side margins */
+      padding: 0 !important; /* No padding */
+      box-sizing: border-box !important;
+      overflow-x: visible; /* Don't hide overflowing content */
     }
 
     /* Hide table header on mobile */
@@ -195,12 +200,14 @@
       display: none;
     }
 
-    /* Widen tbody to match separator lines */
+    /* Constrain tbody to prevent card overflow */
     .post-content table tbody {
       display: block;
-      max-width: 100%;
-      margin: 0; /* Left-aligned cards */
-      box-sizing: border-box; /* Include padding/border in width calculation */
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 !important; /* Left-aligned cards, no side margins */
+      padding: 0 !important; /* Remove any padding */
+      box-sizing: border-box !important; /* Include padding/border in width calculation */
     }
 
     /* Left-align all text in table cards including headers */
@@ -217,6 +224,8 @@
     /* Make each table row a card */
     .post-content table tbody tr {
       display: block;
+      width: 100%; /* Explicitly set width */
+      max-width: 100%; /* Constrain to parent */
       margin-bottom: 1em;
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 4px;
