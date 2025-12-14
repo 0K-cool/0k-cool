@@ -31,8 +31,8 @@ copyright = '© 2025 ZeroK Cyber Intelligence'
   # Enable table of contents
   toc = true
 
-  # Code syntax highlighting
-  enableCodeCopy = true
+  # Custom JavaScript for copy buttons (PrismJS compatible)
+  customJS = ["/js/copy-code.js"]
 
   # ASCII art friendly settings
   # Monospace everything for that old-school terminal feel

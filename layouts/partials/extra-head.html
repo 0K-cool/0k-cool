@@ -281,10 +281,8 @@
     }
   }
 
-  /* Style Hugo's built-in copy button with 0K branding */
-  .highlight-copy-btn,
-  .copy-to-clipboard,
-  button[data-clipboard-text] {
+  /* Style custom copy button with 0K branding (works with PrismJS) */
+  .code-copy-btn {
     background-color: #00e5ff !important;
     color: #1e1e1e !important;
     border: none !important;
@@ -297,16 +295,12 @@
     transition: background-color 0.2s ease !important;
   }
 
-  .highlight-copy-btn:hover,
-  .copy-to-clipboard:hover,
-  button[data-clipboard-text]:hover {
+  .code-copy-btn:hover {
     background-color: #00bcd4 !important;
   }
 
   /* Copied state - green */
-  .highlight-copy-btn.copied,
-  .copy-to-clipboard.copied,
-  button[data-clipboard-text].copied {
+  .code-copy-btn.copied {
     background-color: #4caf50 !important;
     color: #ffffff !important;
   }
