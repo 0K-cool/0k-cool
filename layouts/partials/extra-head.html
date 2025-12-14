@@ -281,11 +281,11 @@
     }
   }
 
-  /* Copy button for code blocks */
+  /* Copy button for code blocks - positioned on LEFT */
   .code-copy-button {
     position: absolute;
     top: 8px;
-    right: 8px;
+    left: 8px; /* Changed from right to left */
     padding: 6px 12px;
     background-color: #00e5ff;
     color: #1e1e1e;
@@ -327,6 +327,14 @@
   .highlight,
   div.highlight {
     position: relative;
+  }
+
+  /* Hide any duplicate copy buttons from theme or other sources */
+  .highlight .copy-to-clipboard,
+  .highlight button[data-clipboard-text],
+  div.highlight .copy-to-clipboard,
+  div.highlight button[data-clipboard-text] {
+    display: none !important;
   }
 </style>
 
