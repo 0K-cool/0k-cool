@@ -280,4 +280,102 @@
       }
     }
   }
+
+  /* Copy button for code blocks */
+  .code-copy-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 6px 12px;
+    background-color: #00e5ff;
+    color: #1e1e1e;
+    border: none;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s ease, background-color 0.2s ease;
+    z-index: 10;
+  }
+
+  .code-copy-button:hover {
+    background-color: #00bcd4;
+  }
+
+  .code-copy-button.copied {
+    background-color: #4caf50;
+    color: #ffffff;
+  }
+
+  /* Show copy button on hover (desktop) or always (mobile) */
+  .highlight:hover .code-copy-button,
+  div.highlight:hover .code-copy-button {
+    opacity: 1;
+  }
+
+  @media (max-width: 684px) {
+    .code-copy-button {
+      opacity: 1; /* Always visible on mobile */
+      font-size: 11px;
+      padding: 5px 10px;
+    }
+  }
+
+  /* Position code block container relatively for absolute button */
+  .highlight,
+  div.highlight {
+    position: relative;
+  }
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Add copy buttons to all code blocks
+  const codeBlocks = document.querySelectorAll('.highlight pre, div.highlight pre');
+
+  codeBlocks.forEach(function(codeBlock) {
+    // Skip if already has a copy button
+    if (codeBlock.parentElement.querySelector('.code-copy-button')) {
+      return;
+    }
+
+    // Create copy button
+    const button = document.createElement('button');
+    button.className = 'code-copy-button';
+    button.textContent = 'Copy';
+    button.setAttribute('aria-label', 'Copy code to clipboard');
+
+    // Add click handler
+    button.addEventListener('click', function() {
+      // Get the code text
+      const code = codeBlock.textContent;
+
+      // Copy to clipboard
+      navigator.clipboard.writeText(code).then(function() {
+        // Show success feedback
+        button.textContent = 'Copied!';
+        button.classList.add('copied');
+
+        // Reset after 2 seconds
+        setTimeout(function() {
+          button.textContent = 'Copy';
+          button.classList.remove('copied');
+        }, 2000);
+      }).catch(function(err) {
+        console.error('Failed to copy:', err);
+        button.textContent = 'Failed';
+        setTimeout(function() {
+          button.textContent = 'Copy';
+        }, 2000);
+      });
+    });
+
+    // Add button to the code block's parent container
+    const container = codeBlock.parentElement;
+    container.style.position = 'relative';
+    container.appendChild(button);
+  });
+});
+</script>
