@@ -126,15 +126,15 @@
       padding-top: 1em !important;
     }
 
-    /* Constrain code block width on mobile to reduce scrolling */
+    /* Widen code blocks and ASCII art to match separator line width */
     .highlight,
     div.highlight,
     .post-content pre,
     .post-content .highlight,
     .post-content div.highlight,
     .post-content > pre:not(.highlight pre) {
-      max-width: 89% !important;
-      width: 89% !important;
+      max-width: 100% !important;
+      width: 100% !important;
       margin: 1em 0 !important;
       box-sizing: border-box !important;
       overflow-x: auto !important;
@@ -183,14 +183,6 @@
       text-decoration: underline;
     }
 
-    /* Constrain horizontal rules to match ASCII art and table width */
-    .post-content hr {
-      max-width: 89% !important;
-      width: 89% !important;
-      margin-left: 0 !important; /* Left-aligned like tables and ASCII */
-      margin-right: auto !important;
-    }
-
     /* Mobile-optimized tables - stack columns vertically */
     .post-content table {
       font-size: 14px;
@@ -203,10 +195,10 @@
       display: none;
     }
 
-    /* Constrain tbody width to match separator lines */
+    /* Widen tbody to match separator lines */
     .post-content table tbody {
       display: block;
-      max-width: 89%;
+      max-width: 100%;
       margin: 0; /* Left-aligned cards */
     }
 
