@@ -331,20 +331,29 @@
 
   /* Hide any duplicate copy buttons from theme or other sources */
   .highlight .copy-to-clipboard,
-  .highlight button[data-clipboard-text],
+  .highlight button:not(.code-copy-button),
   div.highlight .copy-to-clipboard,
-  div.highlight button[data-clipboard-text] {
+  div.highlight button:not(.code-copy-button),
+  .highlight-copy-btn,
+  button[data-clipboard-text] {
     display: none !important;
   }
 </style>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  // Add copy buttons to all code blocks
+  // Remove any existing theme copy buttons before adding ours
+  const existingButtons = document.querySelectorAll('.highlight button:not(.code-copy-button), .highlight-copy-btn, button[data-clipboard-text], .copy-to-clipboard');
+  existingButtons.forEach(function(btn) {
+    btn.remove();
+  });
+
+  // Add copy buttons ONLY to code blocks (not ASCII art)
+  // ASCII art uses plain <pre> tags, code blocks use .highlight class
   const codeBlocks = document.querySelectorAll('.highlight pre, div.highlight pre');
 
   codeBlocks.forEach(function(codeBlock) {
-    // Skip if already has a copy button
+    // Skip if already has our custom copy button
     if (codeBlock.parentElement.querySelector('.code-copy-button')) {
       return;
     }
