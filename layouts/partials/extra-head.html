@@ -183,6 +183,14 @@
       text-decoration: underline;
     }
 
+    /* Constrain horizontal rules to match ASCII art and table width */
+    .post-content hr {
+      max-width: 89% !important;
+      width: 89% !important;
+      margin-left: 0 !important; /* Left-aligned like tables and ASCII */
+      margin-right: auto !important;
+    }
+
     /* Mobile-optimized tables - stack columns vertically */
     .post-content table {
       font-size: 14px;
