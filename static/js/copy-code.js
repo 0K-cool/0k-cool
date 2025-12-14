@@ -2,11 +2,11 @@
 document.addEventListener('DOMContentLoaded', function() {
   // Find all code blocks:
   // 1. .highlight divs (Chroma table structure)
-  // 2. Direct <pre> tags in post-content that contain <code>
+  // 2. All <pre> tags in post-content that contain <code> (including nested in lists, etc)
   const highlightBlocks = document.querySelectorAll('.highlight');
-  const allPreBlocks = document.querySelectorAll('.post-content > pre');
+  const allPreBlocks = document.querySelectorAll('.post-content pre');
 
-  // Filter standalone pre blocks to only those with code elements (exclude ASCII art)
+  // Filter standalone pre blocks to only those with code elements (exclude ASCII art and highlights)
   const standaloneCodeBlocks = Array.from(allPreBlocks).filter(function(pre) {
     return pre.querySelector('code') && !pre.closest('.highlight');
   });
@@ -31,14 +31,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add click handler
     copyButton.addEventListener('click', async function() {
-      // Get code content - handle both structures
-      let codeElement;
+      // Get code content - handle both structures and exclude line numbers
+      let code = '';
+
       if (codeBlock.classList.contains('highlight')) {
-        codeElement = codeBlock.querySelector('pre code') || codeBlock.querySelector('pre');
+        // Chroma table structure: skip first td (line numbers), get second td (code)
+        const codeTd = codeBlock.querySelector('table tr td:last-child');
+        if (codeTd) {
+          const codeElement = codeTd.querySelector('code') || codeTd.querySelector('pre');
+          code = codeElement ? codeElement.textContent : '';
+        } else {
+          // Fallback for non-table highlights
+          const codeElement = codeBlock.querySelector('pre code') || codeBlock.querySelector('pre');
+          code = codeElement ? codeElement.textContent : '';
+        }
       } else {
-        codeElement = codeBlock.querySelector('code') || codeBlock;
+        // Standalone pre>code blocks (YARA, Pseudo, Snort)
+        const codeElement = codeBlock.querySelector('code');
+        code = codeElement ? codeElement.textContent : '';
       }
-      const code = codeElement ? codeElement.textContent : '';
 
       try {
         await navigator.clipboard.writeText(code);
