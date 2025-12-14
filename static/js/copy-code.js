@@ -14,7 +14,14 @@ document.addEventListener('DOMContentLoaded', function() {
   // Combine both
   const allCodeBlocks = [...highlightBlocks, ...standaloneCodeBlocks];
 
-  allCodeBlocks.forEach(function(codeBlock) {
+  // Debug logging
+  console.log('[0K Copy] Found code blocks:', {
+    highlightBlocks: highlightBlocks.length,
+    standaloneCodeBlocks: standaloneCodeBlocks.length,
+    total: allCodeBlocks.length
+  });
+
+  allCodeBlocks.forEach(function(codeBlock, index) {
 
     // Create copy button
     const copyButton = document.createElement('button');
@@ -33,28 +40,30 @@ document.addEventListener('DOMContentLoaded', function() {
     copyButton.addEventListener('click', async function() {
       // Get code content - handle both structures and exclude line numbers
       let code = '';
+      const isHighlight = codeBlock.classList.contains('highlight');
 
-      if (codeBlock.classList.contains('highlight')) {
-        // Chroma table structure: has 2 tds - first is line numbers, second is code
-        const allTds = codeBlock.querySelectorAll('table tr td');
-        if (allTds.length >= 2) {
-          // Get second td (index 1) which contains the actual code
-          const codeTd = allTds[1];
-          const codeElement = codeTd.querySelector('code') || codeTd.querySelector('pre');
+      if (isHighlight) {
+        // Chroma table structure: second td contains code, first td has line numbers
+        // Use nth-child(2) to explicitly get the second td
+        const codeTd = codeBlock.querySelector('table tbody tr td:nth-child(2), table tr td:nth-child(2)');
+        console.log('[0K Copy] Highlight block - found codeTd:', !!codeTd);
+        if (codeTd) {
+          // Get the code element from the second td
+          const codeElement = codeTd.querySelector('code, pre');
           code = codeElement ? codeElement.textContent : '';
-        } else if (allTds.length === 1) {
-          // Single td, just get the code
-          const codeElement = allTds[0].querySelector('code') || allTds[0].querySelector('pre');
-          code = codeElement ? codeElement.textContent : '';
+          console.log('[0K Copy] Code length:', code.length, 'First 50 chars:', code.substring(0, 50));
         } else {
-          // No table structure, fallback to direct code element
+          // Fallback: try to find any code element
           const codeElement = codeBlock.querySelector('code');
           code = codeElement ? codeElement.textContent : '';
+          console.log('[0K Copy] Fallback code length:', code.length);
         }
       } else {
         // Standalone pre>code blocks (YARA, Pseudo, Snort)
         const codeElement = codeBlock.querySelector('code');
         code = codeElement ? codeElement.textContent : '';
+        const lang = codeElement ? codeElement.getAttribute('data-lang') : 'unknown';
+        console.log('[0K Copy] Standalone block ('+lang+') - code length:', code.length);
       }
 
       try {
