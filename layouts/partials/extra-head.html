@@ -281,7 +281,7 @@
     }
   }
 
-  /* Style custom copy button with 0K branding (works with PrismJS) */
+  /* Style custom copy button with 0K branding (works with all code blocks) */
   .code-copy-btn {
     background-color: #00e5ff !important;
     color: #1e1e1e !important;
@@ -292,15 +292,25 @@
     font-weight: bold !important;
     font-family: 'Courier New', Courier, monospace !important;
     cursor: pointer !important;
-    transition: background-color 0.2s ease !important;
+    transition: opacity 0.2s ease, background-color 0.2s ease !important;
+    opacity: 0 !important; /* Hidden by default */
   }
 
+  /* Show button on code block hover */
+  .highlight:hover .code-copy-btn,
+  .post-content > pre:hover .code-copy-btn {
+    opacity: 1 !important;
+  }
+
+  /* Keep button visible when hovering over button itself */
   .code-copy-btn:hover {
+    opacity: 1 !important;
     background-color: #00bcd4 !important;
   }
 
-  /* Copied state - green */
+  /* Copied state - green and always visible during feedback */
   .code-copy-btn.copied {
+    opacity: 1 !important;
     background-color: #4caf50 !important;
     color: #ffffff !important;
   }
