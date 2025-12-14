@@ -14,13 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
   // Combine both
   const allCodeBlocks = [...highlightBlocks, ...standaloneCodeBlocks];
 
-  // Debug logging
-  console.log('[0K Copy] Found code blocks:', {
-    highlightBlocks: highlightBlocks.length,
-    standaloneCodeBlocks: standaloneCodeBlocks.length,
-    total: allCodeBlocks.length
-  });
-
   allCodeBlocks.forEach(function(codeBlock, index) {
 
     // Create copy button
@@ -46,24 +39,19 @@ document.addEventListener('DOMContentLoaded', function() {
         // Chroma table structure: second td contains code, first td has line numbers
         // Use nth-child(2) to explicitly get the second td
         const codeTd = codeBlock.querySelector('table tbody tr td:nth-child(2), table tr td:nth-child(2)');
-        console.log('[0K Copy] Highlight block - found codeTd:', !!codeTd);
         if (codeTd) {
           // Get the code element from the second td
           const codeElement = codeTd.querySelector('code, pre');
           code = codeElement ? codeElement.textContent : '';
-          console.log('[0K Copy] Code length:', code.length, 'First 50 chars:', code.substring(0, 50));
         } else {
           // Fallback: try to find any code element
           const codeElement = codeBlock.querySelector('code');
           code = codeElement ? codeElement.textContent : '';
-          console.log('[0K Copy] Fallback code length:', code.length);
         }
       } else {
         // Standalone pre>code blocks (YARA, Pseudo, Snort)
         const codeElement = codeBlock.querySelector('code');
         code = codeElement ? codeElement.textContent : '';
-        const lang = codeElement ? codeElement.getAttribute('data-lang') : 'unknown';
-        console.log('[0K Copy] Standalone block ('+lang+') - code length:', code.length);
       }
 
       try {
