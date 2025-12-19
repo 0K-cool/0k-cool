@@ -73,7 +73,7 @@ During the week of **December 13–19, 2025**, threat activity centered on activ
 
 ### Risk Prioritization Matrix
 
-```
+```text
 CRITICAL THREATS - RISK MATRIX (Dec 13 - Dec 19, 2025)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -104,7 +104,7 @@ RISK SCORE SCALE:
 
 ### MITRE ATT&CK Heat Map
 
-```
+```text
 MOST OBSERVED TACTICS (Dec 13 - Dec 19, 2025)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -130,7 +130,7 @@ lateral movement in hybrid environments.
 
 ### Sector Targeting Distribution
 
-```
+```text
 ORGANIZATIONS BY THREAT EXPOSURE (Dec 13 - Dec 19, 2025)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
