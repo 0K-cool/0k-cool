@@ -25,6 +25,9 @@ summary: "React2Shell mass exploitation, Sierra Wireless ALEOS router RCE, Sonic
 This full brief is optimized for desktop/tablet viewing. For mobile, please read the <a href="/briefme/weekly-threat-intel-dec-13-19-2025-tldr">2-minute TL;DR version</a> or switch to a larger screen for the best experience.
 </div>
 
+<br>
+<br>
+
 ![React2Shell CVE-2025-55182 Critical Threat](/images/briefme/react2shell-cve-2025-55182.jpg)
 
 ## EXECUTIVE SUMMARY
