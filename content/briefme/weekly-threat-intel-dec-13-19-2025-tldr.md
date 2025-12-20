@@ -8,6 +8,10 @@ author: "Kelvin Lomboy"
 summary: "Quick 2-minute mobile-optimized threat intel: React2Shell mass exploitation, Sierra Wireless router RCE, SonicWall zero-day, Apple/Chrome browser exploits, and APT44/BrickStorm campaigns."
 ---
 
+**⏱️ 2-minute read** | [📖 Full detailed version →](../weekly-threat-intel-dec-13-19-2025/)
+
+---
+
 **0K THREAT INTEL TL;DR** | Dec 13-19, 2025 | ⚡ 2-min read
 
 🚨 **CRITICAL THIS WEEK**
