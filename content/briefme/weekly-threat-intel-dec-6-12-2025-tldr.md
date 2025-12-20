@@ -8,13 +8,7 @@ description: "Quick 2-minute mobile-optimized threat intelligence brief for Dece
 author: "0K (Kelvin)"
 ---
 
-**⏱️ 2-minute read** | [📖 Full detailed version →](../weekly-threat-intel-dec-6-12-2025/)
-
----
-
-**0K THREAT INTEL TL;DR**
-**Report Period:** December 6-12, 2025 | **Read Time:** 2 minutes
-**Classification:** TLP:CLEAR
+**0K THREAT INTEL TL;DR** | Dec 6-12, 2025 | ⚡ 2-min read | [📖 Full detailed version →](../weekly-threat-intel-dec-6-12-2025/)
 
 ---
 

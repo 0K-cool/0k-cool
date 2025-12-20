@@ -8,7 +8,7 @@ description: "Quick 2-minute read: React2Shell CVSS 10.0, Qilin ransomware surge
 author: "0K (Kelvin)"
 ---
 
-**⏱️ 2-minute read** | [📖 Full detailed version →](../weekly-threat-intel-dec-2-9-2025/)
+**0K THREAT INTEL TL;DR** | Dec 2-9, 2025 | ⚡ 2-min read | [📖 Full detailed version →](../weekly-threat-intel-dec-2-9-2025/)
 
 ---
 
