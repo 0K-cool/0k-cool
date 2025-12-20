@@ -10,12 +10,12 @@ summary: "React2Shell mass exploitation, Sierra Wireless ALEOS router RCE, Sonic
 <pre class="ascii-header-box" style="text-align: center;">
 ┌──────────────────────────────────────────────────┐
 │ 0K THREAT INTEL │ KEEPING ATTACKERS FROZEN       │
-│ Weekly Briefing │ Dec 13-19 │ TI-2025-W50        │
+│ Weekly Briefing │ Dec 13-19 │ 0K-TI-2025-W51     │
 └──────────────────────────────────────────────────┘
 </pre>
 
 <p style="text-align: center;">
-<strong>Classification:</strong> TLP:CLEAR &nbsp;&nbsp;&nbsp; <strong>Distribution:</strong> Unlimited &nbsp;&nbsp;&nbsp; <strong>Report ID:</strong> TI-2025-W50 &nbsp;&nbsp;&nbsp; <strong>Reporting Period:</strong> December 13-19, 2025
+<strong>Classification:</strong> TLP:CLEAR &nbsp;&nbsp;&nbsp; <strong>Distribution:</strong> Unlimited &nbsp;&nbsp;&nbsp; <strong>Report ID:</strong> 0K-TI-2025-W51 &nbsp;&nbsp;&nbsp; <strong>Reporting Period:</strong> December 13-19, 2025
 </p>
 
 ---
@@ -28,7 +28,7 @@ This full brief is optimized for desktop/tablet viewing. For mobile, please read
 <br>
 <br>
 
-![React2Shell CVE-2025-55182 Critical Threat](/images/briefme/react2shell-cve-2025-55182.jpg)
+![React2Shell CVE-2025-55182 Critical Threat](/images/briefme/react2shell-cve-2025-55182-dec-13-19.jpg)
 
 ## EXECUTIVE SUMMARY
 

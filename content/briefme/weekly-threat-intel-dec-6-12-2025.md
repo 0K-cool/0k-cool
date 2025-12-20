@@ -11,13 +11,13 @@ author: "0K (Kelvin)"
 <pre class="ascii-header-box" style="text-align: center;">
 ┌──────────────────────────────────────────────────┐
 │ 0K THREAT INTEL │ KEEPING ATTACKERS FROZEN       │
-│ Weekly Briefing │ Dec 6-12, 2025 │ 0K-TI-2025-W51│
+│ Weekly Briefing │ Dec 6-12, 2025 │ 0K-TI-2025-W50│
 └──────────────────────────────────────────────────┘
 </pre>
 
 <div style="text-align: center;">
 <div style="display: inline-block; text-align: left;">
-<strong>Classification:</strong> TLP:CLEAR &nbsp;&nbsp;&nbsp; <strong>Distribution:</strong> Unlimited &nbsp;&nbsp;&nbsp; <strong>Report ID:</strong> 0K-TI-2025-W51<br>
+<strong>Classification:</strong> TLP:CLEAR &nbsp;&nbsp;&nbsp; <strong>Distribution:</strong> Unlimited &nbsp;&nbsp;&nbsp; <strong>Report ID:</strong> 0K-TI-2025-W50<br>
 <strong>Reporting Period:</strong> December 6 - December 12, 2025
 </div>
 </div>
@@ -32,7 +32,7 @@ This full brief is optimized for desktop/tablet viewing. For mobile, please read
 <br>
 <br>
 
-![React2Shell CVE-2025-55182](/images/briefme/react2shell-cve-2025-55182.jpg)
+![React2Shell CVE-2025-55182](/images/briefme/react2shell-cve-2025-55182-dec-6-12.jpg)
 
 ## EXECUTIVE SUMMARY
 
