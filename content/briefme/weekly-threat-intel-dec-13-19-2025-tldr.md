@@ -2,7 +2,8 @@
 title: "Weekly Threat Intelligence Briefing TL;DR | December 13-19, 2025"
 date: 2025-12-19
 draft: false
-tags: ["threat-intelligence", "weekly-briefing", "tldr", "cve", "0-day", "ransomware", "apt"]
+tags: ["threat-intelligence", "weekly-briefing", "tldr", "cve", "0-day", "apt", "rce", "react2shell", "critical-infrastructure"]
+categories: ["briefme"]
 author: "Kelvin Lomboy"
 summary: "Quick 2-minute mobile-optimized threat intel: React2Shell mass exploitation, Sierra Wireless router RCE, SonicWall zero-day, Apple/Chrome browser exploits, and APT44/BrickStorm campaigns."
 ---
