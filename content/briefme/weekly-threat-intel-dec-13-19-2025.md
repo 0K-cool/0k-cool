@@ -1065,59 +1065,59 @@ WHERE directory LIKE '/usr/lib/vmware/%'
 </tr>
 <tr>
 <td data-label="Category:">React2Shell Details</td>
-<td data-label="Resource / URL:">https://www.bleepingcomputer.com/news/security/react2shell-flaw-exploited-to-breach-30-orgs-77k-ip-addresses-vulnerable/</td>
+<td data-label="Resource / URL:"><a href="https://www.bleepingcomputer.com/news/security/react2shell-flaw-exploited-to-breach-30-orgs-77k-ip-addresses-vulnerable/" target="_blank">https://www.bleepingcomputer.com/news/security/react2shell-flaw-exploited-to-breach-30-orgs-77k-ip-addresses-vulnerable/</a></td>
 </tr>
 <tr>
 <td data-label="Category:">Cloudflare React2Shell</td>
-<td data-label="Resource / URL:">https://www.bleepingcomputer.com/news/security/cloudflare-blames-todays-outage-on-react2shell-mitigations/</td>
+<td data-label="Resource / URL:"><a href="https://www.bleepingcomputer.com/news/security/cloudflare-blames-todays-outage-on-react2shell-mitigations/" target="_blank">https://www.bleepingcomputer.com/news/security/cloudflare-blames-todays-outage-on-react2shell-mitigations/</a></td>
 </tr>
 <tr>
 <td data-label="Category:">Sierra Wireless ALEOS</td>
-<td data-label="Resource / URL:">https://fieldeffect.com/blog/seven-year-old-vulnerability-in-sierra-wireless-routers-exploited</td>
+<td data-label="Resource / URL:"><a href="https://fieldeffect.com/blog/seven-year-old-vulnerability-in-sierra-wireless-routers-exploited" target="_blank">https://fieldeffect.com/blog/seven-year-old-vulnerability-in-sierra-wireless-routers-exploited</a></td>
 </tr>
 <tr>
 <td data-label="Category:">SonicWall CVE-2025-40602</td>
-<td data-label="Resource / URL:">https://arcticwolf.com/resources/blog/cve-2025-40602/; https://www.tenable.com/blog/cve-2025-40602-sonicwall-secure-mobile-access-sma-1000-zero-day-exploited</td>
+<td data-label="Resource / URL:"><a href="https://arcticwolf.com/resources/blog/cve-2025-40602/" target="_blank">https://arcticwolf.com/resources/blog/cve-2025-40602/</a>; <a href="https://www.tenable.com/blog/cve-2025-40602-sonicwall-secure-mobile-access-sma-1000-zero-day-exploited" target="_blank">https://www.tenable.com/blog/cve-2025-40602-sonicwall-secure-mobile-access-sma-1000-zero-day-exploited</a></td>
 </tr>
 <tr>
 <td data-label="Category:">BrickStorm VMware Campaign</td>
-<td data-label="Resource / URL:">https://www.bleepingcomputer.com/news/security/cisa-warns-of-chinese-brickstorm-malware-attacks-on-vmware-servers/</td>
+<td data-label="Resource / URL:"><a href="https://www.bleepingcomputer.com/news/security/cisa-warns-of-chinese-brickstorm-malware-attacks-on-vmware-servers/" target="_blank">https://www.bleepingcomputer.com/news/security/cisa-warns-of-chinese-brickstorm-malware-attacks-on-vmware-servers/</a></td>
 </tr>
 <tr>
 <td data-label="Category:">APT44 Edge Campaign</td>
-<td data-label="Resource / URL:">https://thehackernews.com/2025/12/amazon-exposes-years-long-gru-cyber.html</td>
+<td data-label="Resource / URL:"><a href="https://thehackernews.com/2025/12/amazon-exposes-years-long-gru-cyber.html" target="_blank">https://thehackernews.com/2025/12/amazon-exposes-years-long-gru-cyber.html</a></td>
 </tr>
 <tr>
 <td data-label="Category:">Apple WebKit 0-days</td>
-<td data-label="Resource / URL:">https://thehackernews.com/2025/12/apple-issues-security-updates-after-two.html</td>
+<td data-label="Resource / URL:"><a href="https://thehackernews.com/2025/12/apple-issues-security-updates-after-two.html" target="_blank">https://thehackernews.com/2025/12/apple-issues-security-updates-after-two.html</a></td>
 </tr>
 <tr>
 <td data-label="Category:">Weekly recap (context)</td>
-<td data-label="Resource / URL:">https://thehackernews.com/2025/12/weekly-recap-apple-0-days-winrar.html</td>
+<td data-label="Resource / URL:"><a href="https://thehackernews.com/2025/12/weekly-recap-apple-0-days-winrar.html" target="_blank">https://thehackernews.com/2025/12/weekly-recap-apple-0-days-winrar.html</a></td>
 </tr>
 <tr>
 <td data-label="Category:">Chrome zero-day summary</td>
-<td data-label="Resource / URL:">https://www.bleepingcomputer.com/news/security/latest-zero-day-news/</td>
+<td data-label="Resource / URL:"><a href="https://www.bleepingcomputer.com/news/security/latest-zero-day-news/" target="_blank">https://www.bleepingcomputer.com/news/security/latest-zero-day-news/</a></td>
 </tr>
 <tr>
 <td data-label="Category:">Sigma Framework</td>
-<td data-label="Resource / URL:">https://github.com/SigmaHQ/sigma</td>
+<td data-label="Resource / URL:"><a href="https://github.com/SigmaHQ/sigma" target="_blank">https://github.com/SigmaHQ/sigma</a></td>
 </tr>
 <tr>
 <td data-label="Category:">pySigma</td>
-<td data-label="Resource / URL:">https://github.com/SigmaHQ/pySigma</td>
+<td data-label="Resource / URL:"><a href="https://github.com/SigmaHQ/pySigma" target="_blank">https://github.com/SigmaHQ/pySigma</a></td>
 </tr>
 <tr>
 <td data-label="Category:">YARA</td>
-<td data-label="Resource / URL:">https://github.com/VirusTotal/yara</td>
+<td data-label="Resource / URL:"><a href="https://github.com/VirusTotal/yara" target="_blank">https://github.com/VirusTotal/yara</a></td>
 </tr>
 <tr>
 <td data-label="Category:">Snort Rules</td>
-<td data-label="Resource / URL:">https://www.snort.org/downloads</td>
+<td data-label="Resource / URL:"><a href="https://www.snort.org/downloads" target="_blank">https://www.snort.org/downloads</a></td>
 </tr>
 <tr>
 <td data-label="Category:">OSQuery Packs</td>
-<td data-label="Resource / URL:">https://github.com/osquery/osquery/tree/master/packs</td>
+<td data-label="Resource / URL:"><a href="https://github.com/osquery/osquery/tree/master/packs" target="_blank">https://github.com/osquery/osquery/tree/master/packs</a></td>
 </tr>
 </tbody>
 </table>
