@@ -2,7 +2,7 @@
 title: "Weekly Threat Intelligence Briefing | December 13-19, 2025"
 date: 2025-12-19
 draft: false
-tags: ["threat-intelligence", "weekly-briefing", "cve", "0-day", "ransomware", "apt"]
+tags: ["threat-intelligence", "weekly-briefing", "cve", "0-day", "apt", "rce", "react2shell", "critical-infrastructure"]
 author: "Kelvin Lomboy"
 summary: "React2Shell mass exploitation, Sierra Wireless ALEOS router RCE, SonicWall SMA 100 zero-day, Apple/Chrome browser exploits, and APT44/BrickStorm campaigns targeting critical infrastructure."
 ---
