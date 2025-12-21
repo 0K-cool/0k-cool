@@ -822,6 +822,66 @@ fields:
   - username
 ```
 
+```yaml
+title: >
+  APT Spyware Browser Exploit Post-Compromise Activity
+id: 7e4a8c9f-1b2d-4e6f-a3c8-webkit00000001
+status: experimental
+date: 2025-12-21
+description: >
+  Detects suspicious post-compromise activity following browser
+  exploitation via WebKit or Chrome zero-days, including anomalous
+  child processes from Safari/Chrome or unsigned binary execution
+  after browser crashes.
+author: Threat Intelligence Team
+severity: high
+
+logsource:
+  product: macos
+  category: process_creation
+
+detection:
+  selection_parent:
+    parent_process|endswith:
+      - "Safari"
+      - "Google Chrome"
+      - "Chromium"
+      - "WebKit"
+      - "com.apple.WebKit"
+
+  selection_suspicious_child:
+    process|endswith:
+      - "bash"
+      - "sh"
+      - "zsh"
+      - "python"
+      - "perl"
+      - "curl"
+      - "wget"
+      - "nc"
+      - "netcat"
+
+  selection_unsigned:
+    code_signature_verified: false
+
+  condition: \
+    selection_parent and (selection_suspicious_child or selection_unsigned)
+
+falsepositives:
+  - Developer tools launched from browser for debugging; \
+    correlate with dev environments.
+
+references:
+  - https://support.apple.com/en-us/121823
+fields:
+  - user
+  - parent_process
+  - process
+  - command_line
+  - code_signature_verified
+  - parent_process_id
+```
+
 
 ### 9.2 YARA Rules (File/Malware Detection)
 
@@ -986,6 +1046,41 @@ http_header; nocase;
     rev:1;
     metadata:created_at 2025_12_21, attack_target Edge_Device, \
 campaign APT44_Edge;
+)
+```
+
+```text
+alert tcp $HOME_NET any -> $EXTERNAL_NET 443 (
+    msg:"MALWARE BrickStorm vCenter management activity (CISA alert)";
+    flow:to_server,established;
+    content:"/sdk"; http_uri; nocase;
+    content:"vmware-vmacore"; http_header; nocase;
+    content:"/GuestOperationsService"; http_uri; nocase;
+    pcre:"/\/sdk\/(vimService|pbmService|sms)/Ui";
+    threshold:type limit, track by_src, count 5, seconds 300;
+    classtype:trojan-activity;
+    reference:url,bleepingcomputer.com/news/security/cisa-warns-of-chinese-brickstorm-malware-attacks-on-vmware-servers/;
+    sid:100062401;
+    rev:1;
+    metadata:created_at 2025_12_21, attack_target VMware_vCenter, \
+campaign BrickStorm;
+)
+```
+
+```text
+alert http $HOME_NET any -> $EXTERNAL_NET any (
+    msg:"C2 Vshell backdoor HTTP beaconing (React2Shell post-compromise)";
+    flow:to_server,established;
+    content:"User-Agent|3a| Mozilla/5.0"; http_header; nocase;
+    content:"/api/v1/"; http_uri; nocase;
+    pcre:"/\/(check|status|update|config)\.php\?id=[a-z0-9]{8,16}/Ui";
+    threshold:type threshold, track by_src, count 3, seconds 180;
+    classtype:trojan-activity;
+    reference:url,bleepingcomputer.com/news/security/react2shell-flaw-exploited-to-breach-30-orgs-77k-ip-addresses-vulnerable/;
+    sid:100055183;
+    rev:1;
+    metadata:created_at 2025_12_21, attack_target Server, \
+campaign React2Shell_PostEx;
 )
 ```
 
