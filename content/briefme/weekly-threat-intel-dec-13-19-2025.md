@@ -972,6 +972,23 @@ cve CVE-2025-40602;
 )
 ```
 
+```text
+alert http $HOME_NET any -> $EXTERNAL_NET any (
+    msg:"C2 APT44 suspected edge device HTTP beacon";
+    flow:to_server,established;
+    content:"User-Agent|3a| Mozilla/5.0 (edge-device-monitor)"; \
+http_header; nocase;
+    content:"/status/metrics"; http_uri; nocase;
+    pcre:"/id=[0-9a-f]{16}&token=[0-9a-f]{32}/Ui";
+    classtype:trojan-activity;
+    reference:url,thehackernews.com/2025/12/amazon-exposes-years-long-gru-cyber.html;
+    sid:100044001;
+    rev:1;
+    metadata:created_at 2025_12_21, attack_target Edge_Device, \
+campaign APT44_Edge;
+)
+```
+
 
 ### 9.4 OSQuery Queries (Optional)
 
