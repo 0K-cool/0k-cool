@@ -124,7 +124,7 @@ MOST OBSERVED TACTICS (Dec 26, 2025 – Jan 1, 2026)
 Initial Access        ▓▓▓▓▓▓▓▓▓▓▓▓▓░  High use (phishing, exposed services)
 Execution             ▓▓▓▓▓▓▓▓▓░░░░░  Frequent (malware loaders, scripts)
 Persistence           ▓▓▓▓▓▓▓░░░░░░░  Common (accounts, services)
-Priv Escalation  ▓▓▓▓▓▓░░░░░░░░  Regular (OS & app vulns)
+Privilege Escalation  ▓▓▓▓▓▓░░░░░░░░  Regular (OS & app vulns)
 Defense Evasion       ▓▓▓▓▓▓▓▓░░░░░░  High (signed binaries, rootkits)
 Credential Access     ▓▓▓▓▓▓▓▓▓▓░░░░  Very high (infostealers, mega leak)
 Discovery             ▓▓▓▓▓░░░░░░░░░  Moderate
