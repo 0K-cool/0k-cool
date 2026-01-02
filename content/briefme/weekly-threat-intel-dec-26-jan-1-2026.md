@@ -1003,6 +1003,7 @@ WHERE
 </tr>
 </tbody>
 </table>
+
 ### Vendor \& Threat Intelligence
 
 | Topic | Link |
