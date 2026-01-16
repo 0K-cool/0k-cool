@@ -1211,11 +1211,5 @@ WHERE p.name IN ('OUTLOOK.EXE', 'WINWORD.EXE')
 
 ---
 
-<pre style="text-align: center;">
-┌──────────────────────────────────────────────────┐
-│             NEXT BRIEFING                        │
-│         January 23, 2026                         │
-│                                                  │
-│      Subscribe for weekly threat intel          │
-└──────────────────────────────────────────────────┘
-</pre>
+<p style="text-align: center;"><strong>Next Weekly Brief:</strong> Friday, January 23, 2026</p>
+<p style="text-align: center;">❄</p>
