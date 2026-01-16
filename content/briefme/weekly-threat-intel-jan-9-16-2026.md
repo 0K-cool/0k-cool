@@ -1211,5 +1211,4 @@ WHERE p.name IN ('OUTLOOK.EXE', 'WINWORD.EXE')
 
 ---
 
-<p style="text-align: center;"><strong>Next Weekly Brief:</strong> Friday, January 23, 2026</p>
-<p style="text-align: center;">❄</p>
+<p style="text-align: center; margin-bottom: 0;"><strong>Next Weekly Brief:</strong> Friday, January 23, 2026<br>❄</p>
