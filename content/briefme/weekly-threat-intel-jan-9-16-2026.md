@@ -90,16 +90,16 @@ CRITICAL THREATS - RISK MATRIX (January 9-16, 2026)
 IMPACT
 10.0 │
      │
-9.0  │        ★ Office RCE (CVE-2026-20952/20953)
-     │        (CVSS 8.4, Email/Doc RCE)
-8.0  │    ★ Vect Ransomware RaaS
-     │    (Operational Disruption, Data Theft)
-7.0  │        ★ Kimsuky DocSwap QR Campaign
-     │        (Targeted Mobile Espionage)
-6.0  │  ★ Instagram 17.5M Account Leak
-     │  (Cred Theft, ATO Risk)
-5.0  │      ★ CVE-2026-20805 DWM Info Leak
-     │      (Zero-day, Exploited in Wild)
+9.0  │                                   ★ Office RCE (CVE-2026-20952/20953)
+     │                                   (CVSS 8.4, Zero-Click Email RCE)
+8.0  │                ★ Vect Ransomware RaaS
+     │                (Operational Disruption, Data Theft)
+7.0  │            ★ Kimsuky DocSwap QR Campaign
+     │            (Targeted Mobile Espionage)
+6.0  │      ★ Instagram 17.5M Account Leak
+     │      (Cred Theft, ATO Risk)
+5.0  │          ★ CVE-2026-20805 DWM Info Leak
+     │          (Zero-day, Exploited in Wild)
      └─────────────────────────────────────────────
        Low    Medium    High    Very High    Critical
                     LIKELIHOOD
