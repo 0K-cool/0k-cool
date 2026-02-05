@@ -33,9 +33,9 @@ If you missed it, here's the highlight reel:
 
 **[ClawHavoc](https://www.koi.ai/blog/clawhavoc-341-malicious-clawedbot-skills-found-by-the-bot-they-were-targeting)** — Security firm Koi Security audited 2,857 skills on ClawHub (OpenClaw's extension marketplace) and [found 341 malicious ones](https://thehackernews.com/2026/02/researchers-find-341-malicious-clawhub.html). We're talking keyloggers on Windows, Atomic Stealer (AMOS) malware on macOS, reverse shell backdoors, credential exfiltration to webhook services — all disguised as "YouTube utilities" and "crypto trackers." All phoning home to the same C2 server.
 
-**[506 prompt injection attacks](https://fortune.com/2026/02/03/moltbook-ai-social-network-security-researchers-agent-internet/)** targeting the AI itself. Social engineering tactics exploiting what researchers are calling "agent psychology."
+**[Hundreds of prompt injection attacks](https://fortune.com/2026/02/03/moltbook-ai-social-network-security-researchers-agent-internet/)** targeting the AI itself. Social engineering tactics exploiting what researchers are calling "agent psychology."
 
-**[$20 burned overnight](https://www.notebookcheck.net/18-75-overnight-to-ask-Is-it-daytime-yet-The-absurd-economics-of-OpenClaw-s-token-use.1219925.0.html)** — One user reported OpenClaw [chewed through $20 in API tokens just checking the time](https://x.com/BenjaminDEKR/status/2017644773356548532). Projected monthly cost for basic functions: $750. Unbounded consumption at its finest.
+**[$20 burned overnight](https://www.notebookcheck.net/18-75-overnight-to-ask-Is-it-daytime-yet-The-absurd-economics-of-OpenClaw-s-token-use.1219925.0.html)** — One user reported OpenClaw [chewed through $20 in API tokens just checking the time](https://x.com/BenjaminDEKR/status/2017644773356548532). Running costs for basic idle functions: ~$250/week. Unbounded consumption at its finest.
 
 Laurie Voss, founding CTO of npm, [said it plainly](https://www.theregister.com/2026/02/03/openclaw_security_problems/): *"OpenClaw is a security dumpster fire."* Andrej Karpathy — who helped make it popular — now explicitly says [he doesn't recommend running it locally](https://x.com/karpathy/status/2017296988589723767).
 
@@ -49,12 +49,12 @@ Here's what gets me: none of this is new. Every single vulnerability in the Open
 |---|---|---|
 | One-click RCE (CVE-2026-25253) | LLM06 Excessive Agency | AML.T0035 Exfiltration |
 | 341 malicious marketplace skills | LLM03 Supply Chain | AML.T0047 Supply Chain Compromise |
-| 506 prompt injection attacks | LLM01 Prompt Injection | AML.T0051 LLM Prompt Injection |
+| Prompt injection attacks | LLM01 Prompt Injection | AML.T0051 LLM Prompt Injection |
 | Credential exfiltration | LLM02 Sensitive Info Disclosure | AML.T0057 Data Leakage |
 | Memory/context manipulation | LLM04 Data Poisoning | AML.T0064 Data Poisoning |
 | $20 overnight token burn | LLM10 Unbounded Consumption | — |
 
-OWASP published the LLM Top 10 in 2025. MITRE ATLAS has been tracking AI attack techniques since 2023. The OWASP Agentic Top 10 dropped in early 2026 specifically addressing AI agent risks. The roadmap was right there.
+OWASP published the LLM Top 10 in 2025. MITRE ATLAS has been tracking AI attack techniques since 2023. The OWASP Agentic Top 10 dropped in late 2025 specifically addressing AI agent risks. The roadmap was right there.
 
 OpenClaw shipped anyway. Zero security layers. No hook system. No validation. No egress controls. Default configuration: trust everything, validate nothing.
 
@@ -285,7 +285,7 @@ I want to give credit where it's due because Vex-Talon doesn't exist in a vacuum
 
 The OpenClaw meltdown isn't an isolated incident. It's a preview.
 
-[Darktrace reports](https://www.darktrace.com/blog/the-state-of-ai-cybersecurity-2026) that 73% of security professionals say AI-powered threats are already impacting their organizations. Palo Alto Networks' security boss [called AI agents "2026's biggest insider threat."](https://www.theregister.com/2026/01/04/ai_agents_insider_threats_panw/) The [International AI Safety Report 2026](https://internationalaisafetyreport.org/publication/international-ai-safety-report-2026) is sounding alarms.
+[Darktrace reports](https://www.darktrace.com/blog/the-state-of-ai-cybersecurity-2026) that 73% of security professionals say AI-powered threats are already impacting their organizations. Palo Alto Networks' security boss [called AI agents "the new insider threat."](https://www.theregister.com/2026/01/04/ai_agents_insider_threats_panw/) The [International AI Safety Report 2026](https://internationalaisafetyreport.org/publication/international-ai-safety-report-2026) is sounding alarms.
 
 We're at an inflection point. AI coding agents are becoming standard tooling — and most of them ship with the security posture of a wet paper bag.
 
