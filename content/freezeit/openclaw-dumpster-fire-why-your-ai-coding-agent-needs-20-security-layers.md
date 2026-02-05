@@ -64,6 +64,8 @@ So over the past few months, I built a 20-layer defense-in-depth security archit
 
 Here's the thing: Claude Code already has a hook system that lets you intercept tool calls before and after execution. Anthropic built the infrastructure. Vex-Talon fills it with 20 layers of security that activate automatically — zero configuration required.
 
+> 🛡️ **New Plugin Installed** — Vex-Talon v1.0.0 is active with 16 security hooks protecting this session.
+
 ![Vex-Talon: 20-Layer Security for Claude Code](/images/freezeit/vex-talon-banner.jpg)
 
 ### What 20 Layers Looks Like
