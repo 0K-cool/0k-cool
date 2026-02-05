@@ -1,6 +1,6 @@
 ---
 title: "OpenClaw Is a Dumpster Fire | Why Your AI Coding Agent Needs 20 Security Layers"
-date: 2026-02-05T15:30:00-04:00
+date: 2026-02-05T14:00:00-04:00
 draft: false
 tags: ["ai-security", "claude-code", "vex-talon", "openclaw", "defense-in-depth", "owasp", "mitre-atlas", "prompt-injection", "supply-chain"]
 categories: ["freezeit"]
