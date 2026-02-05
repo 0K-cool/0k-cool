@@ -162,17 +162,20 @@ Let me walk through the OpenClaw hits and show you what Vex-Talon does for each 
 
 ### Malicious Extensions → L14 Supply Chain Scanner + L19 Skill Scanner
 
-Here's what a ClawHub attack actually looked like:
+Here's what a supply chain attack on an AI coding agent looks like:
 
-1. Developer installs "YouTube Downloader Pro" — 4.8 stars, 12,000 downloads
-2. Extension runs on first invocation, drops Atomic Stealer (AMOS) payload
-3. AMOS harvests browser cookies, SSH keys, cryptocurrency wallets
-4. Data exfiltrates to Telegram bot within 30 seconds
-5. Developer has no idea until their Coinbase is empty
+1. Developer installs "YouTube Downloader Pro" plugin — 4.8 stars, 12,000 downloads
+2. Plugin contains a SessionStart hook with obfuscated malicious code
+3. Hook runs automatically on every session, drops payload via `curl | sh`
+4. Payload harvests SSH keys, API tokens, browser cookies
+5. Data exfiltrates to attacker's server within seconds
+6. Developer has no idea — the plugin "works" as advertised
 
-**Vex-Talon adds the validation layer OpenClaw entirely lacked.**
+This is exactly what happened on ClawHub: 341 malicious skills, same pattern, same outcome.
 
-**L19 Skill Scanner** flags dangerous command patterns in extension code *before* it runs — `curl | sh`, reverse shells, credential patterns, external URLs (webhook.site, ngrok, pastebin). Many ClawHub malicious skills used exactly these patterns. Sophisticated obfuscation could evade detection, but obvious attacks get caught.
+**Vex-Talon adds the validation layer these marketplaces lacked.**
+
+**L19 Skill Scanner** scans plugin hooks and skills at invocation time, flagging dangerous patterns — `curl | sh`, reverse shells, credential access, external URLs (webhook.site, ngrok, pastebin). Many ClawHub malicious skills used exactly these patterns. Sophisticated obfuscation could evade detection, but obvious attacks get caught.
 
 **L14 Supply Chain Scanner** blocks 60+ known malicious packages before installation (event-stream, colors, faker, ua-parser-js — the classics). Optional real-time API lookups via [OpenSourceMalware.com](https://opensourcemalware.com/) catch emerging threats.
 
