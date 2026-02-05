@@ -69,7 +69,7 @@ Here's the thing: Claude Code already has a hook system that lets you intercept 
 ### What 20 Layers Looks Like
 
 <div style="display: flex; justify-content: center;">
-<pre class="ascii-art" style="background: transparent !important; background-color: transparent !important; border: none; margin: 0; padding: 1em; font-family: 'Courier New', Courier, monospace; color: inherit;">
+<pre class="ascii-art" style="background: transparent !important; background-color: transparent !important; border: none; margin: 0; padding: 1em; font-family: 'Courier New', Courier, monospace; color: inherit; font-weight: bold;">
 ┌─────────────────────────────────────────────────┐
 │  L19: Skill Scanner (skill invocation security) │
 ├─────────────────────────────────────────────────┤
