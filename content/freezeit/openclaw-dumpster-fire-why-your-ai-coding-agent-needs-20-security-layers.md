@@ -232,6 +232,10 @@ I want to give credit where it's due because Vex-Talon doesn't exist in a vacuum
 
 **OpenSourceMalware.com** — Powers L14's optional real-time supply chain scanning API. Fighting malicious packages at scale.
 
+**StrongDM** — [Leash](https://github.com/strongdm/leash) wraps AI coding agents in containers with Cedar-defined policies enforced at the kernel level. L11's kernel sandbox concept is built on this — full syscall monitoring, MCP tool call inspection, and policy enforcement that prompt injection can't bypass.
+
+**Pythea / Strawberry** — The [Strawberry](https://github.com/leochlon/pythea) procedural hallucination detection toolkit powers L13. Uses information-theoretic KL divergence to catch when AI outputs claim things the evidence doesn't support. Ships as an MCP server — drop it into Claude Code and verify reasoning outputs for ~$0.0002 per check.
+
 **Anthropic** — For building the hook system in Claude Code that makes all of this possible. The PreToolUse/PostToolUse architecture is genuinely well-designed for security enforcement.
 
 ## The Bigger Picture
