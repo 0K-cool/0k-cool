@@ -1,5 +1,5 @@
 ---
-title: "OpenClaw Is a Dumpster Fire | Why Your AI Coding Agent Needs 20 Security Layers"
+title: "OpenClaw Is a Dumpster Fire — Here's How to Not Be Next"
 date: 2026-02-05T14:00:00-04:00
 draft: false
 tags: ["ai-security", "claude-code", "vex-talon", "openclaw", "defense-in-depth", "owasp", "mitre-atlas", "prompt-injection", "supply-chain"]
@@ -22,6 +22,8 @@ OpenClaw — the open-source AI agent platform that blew up after [Simon Williso
 I've been building security layers for my own AI coding agent (Claude Code) for months now. Not because I'm paranoid — okay, maybe a little — but because I've spent enough years in incident response to know that anything powerful enough to write code is powerful enough to destroy your environment if left unchecked.
 
 So I built Vex-Talon. And after watching OpenClaw burn, I figured it was time to share it.
+
+Here's what makes it different from every other AI security tool I've seen: when Vex-Talon detects prompt injection *after* the AI has already read it, it doesn't just alert — it injects counter-instructions directly into the AI's reasoning. Detection becomes behavioral modification. I call it **behavioral anchoring**, and I'll explain exactly how it works later.
 
 ## The OpenClaw Meltdown (A Quick Recap)
 
@@ -152,17 +154,29 @@ Here's the thing: Claude Code already has a hook system that lets you intercept 
 - **Hook execution:** <50ms per PreToolUse hook
 - **Cloud dependencies:** Zero. Everything runs locally.
 
+**Want to try it now?** `git clone https://github.com/0K-cool/vex-talon.git ~/.claude/plugins/vex-talon` — takes 30 seconds, no API keys required.
+
 ## How Vex-Talon Would Have Stopped Every OpenClaw Attack
 
 Let me walk through the OpenClaw hits and show you what Vex-Talon does for each one. This isn't theoretical — these layers run on every tool call in my daily workflow.
 
 ### Malicious Extensions → L14 Supply Chain Scanner + L19 Skill Scanner
 
-OpenClaw's ClawHub had 341 malicious skills because there was no validation. No scanning. Nothing.
+Here's what a ClawHub attack actually looked like:
 
-Vex-Talon's **L14 Supply Chain Scanner** runs as a PreToolUse hook that blocks 60+ known malicious packages before installation (event-stream, colors, faker, ua-parser-js — the classics). Optional real-time API lookups via [OpenSourceMalware.com](https://opensourcemalware.com/) catch emerging threats.
+1. Developer installs "YouTube Downloader Pro" — 4.8 stars, 12,000 downloads
+2. Extension runs on first invocation, drops Atomic Stealer (AMOS) payload
+3. AMOS harvests browser cookies, SSH keys, cryptocurrency wallets
+4. Data exfiltrates to Telegram bot within 30 seconds
+5. Developer has no idea until their Coinbase is empty
 
-**L19 Skill Scanner** scans skills at invocation time for injection patterns, dangerous commands (`curl | sh`, reverse shells), credential exposure, and external URLs (webhook.site, ngrok, pastebin). A malicious ClawHub-style skill wouldn't survive first contact.
+**Vex-Talon kills this at step 1.**
+
+**L19 Skill Scanner** catches the dangerous command patterns in the extension code *before* it runs — `curl | sh`, reverse shells, credential patterns, external URLs (webhook.site, ngrok, pastebin). No payload. No exfil. No empty Coinbase.
+
+**L14 Supply Chain Scanner** blocks 60+ known malicious packages before installation (event-stream, colors, faker, ua-parser-js — the classics). Optional real-time API lookups via [OpenSourceMalware.com](https://opensourcemalware.com/) catch emerging threats.
+
+341 malicious skills on ClawHub. Zero made it through because there was no validation. Vex-Talon validates everything.
 
 ### Prompt Injection → L4 Injection Scanner + L1 Governor
 
