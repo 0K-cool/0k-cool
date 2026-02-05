@@ -6,10 +6,10 @@ tags: ["ai-security", "claude-code", "vex-talon", "openclaw", "defense-in-depth"
 categories: ["freezeit"]
 description: "OpenClaw's security meltdown proves AI coding agents need real protection. Here's how Vex-Talon adds 20 defense-in-depth layers to Claude Code."
 author: "0K (Kelvin)"
-image: "openclaw-dumpster-fire-hero.jpg"
+image: "/images/freezeit/openclaw-dumpster-fire-hero.jpg"
 ---
 
-![Defense-in-depth: 20 layers of security protecting your AI coding agent](openclaw-dumpster-fire-hero.jpg)
+![Defense-in-depth: 20 layers of security protecting your AI coding agent](/images/freezeit/openclaw-dumpster-fire-hero.jpg)
 
 Last week I watched an entire AI ecosystem catch fire in real time.
 
