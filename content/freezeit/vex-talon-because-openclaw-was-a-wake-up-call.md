@@ -62,7 +62,7 @@ OpenClaw shipped anyway. Zero security layers. No hook system. No validation. No
 
 I use Claude Code daily for professional cybersecurity work — threat intel, client deliverables, penetration testing reports. The stakes are real. Client data is confidential. Mistakes aren't theoretical.
 
-So over the past few months, I built a 20-layer defense-in-depth security architecture for Claude Code, battle-tested it on real work, then packaged the hook-based layers into an open-source plugin called **Vex-Talon**.
+So over the past few months, I built a 20-layer defense-in-depth security architecture for Claude Code, battle-tested it on real work, then packaged the hook-based layers into an open-source plugin called **[Vex-Talon](https://github.com/0K-cool/vex-talon)**.
 
 Here's the thing: Claude Code already has a hook system that lets you intercept tool calls before and after execution. Anthropic built the infrastructure. Vex-Talon fills it with 20 layers of security that activate automatically — zero configuration required.
 
