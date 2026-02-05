@@ -68,6 +68,8 @@ Here's the thing: Claude Code already has a hook system that lets you intercept 
 
 ### What 20 Layers Looks Like
 
+<div style="display: flex; justify-content: center;">
+
 ```
 ┌─────────────────────────────────────────────────┐
 │  L19: Skill Scanner (skill invocation security) │
@@ -111,6 +113,8 @@ Here's the thing: Claude Code already has a hook system that lets you intercept 
 │  L0:  Secure Code Enforcer (pre-write)          │
 └─────────────────────────────────────────────────┘
 ```
+
+</div>
 
 15 of those layers ship as active hooks in the plugin. The remaining 5 are setup guides for external tools (git hooks, kernel sandboxes, hallucination detection) that you can add for even deeper protection.
 
