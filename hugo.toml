@@ -68,12 +68,12 @@ copyright = '© 2025 ZeroK Cyber Intelligence'
   #   name = "showme/"
   #   url = "/showme/"
   #   weight = 2
-  #
-  # [[menu.main]]
-  #   identifier = "freezeit"
-  #   name = "freezeit/"
-  #   url = "/freezeit/"
-  #   weight = 3
+
+  [[menu.main]]
+    identifier = "freezeit"
+    name = "freezeit/"
+    url = "/freezeit/"
+    weight = 3
   #
   # [[menu.main]]
   #   identifier = "proveit"
