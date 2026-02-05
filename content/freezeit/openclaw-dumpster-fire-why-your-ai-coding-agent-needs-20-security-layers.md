@@ -1,5 +1,5 @@
 ---
-title: "OpenClaw Is a Dumpster Fire — Here's How to Not Be Next"
+title: "Vex-Talon: Because OpenClaw Was a Wake-Up Call"
 date: 2026-02-05T14:00:00-04:00
 draft: false
 tags: ["ai-security", "claude-code", "vex-talon", "openclaw", "defense-in-depth", "owasp", "mitre-atlas", "prompt-injection", "supply-chain"]
