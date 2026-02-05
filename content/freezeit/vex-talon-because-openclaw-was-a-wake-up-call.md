@@ -153,10 +153,12 @@ Here's the thing: Claude Code already has a hook system that lets you intercept 
 - **Framework coverage:** OWASP LLM 7/10, MITRE ATLAS 7+ techniques
 - **Cloud dependencies:** Zero. Everything runs locally.
 
-**Full setup (with external tools and configs):**
+**Full setup (with external tools):**
 - **Detection patterns:** 492+ across 8 security config files
 - **Framework coverage:** OWASP LLM 9/10, ATLAS 16+ techniques, Agentic Top 10 full
 - **Additional layers:** Semgrep, kernel sandbox (Leash), hallucination detection (Strawberry)
+
+See the [README's extension guide](https://github.com/0K-cool/vex-talon#static-analysis-tools-extend-l2--l6) for setup instructions.
 
 **Want to try it now?** `git clone https://github.com/0K-cool/vex-talon.git ~/.claude/plugins/vex-talon` — takes 30 seconds, no API keys required.
 
