@@ -288,9 +288,9 @@ I want to give credit where it's due because Vex-Talon doesn't exist in a vacuum
 
 **Pythea / Strawberry** — The [Strawberry](https://github.com/leochlon/pythea) procedural hallucination detection toolkit powers L13. Uses information-theoretic KL divergence to catch when AI outputs claim things the evidence doesn't support. Ships as an MCP server — drop it into Claude Code and verify reasoning outputs for ~$0.0002 per check.
 
-**Anthropic** — For building the hook system in Claude Code that makes all of this possible. The PreToolUse/PostToolUse architecture is genuinely well-designed for security enforcement.
-
 **Static Analysis Community** — [Semgrep](https://semgrep.dev/) for multi-language SAST rules, [Bandit](https://bandit.readthedocs.io/) for Python security, [ShellCheck](https://www.shellcheck.net/) for bash hardening, and [gitleaks](https://github.com/gitleaks/gitleaks)/[trufflehog](https://github.com/trufflesecurity/trufflehog) for secret detection. These tools extend L2 and L6 for users who want deeper static analysis.
+
+**Anthropic** — For building the hook system in Claude Code that makes all of this possible. The PreToolUse/PostToolUse architecture is genuinely well-designed for security enforcement.
 
 ## The Bigger Picture
 
