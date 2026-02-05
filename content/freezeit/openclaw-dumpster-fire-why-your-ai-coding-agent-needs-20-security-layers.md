@@ -68,7 +68,7 @@ Here's the thing: Claude Code already has a hook system that lets you intercept 
 
 ### What 20 Layers Looks Like
 
-<div style="display: flex; justify-content: center;">
+<div class="code-transparent" style="display: flex; justify-content: center;">
 
 ```
 ┌─────────────────────────────────────────────────┐
