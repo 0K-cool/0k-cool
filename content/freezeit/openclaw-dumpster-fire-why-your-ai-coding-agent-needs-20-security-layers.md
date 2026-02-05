@@ -147,12 +147,16 @@ Here's the thing: Claude Code already has a hook system that lets you intercept 
 
 ### The Numbers
 
-- **OWASP LLM Top 10 2025:** 9/10 covered (90%)
-- **MITRE ATLAS:** 16+ techniques mapped
-- **OWASP Agentic Top 10 2026:** Full coverage
-- **Detection patterns:** 492+ across 8 security config files
-- **Hook execution:** <50ms per PreToolUse hook
+**Plugin (out of the box):**
+- **Active hooks:** 15 security hooks + 1 onboarding
+- **Bundled patterns:** 200+ detection patterns
+- **Framework coverage:** OWASP LLM 7/10, MITRE ATLAS 7+ techniques
 - **Cloud dependencies:** Zero. Everything runs locally.
+
+**Full PAI setup (with external configs):**
+- **Detection patterns:** 492+ across 8 security config files
+- **Framework coverage:** OWASP LLM 9/10, ATLAS 16+ techniques, Agentic Top 10 full
+- **Additional layers:** Semgrep integration, kernel sandbox, hallucination detection
 
 **Want to try it now?** `git clone https://github.com/0K-cool/vex-talon.git ~/.claude/plugins/vex-talon` — takes 30 seconds, no API keys required.
 
@@ -183,11 +187,11 @@ This is exactly what happened on ClawHub: 341 malicious skills, same pattern, sa
 
 ### Prompt Injection → L4 Injection Scanner + L1 Governor
 
-506 prompt injection attacks in OpenClaw's ecosystem. Five hundred and six.
+Hundreds of prompt injection attacks in OpenClaw's ecosystem.
 
-Vex-Talon's **L4 Injection Scanner** runs 89+ detection patterns after every tool execution, including rules from Thomas Roccia's excellent [NOVA Framework](https://github.com/fr0gger/nova-framework). When prompt injection lands in a file Claude reads, L4 catches it and injects behavioral anchoring (more on this below) to keep Claude focused on the real task.
+Vex-Talon's **L4 Injection Scanner** runs detection patterns after every tool execution, with rules inspired by Thomas Roccia's excellent [NOVA Framework](https://github.com/fr0gger/nova-framework). When prompt injection lands in a file Claude reads, L4 catches it and injects behavioral anchoring (more on this below) to keep Claude focused on the real task.
 
-**L1 Governor Agent** enforces 33+ policies before execution — blocking dangerous operations, modifying risky inputs. `curl | sh`? Replaced with a safe warning. `rm -rf .git`? Blocked. `.env` access? Redirected.
+**L1 Governor Agent** enforces policies before execution — blocking dangerous operations, modifying risky inputs. `curl | sh`? Replaced with a safe warning. `rm -rf .git`? Blocked. `.env` access? Redirected.
 
 ### Data Exfiltration → L9 Egress Scanner
 
