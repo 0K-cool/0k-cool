@@ -7,6 +7,8 @@ categories: ["freezeit"]
 description: "OpenClaw's security meltdown proves AI coding agents need real protection. Here's how Vex-Talon adds 20 defense-in-depth layers to Claude Code."
 author: "0K (Kelvin)"
 image: "/images/freezeit/openclaw-dumpster-fire-hero.jpg"
+toc: true
+type: posts
 ---
 
 ![Defense-in-depth: 20 layers of security protecting your AI coding agent](/images/freezeit/openclaw-dumpster-fire-hero.jpg)
@@ -15,7 +17,7 @@ Last week I watched an entire AI ecosystem catch fire in real time.
 
 OpenClaw — the open-source AI agent platform that blew up after Simon Willison and Andrej Karpathy gave it signal — went from "the future of AI coding" to "security dumpster fire" in about 72 hours. Three high-impact security advisories in three days. A CVSS 8.8 one-click RCE. 341 malicious extensions on their marketplace. Gartner called it "insecure by default" and "unacceptable."
 
-And here I am in Puerto Rico thinking: yeah, we saw this coming.
+*And here I am in Puerto Rico thinking: yeah, we saw this coming.*
 
 I've been building security layers for my own AI coding agent (Claude Code) for months now. Not because I'm paranoid — okay, maybe a little — but because I've spent enough years in incident response to know that anything powerful enough to write code is powerful enough to destroy your environment if left unchecked.
 

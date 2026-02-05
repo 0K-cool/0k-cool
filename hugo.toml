@@ -2,7 +2,7 @@ baseURL = 'https://0k.cool/'
 languageCode = 'en-us'
 title = '0K — Zero Cool'
 theme = 'hello-friend-ng'
-copyright = '© 2025 ZeroK Cyber Intelligence'
+copyright = '© 2026 ZeroK Labs'
 
 # Pagination
 [pagination]
@@ -30,6 +30,9 @@ copyright = '© 2025 ZeroK Cyber Intelligence'
 
   # Enable table of contents
   toc = true
+
+  # Enable reading time estimate
+  enableReadingTime = true
 
   # ASCII art friendly settings
   # Monospace everything for that old-school terminal feel

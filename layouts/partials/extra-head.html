@@ -4,6 +4,19 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
 <link rel="shortcut icon" href="/favicon.ico">
 
+<!-- Open Graph / Social Sharing -->
+<meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}" />
+<meta property="og:description" content="{{ if .Params.Description }}{{ .Params.Description }}{{ else }}{{ .Summary | plainify | truncate 200 }}{{ end }}" />
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
+{{ if .Params.image }}<meta property="og:image" content="{{ .Params.image | absURL }}" />{{ end }}
+<meta property="og:site_name" content="{{ .Site.Title }}" />
+<!-- Twitter/X Card -->
+<meta name="twitter:card" content="{{ if .Params.image }}summary_large_image{{ else }}summary{{ end }}" />
+<meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}" />
+<meta name="twitter:description" content="{{ if .Params.Description }}{{ .Params.Description }}{{ else }}{{ .Summary | plainify | truncate 200 }}{{ end }}" />
+{{ if .Params.image }}<meta name="twitter:image" content="{{ .Params.image | absURL }}" />{{ end }}
+
 <!-- 0K Custom Styles -->
 <style>
   /* Match cursor to 0K avatar HUD color */
