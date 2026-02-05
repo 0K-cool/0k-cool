@@ -15,7 +15,7 @@ type: posts
 
 Last week I watched an entire AI ecosystem catch fire in real time.
 
-OpenClaw — the open-source AI agent platform that blew up after Simon Willison and Andrej Karpathy gave it signal — went from "the future of AI coding" to "security dumpster fire" in about 72 hours. Three high-impact security advisories in three days. A CVSS 8.8 one-click RCE. 341 malicious extensions on their marketplace. Gartner called it "insecure by default" and "unacceptable."
+OpenClaw — the open-source AI agent platform that blew up after [Simon Willison](https://simonwillison.net/2026/Jan/30/moltbook/) and [Andrej Karpathy](https://x.com/karpathy/status/2017296988589723767) gave it signal — went from "the future of AI coding" to "security dumpster fire" in about 72 hours. Three high-impact security advisories in three days. A CVSS 8.8 one-click RCE. 341 malicious extensions on their marketplace. [Gartner called it "insecure by default" and "unacceptable."](https://securityboulevard.com/2026/02/the-absolute-nightmare-in-your-dms-openclaw-marries-extreme-utility-with-unacceptable-risk/)
 
 *And here I am in Puerto Rico thinking: yeah, we saw this coming.*
 
@@ -27,15 +27,15 @@ So I built Vex-Talon. And after watching OpenClaw burn, I figured it was time to
 
 If you missed it, here's the highlight reel:
 
-**CVE-2026-25253 (CVSS 8.8)** — OpenClaw's server doesn't validate WebSocket origin headers. Any website can connect to your local instance, steal your authentication token, disable user confirmations, escape the Docker container, and execute arbitrary commands on your host. One click. Game over.
+**[CVE-2026-25253](https://thehackernews.com/2026/02/openclaw-bug-enables-one-click-remote.html) (CVSS 8.8)** — OpenClaw's server doesn't validate WebSocket origin headers. Any website can connect to your local instance, steal your authentication token, disable user confirmations, escape the Docker container, and [execute arbitrary commands on your host](https://nvd.nist.gov/vuln/detail/CVE-2026-25253). One click. Game over.
 
-**ClawHavoc** — Security firm Koi Security audited 2,857 skills on ClawHub (OpenClaw's extension marketplace) and found 341 malicious ones. We're talking keyloggers on Windows, Atomic Stealer (AMOS) malware on macOS, reverse shell backdoors, credential exfiltration to webhook services — all disguised as "YouTube utilities" and "crypto trackers." All phoning home to the same C2 server.
+**[ClawHavoc](https://www.koi.ai/blog/clawhavoc-341-malicious-clawedbot-skills-found-by-the-bot-they-were-targeting)** — Security firm Koi Security audited 2,857 skills on ClawHub (OpenClaw's extension marketplace) and [found 341 malicious ones](https://thehackernews.com/2026/02/researchers-find-341-malicious-clawhub.html). We're talking keyloggers on Windows, Atomic Stealer (AMOS) malware on macOS, reverse shell backdoors, credential exfiltration to webhook services — all disguised as "YouTube utilities" and "crypto trackers." All phoning home to the same C2 server.
 
-**506 prompt injection attacks** targeting the AI itself. Social engineering tactics exploiting what researchers are calling "agent psychology."
+**[506 prompt injection attacks](https://fortune.com/2026/02/03/moltbook-ai-social-network-security-researchers-agent-internet/)** targeting the AI itself. Social engineering tactics exploiting what researchers are calling "agent psychology."
 
-**$20 burned overnight** — One user reported OpenClaw chewed through $20 in API tokens just checking the time. Projected monthly cost for basic functions: $750. Unbounded consumption at its finest.
+**[$20 burned overnight](https://www.notebookcheck.net/18-75-overnight-to-ask-Is-it-daytime-yet-The-absurd-economics-of-OpenClaw-s-token-use.1219925.0.html)** — One user reported OpenClaw [chewed through $20 in API tokens just checking the time](https://x.com/BenjaminDEKR/status/2017644773356548532). Projected monthly cost for basic functions: $750. Unbounded consumption at its finest.
 
-Laurie Voss, founding CTO of npm, said it plainly: *"OpenClaw is a security dumpster fire."* Andrej Karpathy — who helped make it popular — now explicitly says he doesn't recommend running it locally.
+Laurie Voss, founding CTO of npm, [said it plainly](https://www.theregister.com/2026/02/03/openclaw_security_problems/): *"OpenClaw is a security dumpster fire."* Andrej Karpathy — who helped make it popular — now explicitly says [he doesn't recommend running it locally](https://x.com/karpathy/status/2017296988589723767).
 
 Pretty cool huh... wait, no. This is terrifying.
 
@@ -242,7 +242,7 @@ I want to give credit where it's due because Vex-Talon doesn't exist in a vacuum
 
 The OpenClaw meltdown isn't an isolated incident. It's a preview.
 
-Darktrace reports that 73% of security professionals say AI-powered threats are already impacting their organizations. Palo Alto Networks' security boss called AI agents "2026's biggest insider threat." The International AI Safety Report 2026 is sounding alarms.
+[Darktrace reports](https://www.darktrace.com/blog/the-state-of-ai-cybersecurity-2026) that 73% of security professionals say AI-powered threats are already impacting their organizations. Palo Alto Networks' security boss [called AI agents "2026's biggest insider threat."](https://www.theregister.com/2026/01/04/ai_agents_insider_threats_panw/) The [International AI Safety Report 2026](https://internationalaisafetyreport.org/publication/international-ai-safety-report-2026) is sounding alarms.
 
 We're at an inflection point. AI coding agents are becoming standard tooling — and most of them ship with the security posture of a wet paper bag.
 
