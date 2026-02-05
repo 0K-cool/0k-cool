@@ -15,13 +15,6 @@ copyright = '© 2026 ZeroK Labs'
   # Content directory structure
   contentTypeName = "posts"
 
-  # Footer configuration
-  [params.footer]
-    trademark = false
-    author = false
-    copyright = true
-    rss = false
-
   # Theme settings
   dateform = "Jan 2, 2006"
   dateformShort = "Jan 2"
@@ -41,24 +34,31 @@ copyright = '© 2026 ZeroK Labs'
   # Monospace everything for that old-school terminal feel
   defaultTheme = "dark"
 
-  # Logo configuration (the "> hello friend" greeting)
-  [params.logo]
-    logoMark = ">"
-    logoText = "hello friend"
-    logoHomeLink = "/"
+# Footer configuration (subsection must come after direct params)
+[params.footer]
+  trademark = false
+  author = false
+  copyright = true
+  rss = false
 
-  # Social links
-  [[params.social]]
-    name = "bluesky"
-    url = "https://bsky.app/profile/kelvinlomboy.bsky.social"
+# Logo configuration
+[params.logo]
+  logoMark = ">"
+  logoText = "hello friend"
+  logoHomeLink = "/"
 
-  [[params.social]]
-    name = "linkedin"
-    url = "https://linkedin.com/in/kelvinlomboy"
+# Social links
+[[params.social]]
+  name = "bluesky"
+  url = "https://bsky.app/profile/kelvinlomboy.bsky.social"
 
-  [[params.social]]
-    name = "github"
-    url = "https://github.com/0K-cool"
+[[params.social]]
+  name = "linkedin"
+  url = "https://linkedin.com/in/kelvinlomboy"
+
+[[params.social]]
+  name = "github"
+  url = "https://github.com/0K-cool"
 
 # Main menu configuration - custom directories
 [menu]
