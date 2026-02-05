@@ -377,4 +377,46 @@
     background-color: #4caf50 !important;
     color: #ffffff !important;
   }
+
+  /* Desktop-only content (hidden on mobile) */
+  .desktop-only {
+    display: block;
+  }
+
+  /* Mobile-only content (hidden on desktop) */
+  .mobile-only {
+    display: none;
+  }
+
+  /* Mobile: swap visibility */
+  @media (max-width: 684px) {
+    .desktop-only {
+      display: none !important;
+    }
+    .mobile-only {
+      display: block !important;
+    }
+  }
+
+  /* Mobile security layers list styling */
+  .mobile-layers {
+    list-style: none;
+    padding: 0;
+    margin: 1em 0;
+  }
+
+  .mobile-layers li {
+    padding: 0.75em 1em;
+    margin-bottom: 0.5em;
+    border-left: 3px solid #00e5ff;
+    background: rgba(0, 229, 255, 0.05);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+  }
+
+  .mobile-layers .layer-num {
+    color: #00e5ff;
+    font-weight: bold;
+    margin-right: 0.5em;
+  }
 </style>

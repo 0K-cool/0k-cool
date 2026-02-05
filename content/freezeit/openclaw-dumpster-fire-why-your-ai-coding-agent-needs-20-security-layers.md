@@ -68,7 +68,8 @@ Here's the thing: Claude Code already has a hook system that lets you intercept 
 
 ### What 20 Layers Looks Like
 
-<div style="display: flex; justify-content: center;">
+<!-- Desktop: ASCII diagram -->
+<div class="desktop-only" style="display: flex; justify-content: center;">
 <pre class="ascii-art" style="background: transparent !important; background-color: transparent !important; border: none; margin: 0; padding: 1em; font-family: 'Courier New', Courier, monospace; color: inherit; font-weight: bold;">
 ┌─────────────────────────────────────────────────┐
 │  L19: Skill Scanner (skill invocation security) │
@@ -113,6 +114,30 @@ Here's the thing: Claude Code already has a hook system that lets you intercept 
 └─────────────────────────────────────────────────┘
 </pre>
 </div>
+
+<!-- Mobile: Clean stacked list -->
+<ul class="mobile-only mobile-layers">
+<li><span class="layer-num">L19</span> Skill Scanner (skill invocation security)</li>
+<li><span class="layer-num">L18</span> MCP Audit (pre-deployment scanning)</li>
+<li><span class="layer-num">L17</span> Spend Alerting (unbounded consumption)</li>
+<li><span class="layer-num">L16</span> Human (final decision authority)</li>
+<li><span class="layer-num">L15</span> RAG Security (anti-poisoning)</li>
+<li><span class="layer-num">L14</span> Supply Chain Scanner (npm/pip audit)</li>
+<li><span class="layer-num">L13</span> Hallucination Detection</li>
+<li><span class="layer-num">L12</span> Least Privilege Profiles</li>
+<li><span class="layer-num">L11</span> Kernel Sandbox (high-security)</li>
+<li><span class="layer-num">L10</span> Native Sandbox (routine dev)</li>
+<li><span class="layer-num">L9</span> Egress Scanner (exfil prevention)</li>
+<li><span class="layer-num">L8</span> Evaluator Agent (post-commit)</li>
+<li><span class="layer-num">L7</span> Image Safety Scanner (stego detection)</li>
+<li><span class="layer-num">L6</span> Git Pre-commit (blocking)</li>
+<li><span class="layer-num">L5</span> Output Sanitizer (XSS detection)</li>
+<li><span class="layer-num">L4</span> Injection Scanner (prompt injection)</li>
+<li><span class="layer-num">L3</span> Memory Validation (memory poisoning)</li>
+<li><span class="layer-num">L2</span> Secure Code Linter (confidence-aware)</li>
+<li><span class="layer-num">L1</span> Governor Agent (pre-execution)</li>
+<li><span class="layer-num">L0</span> Secure Code Enforcer (pre-write)</li>
+</ul>
 
 15 of those layers ship as active hooks in the plugin. The remaining 5 are setup guides for external tools (git hooks, kernel sandboxes, hallucination detection) that you can add for even deeper protection.
 
