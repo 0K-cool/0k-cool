@@ -34,6 +34,9 @@ copyright = '© 2026 ZeroK Labs'
   # Enable reading time estimate
   enableReadingTime = true
 
+  # Enable dark/light theme toggle
+  enableThemeToggle = true
+
   # ASCII art friendly settings
   # Monospace everything for that old-school terminal feel
   defaultTheme = "dark"
