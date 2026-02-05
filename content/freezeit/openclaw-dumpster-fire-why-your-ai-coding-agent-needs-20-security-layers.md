@@ -170,9 +170,9 @@ Here's what a ClawHub attack actually looked like:
 4. Data exfiltrates to Telegram bot within 30 seconds
 5. Developer has no idea until their Coinbase is empty
 
-**Vex-Talon kills this at step 1.**
+**Vex-Talon adds the validation layer OpenClaw entirely lacked.**
 
-**L19 Skill Scanner** catches the dangerous command patterns in the extension code *before* it runs — `curl | sh`, reverse shells, credential patterns, external URLs (webhook.site, ngrok, pastebin). No payload. No exfil. No empty Coinbase.
+**L19 Skill Scanner** flags dangerous command patterns in extension code *before* it runs — `curl | sh`, reverse shells, credential patterns, external URLs (webhook.site, ngrok, pastebin). Many ClawHub malicious skills used exactly these patterns. Sophisticated obfuscation could evade detection, but obvious attacks get caught.
 
 **L14 Supply Chain Scanner** blocks 60+ known malicious packages before installation (event-stream, colors, faker, ua-parser-js — the classics). Optional real-time API lookups via [OpenSourceMalware.com](https://opensourcemalware.com/) catch emerging threats.
 
