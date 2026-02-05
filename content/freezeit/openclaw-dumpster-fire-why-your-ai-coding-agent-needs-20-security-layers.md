@@ -240,9 +240,7 @@ git clone https://github.com/0K-cool/vex-talon.git ~/.claude/plugins/vex-talon
 claude --plugin-dir ~/.claude/plugins/vex-talon
 ```
 
-All 15 hooks activate immediately. No config files. No API keys. No build step. On your first session, Claude confirms the plugin is active:
-
-> **New Plugin Installed** — Vex-Talon v1.0.0 is active with 16 security hooks protecting this session.
+All 15 hooks activate immediately. No config files. No API keys. No build step.
 
 Run `/vex-talon:status` for a full security dashboard showing all active layers, event counts, and framework coverage. Run `/vex-talon:report` for a comprehensive security assessment of your current project.
 
